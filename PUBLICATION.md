@@ -27,11 +27,11 @@ credentials or Git history are included. See [THIRD_PARTY.md](THIRD_PARTY.md) an
 
 The public archive contains this directory's contents with relative paths under `gaussian-slam-study/`.
 The November 3 write-up archive is named `gaussian-slam-study-20261103.tar.gz`; its checksum is supplied beside it.
-The November 2 snapshot remains available as
-[v1.0.0](https://github.com/Y25ns25k/gaussian-slam-study/releases/tag/v1.0.0).
-The revised title, introduction and portfolio text are packaged for
+The current public download is
 [v1.0.1](https://github.com/Y25ns25k/gaussian-slam-study/releases/tag/v1.0.1), with the archive and checksum
-attached to that release. Experiment results and numerical helper implementations are unchanged.
+attached to that release. The superseded release entry and its attachments have been removed; Git commit
+history and tags remain available. Experiment results and numerical helper implementations are unchanged.
+The attached archive remains the unchanged v1.0.1 snapshot; publication guidance on `main` records this cleanup.
 
 ## Repository metadata
 
