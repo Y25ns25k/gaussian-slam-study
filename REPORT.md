@@ -1,4 +1,4 @@
-# SAGE-4D: When does removing Gaussians help Gaussian SLAM? — Report
+# Gaussian SLAM: Resource Profiling and Compression Optimization — Report
 
 **Summary.** This study links resource profiling to controlled tests of Gaussian reduction. Its clearest
 contributions are an execution improvement in Flow4DGS-SLAM, an exact temporal-storage baseline, and evidence

@@ -1,52 +1,52 @@
-# SAGE-4D: When does removing Gaussians help Gaussian SLAM?
+# Gaussian SLAM: Resource Profiling and Compression Optimization
 
-**Resource profiling, controlled pruning experiments, and same-result implementation optimization on a 16 GB GPU.**
+**Resource profiling, controlled pruning experiments, and verified compression optimizations for Gaussian SLAM on a 16 GB GPU.**
 
-This undergraduate research and engineering portfolio follows one question: does a cheaper Gaussian map improve
-what actually limits a SLAM system? It covers four SLAM implementations, a static-3DGS score study, memory fixes,
-and comparisons against stronger pruning controls. Its strongest results are measured engineering changes and
-experiments that narrow the original hypothesis.
+This project investigates resource bottlenecks and map-compression costs in Gaussian SLAM. It profiles Gaussian
+state, keyframe data and checkpoint storage separately across Flow4DGS-SLAM, SplaTAM, Gaussian-SLAM and the
+LSG-SLAM front end, and compares a sensitivity score accumulated from training gradients with other pruning scores.
 
-By [Y25ns25k](https://github.com/Y25ns25k). Latest follow-up: November 2, 2026.
+Controlled experiments separate score quality from allocation and replacement effects. Static 3DGS follow-ups
+match actual deletion counts; offline Gaussian-SLAM comparisons use matched spatial quotas and refinement work.
+Gradient and contribution controls remain visible alongside small gains and failed decision rules.
+
+The implementation follow-up optimizes statistics accumulation and per-voxel selection. On nine saved submaps,
+mean compression-stage time falls from **2.32 s to 0.99 s**, a **57.4% reduction** versus the original trace
+implementation. These means average five-repeat timing medians per submap. The optimized selector passes
+**264 same-input mask checks** against the original selector. Compression is also **14.5% faster** than
+contribution-sum using the same selector optimization.
+
+These compression-stage timings exclude earlier statistics collection. Including collection in short GT-pose
+mapping runs and subsequent compression produces small, seed-dependent differences; a robust total-cost advantage
+is not established. The results concern offline compression and short mapping prefixes, without an online
+tracking or full-system throughput claim.
+
+The repository provides reports, measured metrics, figure scripts, independent numerical helpers and CPU examples.
+It supports numerical reanalysis and standalone examples; the upstream integrations, complete configurations,
+datasets and models needed for full training or SLAM reruns are outside this release.
+
+By [Y25ns25k](https://github.com/Y25ns25k). Latest experiment: November 2, 2026. Public write-up updated November 3, 2026.
 
 **[Full report (§1–10)](REPORT.md)** · **[Follow-up results](FOLLOW_UP.md)** · **[Evidence guide](results/README.md)** · **[Runnable helpers](code/README.md)**
 
 ## Five findings
 
-1. **Profiling improved execution feasibility.** In Flow4DGS-SLAM on TUM walking_xyz at approximately 2× keyframe
-   density, three runs failed during refinement; three runs with memory options completed at **9.11–9.53 GiB**
-   profiled peak allocated memory. The changes remove unread buffers, unnecessary optimizer copies and a frontend
-   leak. Quality equivalence at this density is unconfirmed, with a pre-refinement degradation signal.
-   [Run records](results/flow4dgs/memory_options.json) · [Report §3](REPORT.md#3-flow4dgs-slam-where-the-memory-goes-and-what-can-be-cut-exactly)
+| Finding | Measured result and scope | Evidence |
+|---|---|---|
+| **Resource bottlenecks differ.** | In the sampled SplaTAM room1 run, final keyframe images/depth take **1.38 GiB**, versus **0.12 GiB** of Gaussian parameters and tracked state. LSG-SLAM measurements cover its front end only. | [Report §5](REPORT.md#5-slam-is-the-gaussian-count-ever-the-bottleneck) |
+| **Memory engineering improves execution feasibility.** | At approximately 2× keyframe density, **3/3 Flow4DGS runs fail** during refinement and **3/3 with memory options complete**, at **9.11–9.53 GiB** profiled peak allocated memory. Quality equivalence is unconfirmed. | [Run records](results/flow4dgs/memory_options.json) |
+| **Compression needs matched controls.** | On three Replica scenes, per-voxel trace pruning removes **24.0–24.6%** of Gaussians with **0.19–0.27 dB** loss against refine-only after 50 colour-frozen refinement steps. Room0 checkpoints shrink **24.0%**. Strong contribution controls are within 0.06 dB at this removal level. | [Compression records](results/gslam_submap_compression.json) · [Storage](results/gslam_storage_summary.json) |
+| **The tested selection results can be computed faster.** | Compression-stage time changes by **-57.4%** versus original trace and **-14.5%** versus equally optimized contribution-sum, with **264 same-input mask checks** passing. Earlier collection is excluded from these stage times. | [Implementation results](FOLLOW_UP.md#4-optimize-the-same-computation-before-changing-the-method) |
+| **The public artifact is runnable on a CPU.** | Stored-metric summaries, a selection example, independent oracle tests and seven regenerated figures are provided. The documented seven CPU commands passed without Torch. Full upstream reruns are outside the package. | [Code guide](code/README.md) · [Verification](results/release_verification.json) |
 
-2. **Exact redundancy is a useful storage baseline.** Removing invisible slots and merging unchanged temporal
-   centres reduces **modeled centre-bank storage by 44.8%**, including Adam moments and indexing overhead.
-   Three seed-0 repeats recorded matching renders. This is a storage model, not measured runtime VRAM reduction;
-   the original parity images are unavailable, and online use needs flow-loss slots and copy-on-write handling.
-   [Records](results/flow4dgs/b1_posthoc_storage_r1.json) · [Report §3](REPORT.md#3-flow4dgs-slam-where-the-memory-goes-and-what-can-be-cut-exactly)
+The static score study retains its negative controls: a matched-turnover trace gain of **+0.074 dB** misses the
+fixed +0.10 dB gate. A separate fresh soft-trace screen gains +0.074 dB over trace but remains **0.104 dB behind
+gradient** in PSNR. These experiments use different controls and are not pooled. See [the follow-up](FOLLOW_UP.md).
 
-3. **A small score gain needs stronger controls.** Taming-growth/trace-pruning originally gained **+0.056 dB**
-   against Taming, with greater actual turnover. After matching deletion counts, a smaller two-scene/two-seed
-   comparison retained **+0.074 dB**, below the fixed +0.10 dB gate. A fresh soft-trace candidate gained another
-   +0.074 dB over trace but remained **0.104 dB behind gradient** in the two-scene seed-3 screen. The extension
-   stopped. These are separate experiments with different growth/control conditions.
-   [Matched turnover](results/followups/matched_turnover.json) · [Fresh controls](results/followups/trace_development.json)
-
-4. **Spatial quotas make saved-map compression viable at modest removal.** On three Replica scenes, offline
-   trace pruning within 5 cm voxels removes **24.0–24.6%** of Gaussians, with **0.19–0.27 dB** loss against
-   refine-only after 50 colour-frozen refinement steps. Room0 checkpoints shrink **24.0%**, including optimizer
-   state. Contribution scores are within 0.06 dB at this removal level and are better at approximately 50% removal.
-   Mapping views and copied source poses do not establish held-out quality or tracking preservation.
-   [Compression records](results/gslam_submap_compression.json) · [Storage measurement](results/gslam_storage_summary.json)
-
-5. **The same computation can be implemented more efficiently.** Dense gradient accumulation and stable packed-key
-   voxel sorting preserve the tested statistics and same-input removal masks. On nine saved submaps, optimized
-   trace closing changes by **-57.4% versus original trace** and **-14.5% versus equally optimized
-   contribution-sum**. These closing times exclude earlier collection. Including short mapping prefixes and
-   compression, mean paired trace cost changes versus optimized contribution-sum are **-0.37%
-   in room0 / -0.05% in office0** (three seeds each; positive means more cost).
-   Trace costs less in 3/6 scene–seed pairs; these small means do not establish a robust total-cost advantage.
-   This is selected cost accounting, not online SLAM FPS. [All timings, quality and controls](FOLLOW_UP.md#4-optimize-the-same-computation-before-changing-the-method)
+With mapping and collection included, mean paired cost changes against optimized contribution-sum are
+**-0.37% in room0 / -0.05% in office0**
+(three seeds each; positive means more cost). Trace costs less in **3/6** scene–seed pairs;
+the sign varies. [All timings and quality results](FOLLOW_UP.md#4-optimize-the-same-computation-before-changing-the-method)
 
 <p align="center">
   <img src="figures/fig1_slam_memory.png" width="95%" alt="Sampled SplaTAM memory composition and LSG-SLAM frontend memory versus Gaussian count"><br>
@@ -86,6 +86,7 @@ input contracts are documented in [code/README.md](code/README.md).
 | [scripts/](scripts/) and [figures/](figures/) | Recompute stored summaries and regenerate seven charts |
 | [THIRD_PARTY.md](THIRD_PARTY.md), [LICENSE](LICENSE) | Redistribution boundary and MIT / CC BY 4.0 scope |
 | [PUBLICATION.md](PUBLICATION.md) | Prepared artifact scope and local verification details |
+| [PORTFOLIO.md](PORTFOLIO.md) | Concise Korean and English portfolio descriptions |
 
 This release supports **numerical reanalysis, figure regeneration and a standalone selection example**.
 It does not support a full training/SLAM rerun: upstream systems, local integration patches, complete configs,
