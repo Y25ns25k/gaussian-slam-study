@@ -1,0 +1,15 @@
+{
+  "note": "Rounded measurements transcribed from the corrected fair-rerun table in SAGE-4D docs/GSLAM_COMPRESS_PLAN.md. Checkpoints include optimizer state; the reference is refine-only, not original source checkpoint storage. Exact byte counts are not retained here. No new storage measurement was performed.",
+  "scene": "room0",
+  "refine_iters": 50,
+  "colour_fix": true,
+  "source_gaussians": 33992004,
+  "checkpoint_gib_rounded": {
+    "refine_only": 4.939,
+    "trace_voxel_25": 3.755
+  },
+  "provenance": {
+    "source_document": "SAGE-4D/docs/GSLAM_COMPRESS_PLAN.md",
+    "section": "Fair rerun at ~25 % after the colour-freeze fix (exploratory, 2026-10-21 01:57)"
+  }
+}

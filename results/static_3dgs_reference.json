@@ -1,0 +1,205 @@
+{
+ "note": "Seed 1. Vanilla and the trace policies run in the 3DGS code base; PUP prunes a finished vanilla model and refines 5K iterations, so its time and peak exclude the vanilla training.",
+ "cells": [
+  {
+   "psnr": 32.39452212565654,
+   "ssim": 0.9417093138437014,
+   "lpips": 0.20383019946716927,
+   "count": 1067569,
+   "peak_gib": 2.155243396759033,
+   "train_min": 27.270166666666668,
+   "arm": "vanilla",
+   "scene": "bonsai"
+  },
+  {
+   "psnr": 31.337707901000975,
+   "ssim": 0.9279582415308271,
+   "lpips": 0.12590452900954655,
+   "count": 1596472,
+   "peak_gib": 3.146773338317871,
+   "train_min": 38.1935,
+   "arm": "vanilla",
+   "scene": "kitchen"
+  },
+  {
+   "psnr": 31.524599564381134,
+   "ssim": 0.9203945933244168,
+   "lpips": 0.21654117565888625,
+   "count": 1317426,
+   "peak_gib": 2.6738810539245605,
+   "train_min": 33.910833333333336,
+   "arm": "vanilla",
+   "scene": "room"
+  },
+  {
+   "psnr": 22.133209328902396,
+   "ssim": 0.8213182436792474,
+   "lpips": 0.1960734924987743,
+   "count": 1085965,
+   "peak_gib": 1.9070558547973633,
+   "train_min": 16.903666666666666,
+   "arm": "vanilla",
+   "scene": "train"
+  },
+  {
+   "psnr": 32.092390421274544,
+   "ssim": 0.9396418961318763,
+   "lpips": 0.21158711048396858,
+   "count": 376806,
+   "peak_gib": 2.1794190406799316,
+   "train_min": 24.0,
+   "arm": "trace35_uncapped",
+   "scene": "bonsai"
+  },
+  {
+   "psnr": 31.07734658377511,
+   "ssim": 0.9257540770939419,
+   "lpips": 0.13169302897793905,
+   "count": 563609,
+   "peak_gib": 3.039475917816162,
+   "train_min": 31.4,
+   "arm": "trace35_uncapped",
+   "scene": "kitchen"
+  },
+  {
+   "psnr": 31.445269609108948,
+   "ssim": 0.9170363041070791,
+   "lpips": 0.22619401109524262,
+   "count": 458312,
+   "peak_gib": 2.5778536796569824,
+   "train_min": 28.316666666666666,
+   "arm": "trace35_uncapped",
+   "scene": "room"
+  },
+  {
+   "psnr": 21.893663180501836,
+   "ssim": 0.8102541942345468,
+   "lpips": 0.22724469398197375,
+   "count": 385770,
+   "peak_gib": 1.7516236305236816,
+   "train_min": 13.7,
+   "arm": "trace35_uncapped",
+   "scene": "train"
+  },
+  {
+   "psnr": 31.777872343321103,
+   "ssim": 0.9373050122647673,
+   "lpips": 0.21381353164041364,
+   "count": 376693,
+   "peak_gib": 1.3276033401489258,
+   "train_min": 21.516666666666666,
+   "arm": "trace35_softcap",
+   "scene": "bonsai"
+  },
+  {
+   "psnr": 31.16452625819615,
+   "ssim": 0.9255035127912249,
+   "lpips": 0.13222030997276307,
+   "count": 563551,
+   "peak_gib": 1.837658405303955,
+   "train_min": 28.0,
+   "arm": "trace35_softcap",
+   "scene": "kitchen"
+  },
+  {
+   "psnr": 31.147956945957283,
+   "ssim": 0.916214006069379,
+   "lpips": 0.22721954836295202,
+   "count": 461053,
+   "peak_gib": 1.602846622467041,
+   "train_min": 26.15,
+   "arm": "trace35_softcap",
+   "scene": "room"
+  },
+  {
+   "psnr": 21.74673958828575,
+   "ssim": 0.8067348630804765,
+   "lpips": 0.2335332137973685,
+   "count": 384768,
+   "peak_gib": 1.1032943725585938,
+   "train_min": 12.633333333333333,
+   "arm": "trace35_softcap",
+   "scene": "train"
+  },
+  {
+   "psnr": 31.863824638160498,
+   "ssim": 0.9373043517808657,
+   "lpips": 0.21735632057125504,
+   "count": 377092,
+   "peak_gib": 1.08245849609375,
+   "train_min": 20.45,
+   "arm": "trace35_hardcap",
+   "scene": "bonsai"
+  },
+  {
+   "psnr": 30.755504063197545,
+   "ssim": 0.9234813485826765,
+   "lpips": 0.13524405232497624,
+   "count": 560776,
+   "peak_gib": 1.4517121315002441,
+   "train_min": 26.683333333333334,
+   "arm": "trace35_hardcap",
+   "scene": "kitchen"
+  },
+  {
+   "psnr": 31.079601776905548,
+   "ssim": 0.9141246615312039,
+   "lpips": 0.23169414737285712,
+   "count": 458245,
+   "peak_gib": 1.2821989059448242,
+   "train_min": 24.283333333333335,
+   "arm": "trace35_hardcap",
+   "scene": "room"
+  },
+  {
+   "psnr": 21.359329273826198,
+   "ssim": 0.7977275566050881,
+   "lpips": 0.2412657443630068,
+   "count": 382435,
+   "peak_gib": 0.8399801254272461,
+   "train_min": 11.966666666666667,
+   "arm": "trace35_hardcap",
+   "scene": "train"
+  },
+  {
+   "psnr": 32.07255270674422,
+   "ssim": 0.9438593935322117,
+   "lpips": 0.18781502987887408,
+   "count": 374465,
+   "peak_gib": 1.5606203079223633,
+   "train_min": 3.5999287622165865,
+   "arm": "pup",
+   "scene": "bonsai"
+  },
+  {
+   "psnr": 31.2363765171596,
+   "ssim": 0.9301979013851711,
+   "lpips": 0.12196332386561802,
+   "count": 560153,
+   "peak_gib": 2.3667893409729004,
+   "train_min": 4.426847939899987,
+   "arm": "pup",
+   "scene": "kitchen"
+  },
+  {
+   "psnr": 31.798632646218323,
+   "ssim": 0.9269865919382144,
+   "lpips": 0.19644825351543915,
+   "count": 458246,
+   "peak_gib": 1.9267926216125488,
+   "train_min": 4.256783106799897,
+   "arm": "pup",
+   "scene": "room"
+  },
+  {
+   "psnr": 21.677806954634818,
+   "ssim": 0.7954754327472887,
+   "lpips": 0.2339105296291803,
+   "count": 382435,
+   "peak_gib": 1.5848135948181152,
+   "train_min": 1.988801959099995,
+   "arm": "pup",
+   "scene": "train"
+  }
+ ]
+}

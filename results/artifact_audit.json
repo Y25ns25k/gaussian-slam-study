@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "files_checked": 50,
+  "strict_json_files": 20,
+  "local_links_checked": 60,
+  "numeric_exports_match_selected_original_fields": true,
+  "issues": [],
+  "scope": "Local links, file boundaries, strict JSON, private-path/credential patterns and bundled provenance. No remote repository or online SLAM validation."
+}

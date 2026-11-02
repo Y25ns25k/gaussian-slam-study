@@ -1,0 +1,191 @@
+{
+  "scope": "amended development screen on existing scenes/seeds; budget-enforced common growth with conditional gradient-threshold relaxation; not original Taming growth or independent confirmation; A1 bonsai seed-1 pair may be reused only after proving the fallback was never needed",
+  "correctness": {
+    "paired_events_checked": 112,
+    "all_exact_control_sequences_match": true,
+    "all_test_views_match": true,
+    "finite_metrics": true
+  },
+  "runs": [
+    {
+      "scene": "bonsai",
+      "seed": 1,
+      "arm": "taming",
+      "PSNR": 32.23282803715886,
+      "SSIM": 0.9377743714564556,
+      "LPIPS": 0.21955514517990318,
+      "count": 374265,
+      "train_min": 8.232969163749999,
+      "peak_allocated_gib": 1.128018856048584,
+      "pruned_total": 46108,
+      "growth_relaxed_events": 0,
+      "reused_policy_equivalent_A1": true
+    },
+    {
+      "scene": "bonsai",
+      "seed": 1,
+      "arm": "trace",
+      "PSNR": 32.25048982774889,
+      "SSIM": 0.9379399547705779,
+      "LPIPS": 0.2183758282178157,
+      "count": 374265,
+      "train_min": 9.777122062383334,
+      "peak_allocated_gib": 1.1268720626831055,
+      "pruned_total": 46108,
+      "growth_relaxed_events": 0,
+      "reused_policy_equivalent_A1": true
+    },
+    {
+      "scene": "bonsai",
+      "seed": 2,
+      "arm": "taming",
+      "PSNR": 32.19172915896854,
+      "SSIM": 0.9374612585918324,
+      "LPIPS": 0.21846594037236394,
+      "count": 374265,
+      "train_min": 10.197262799899999,
+      "peak_allocated_gib": 1.1497597694396973,
+      "pruned_total": 55382,
+      "growth_relaxed_events": 0,
+      "reused_policy_equivalent_A1": false
+    },
+    {
+      "scene": "bonsai",
+      "seed": 2,
+      "arm": "trace",
+      "PSNR": 32.20349961358148,
+      "SSIM": 0.9376765135172251,
+      "LPIPS": 0.21839871720687762,
+      "count": 374265,
+      "train_min": 9.933496046383334,
+      "peak_allocated_gib": 1.1246309280395508,
+      "pruned_total": 55382,
+      "growth_relaxed_events": 0,
+      "reused_policy_equivalent_A1": false
+    },
+    {
+      "scene": "kitchen",
+      "seed": 1,
+      "arm": "taming",
+      "PSNR": 31.319358825683594,
+      "SSIM": 0.9239544664110456,
+      "LPIPS": 0.13663984835147858,
+      "count": 559773,
+      "train_min": 12.288075844199996,
+      "peak_allocated_gib": 1.5771293640136719,
+      "pruned_total": 12613,
+      "growth_relaxed_events": 1,
+      "reused_policy_equivalent_A1": false
+    },
+    {
+      "scene": "kitchen",
+      "seed": 1,
+      "arm": "trace",
+      "PSNR": 31.41855218069894,
+      "SSIM": 0.9243271997996739,
+      "LPIPS": 0.13618059754371642,
+      "count": 559773,
+      "train_min": 9.90126239421667,
+      "peak_allocated_gib": 1.5846586227416992,
+      "pruned_total": 12613,
+      "growth_relaxed_events": 1,
+      "reused_policy_equivalent_A1": false
+    },
+    {
+      "scene": "kitchen",
+      "seed": 2,
+      "arm": "taming",
+      "PSNR": 31.506160245622908,
+      "SSIM": 0.9246609687805176,
+      "LPIPS": 0.13612850861889975,
+      "count": 559773,
+      "train_min": 11.917819600633326,
+      "peak_allocated_gib": 1.6194062232971191,
+      "pruned_total": 12523,
+      "growth_relaxed_events": 2,
+      "reused_policy_equivalent_A1": false
+    },
+    {
+      "scene": "kitchen",
+      "seed": 2,
+      "arm": "trace",
+      "PSNR": 31.673774119785854,
+      "SSIM": 0.9252123032297407,
+      "LPIPS": 0.13510680475405284,
+      "count": 559773,
+      "train_min": 11.615300638266671,
+      "peak_allocated_gib": 1.6072640419006348,
+      "pruned_total": 12523,
+      "growth_relaxed_events": 2,
+      "reused_policy_equivalent_A1": false
+    }
+  ],
+  "cells": [
+    {
+      "scene": "bonsai",
+      "seed": 1,
+      "dpsnr": 0.017661790590032922,
+      "dssim": 0.00016558331412230842,
+      "dlpips": -0.0011793169620874788,
+      "count": 374265,
+      "pruned_total": 46108,
+      "dtrain_min": 1.5441528986333348
+    },
+    {
+      "scene": "bonsai",
+      "seed": 2,
+      "dpsnr": 0.011770454612936021,
+      "dssim": 0.00021525492539276048,
+      "dlpips": -6.722316548632423e-05,
+      "count": 374265,
+      "pruned_total": 55382,
+      "dtrain_min": -0.2637667535166656
+    },
+    {
+      "scene": "kitchen",
+      "seed": 1,
+      "dpsnr": 0.09919335501534476,
+      "dssim": 0.0003727333886283102,
+      "dlpips": -0.0004592508077621571,
+      "count": 559773,
+      "pruned_total": 12613,
+      "dtrain_min": -2.386813449983326
+    },
+    {
+      "scene": "kitchen",
+      "seed": 2,
+      "dpsnr": 0.16761387416294582,
+      "dssim": 0.0005513344492230621,
+      "dlpips": -0.0010217038648469012,
+      "count": 559773,
+      "pruned_total": 12523,
+      "dtrain_min": -0.3025189623666544
+    }
+  ],
+  "summary": {
+    "dpsnr": 0.07405986859531488,
+    "dssim": 0.0003262265193416103,
+    "dlpips": -0.0006818737000457153,
+    "dtrain_min": -0.3522365668083277,
+    "positive_pairs": 4,
+    "scene_means": {
+      "bonsai": 0.014716122601484471,
+      "kitchen": 0.1334036145891453
+    },
+    "descriptive_pair_sign_flip_p": 0.125
+  },
+  "gate_passes": {
+    "mean_psnr": false,
+    "positive_pairs": true,
+    "positive_scenes": true,
+    "lpips": true
+  },
+  "verdict": "stop_extension_under_prespecified_gate",
+  "resource_accounting": {
+    "completed_conditions": 8,
+    "main_training_attempts": 9,
+    "failed_main_attempts": 1,
+    "short_smoke_training_runs": 2,
+    "reused_policy_equivalent_A1_conditions": 2
+  }
+}

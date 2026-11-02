@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "environment": {
+    "python": "3.13.13",
+    "numpy": "2.5.4",
+    "matplotlib": "3.11.2",
+    "torch_available": false
+  },
+  "commands": [
+    {
+      "command": "python scripts/summarize_results.py",
+      "exit_code": 0,
+      "stdout": "Parsed 18 strict JSON files. Summaries use stored metrics, not new runs.\n\nFlow4DGS options_off: 0/3 complete\nFlow4DGS options_on: 3/3 complete\n  retained profiler peak: 9.11\u20139.53 GiB\nFlow4DGS modeled centre-bank reduction (ratio of means): 44.8%\n  stored metrics match; pixel-level render equality cannot be rechecked here\n\nTaming at 35% retained budget (paired test-view PSNR):\n  taming_grow_trace_prune - taming: +0.0561 dB, 8/8 positive pairs\n  trace - trace_grow_taming_prune: +0.0735 dB, 5/8 positive pairs\n  trace_grow_taming_prune - taming: -0.0778 dB, 1/8 positive pairs\n  trace - taming_grow_trace_prune: -0.0605 dB, 1/8 positive pairs\n  grad - taming: +0.0005 dB, 4/8 positive pairs\n  grad - trace: +0.0048 dB, 3/8 positive pairs\n  taming_grow_trace_prune - grad: +0.0556 dB, 4/8 positive pairs\n  uniform - taming: -0.1073 dB, 2/8 positive pairs\n\nFinished Taming models, no fine-tuning:\n  10% removal: trace -0.015 dB, taming -0.100 dB, opacity -0.118 dB, random -1.348 dB\n  20% removal: trace -0.477 dB, taming -0.635 dB, opacity -1.632 dB, random -2.896 dB\n    trace - opacity: +1.155 dB, 8/8 positive pairs\n    trace - taming: +0.158 dB, 4/8 positive pairs\n  30% removal: trace -2.065 dB, taming -1.622 dB, opacity -4.410 dB, random -4.605 dB\n\nGaussian-SLAM: corrected, 50 iterations, mapping views; dB vs refine-only:\n  room0, actual removal 23.96%: opacity_voxel -0.888, random_voxel -1.418, safe_final_voxel -0.215, contrib_voxel -0.229, contribmax_voxel -0.216, hybrid_voxel -0.178\n  office0, actual removal 24.58%: contrib_voxel -0.191, contribmax_voxel -0.178, hybrid_voxel -0.145, opacity_voxel -0.998, random_voxel -0.864, safe_final_voxel -0.188\n  room1, actual removal 24.53%: contrib_voxel -0.222, contribmax_voxel -0.210, hybrid_voxel -0.181, opacity_voxel -1.308, random_voxel -1.400, safe_final_voxel -0.270\n  room0, actual removal 49.28%: contrib_voxel -1.432, hybrid_voxel -1.398, safe_final_voxel -2.468\n  office0, actual removal 49.71%: contrib_voxel -1.267, hybrid_voxel -1.155, safe_final_voxel -1.898\n  room1, actual removal 49.68%: contrib_voxel -1.480, hybrid_voxel -1.438, safe_final_voxel -2.479\nRoom0 checkpoint saving from rounded GiB: 24.0%\nSplaTAM final sampled frame 1999: keyframes 1.38 GiB, Gaussian params + tracked state 0.12 GiB\nLSG-SLAM front-end maximum: 6.31 GiB\n",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/summarize_followups.py",
+      "exit_code": 0,
+      "stdout": "Bundled numeric exports and independent helpers: SHA256 matches.\nMatched turnover: trace - Taming +0.074060 dB, 4/4 positive pairs; gate {'mean_psnr': False, 'positive_pairs': True, 'positive_scenes': True, 'lpips': True}\nFresh seed 3, trace_soft - trace: +0.074007 dB\nFresh seed 3, trace_soft - gradient: -0.103738 dB\nFresh seed 3, trace - gradient: -0.177745 dB\nFresh seed 3, trace_soft - random: +0.066453 dB\nFixed candidate decision: stop_after_seed3_development_screen\nRetained timing repetitions, phase sums, quality means and prefix accounting: consistent.\nOriginal resident closing trace vs contrib_voxel: -7.887%\nOriginal resident closing trace vs contribmax_voxel: -8.230%\nOriginal mapping + compression vs contrib sum, room0: +6.593%\nOriginal mapping + compression vs contrib sum, office0: +0.809%\nRetained timing repetitions, phase sums, quality means and prefix accounting: consistent.\nOptimized resident trace closing: sum of 9 map medians = 8.874015 s\n  vs safe_final_voxel: -57.440%\n  vs contrib_voxel: -60.151%\n  vs contrib_fast_voxel: -14.489%\n  vs contribmax_fast_voxel: -14.169%\nOptimized mapping + compression, room0, vs safe_final_voxel: -4.674% (3 paired seeds)\nOptimized mapping + compression, room0, vs contrib_fast_voxel: -0.374% (3 paired seeds)\nOptimized mapping + compression, room0, vs contribmax_fast_voxel: -0.326% (3 paired seeds)\nOptimized mapping + compression, office0, vs safe_final_voxel: -3.565% (3 paired seeds)\nOptimized mapping + compression, office0, vs contrib_fast_voxel: -0.046% (3 paired seeds)\nOptimized mapping + compression, office0, vs contribmax_fast_voxel: +0.050% (3 paired seeds)\nSame-input original-mask checks: 264\nQuality guards (not equivalence tests):\n  room0 safe_final_voxel {'PSNR': -0.0001876467750186012, 'SSIM': 3.0086154029482886e-07, 'LPIPS': 2.2892795857929047e-07, 'depth_l1_mm': 2.4761472429547992e-05} True\n  room0 contrib_fast_voxel {'PSNR': 0.03864270164853051, 'SSIM': -8.244173867361886e-05, 'LPIPS': -0.00138341404852413, 'depth_l1_mm': 0.06938870747884114} True\n  room0 contribmax_fast_voxel {'PSNR': 0.029880160377139135, 'SSIM': -8.945238022577195e-05, 'LPIPS': -0.0014285573381043616, 'depth_l1_mm': 0.0797376689456758} True\n  room0 opacity_fast_voxel {'PSNR': 0.5247428530738467, 'SSIM': 0.0011010226749238513, 'LPIPS': -0.0012683881269324395, 'depth_l1_mm': -0.14205756641569592} True\n  office0 safe_final_voxel {'PSNR': -0.00011380513509114583, 'SSIM': -3.178914388020833e-07, 'LPIPS': 2.4292618036270142e-06, 'depth_l1_mm': 4.926125208536784e-05} True\n  office0 contrib_fast_voxel {'PSNR': 0.014078330993652344, 'SSIM': -3.9828817049662274e-05, 'LPIPS': -0.0006729521788656712, 'depth_l1_mm': -0.03206938703854879} True\n  office0 contribmax_fast_voxel {'PSNR': 0.00399786631266276, 'SSIM': -4.042784372965495e-05, 'LPIPS': -0.000688660447485745, 'depth_l1_mm': -0.020253807306289673} True\n  office0 opacity_fast_voxel {'PSNR': 0.9953194300333659, 'SSIM': 0.0008145997921625773, 'LPIPS': -0.0036006287826846044, 'depth_l1_mm': -0.2957908054192861} True\n  room1 safe_final_voxel {'PSNR': -0.00014310724595013787, 'SSIM': -1.5427084530101104e-07, 'LPIPS': 6.936408360214794e-06, 'depth_l1_mm': -2.7560135897468118e-05} True\n  room1 contrib_fast_voxel {'PSNR': 0.04620899873621324, 'SSIM': -4.506111145019531e-05, 'LPIPS': -0.000878024024560171, 'depth_l1_mm': 0.030927765018799725} True\n  room1 contribmax_fast_voxel {'PSNR': 0.029062832103056067, 'SSIM': -5.65332524916705e-05, 'LPIPS': -0.0008511181701632107, 'depth_l1_mm': 0.03817671362091513} True\n  room1 opacity_fast_voxel {'PSNR': 0.40587447671329274, 'SSIM': 0.0005939199643976548, 'LPIPS': -0.0019280565354753943, 'depth_l1_mm': -0.09856222657596364} True\nThese are recorded phase/compute sums, not a full SLAM FPS or FLOP comparison.\n",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/demo_selection.py",
+      "exit_code": 0,
+      "stdout": "Removed indices: [1, 2, 5]\nRemoved: 3 of 7 (per-voxel floor quotas)\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m unittest discover -s tests",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.037s\n\nOK\n"
+    },
+    {
+      "command": "python scripts/make_figures.py",
+      "exit_code": 0,
+      "stdout": "wrote fig1_slam_memory.png\nwrote fig2_flow4dgs_storage.png\nwrote fig3_taming_roles.png\nwrote fig4_posthoc_curves.png\nwrote fig5_gslam_compression.png\n",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/make_cost_figure.py --input results/followups/slam_score_cost.json --output figures/fig7_original_cost.png",
+      "exit_code": 0,
+      "stdout": "figures/fig7_original_cost.png\n",
+      "stderr": ""
+    },
+    {
+      "command": "python scripts/make_implementation_figure.py --input results/followups/slam_implementation.json --output figures/fig6_implementation.png",
+      "exit_code": 0,
+      "stdout": "figures/fig6_implementation.png\n",
+      "stderr": ""
+    }
+  ],
+  "scope": "Public stored-metric reanalysis, CPU selector oracle and figure regeneration; no original GPU experiment rerun."
+}

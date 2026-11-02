@@ -1,0 +1,141 @@
+{
+  "note": "TUM walking_xyz, approximately 2x density, repeated seed-0 runs. Completion is supported by the final post-refinement metrics. Peak is the retained B0 profiler peak_allocated_bytes, not total device usage or reserved memory. The original draft range 9.3-9.8 GiB is superseded by 9.11-9.53 GiB from these byte records. Failed runs have no comparable completed-run peak.",
+  "source_records_scope": "Paths identify records in the private experiment workspace, not files shipped here. SHA256 hashes identify those records but do not make them available.",
+  "rows": [
+    {
+      "run_id": "2026-10-14_b1_tum_kf4_r1",
+      "arm": "options_off",
+      "seed": 0,
+      "keyframes": 331,
+      "completed": false,
+      "oom": true,
+      "failure_stage": "colour refinement",
+      "before_opt_psnr": 22.19088166685462,
+      "after_opt_psnr": null,
+      "profiled_peak_allocated_bytes": null,
+      "source": "flow4dgs/b1_aggregate.json:1.99x.runs",
+      "note": "Failed-run SLAM-stage memory is not treated as a completed-run peak."
+    },
+    {
+      "run_id": "2026-10-14_b1_tum_kf4_r2",
+      "arm": "options_off",
+      "seed": 0,
+      "keyframes": 331,
+      "completed": false,
+      "oom": true,
+      "failure_stage": "colour refinement",
+      "before_opt_psnr": 22.070242189870925,
+      "after_opt_psnr": null,
+      "profiled_peak_allocated_bytes": null,
+      "source": "flow4dgs/b1_aggregate.json:1.99x.runs",
+      "note": "Failed-run SLAM-stage memory is not treated as a completed-run peak."
+    },
+    {
+      "run_id": "2026-10-14_b1_tum_kf4_r3",
+      "arm": "options_off",
+      "seed": 0,
+      "keyframes": 331,
+      "completed": false,
+      "oom": true,
+      "failure_stage": "colour refinement",
+      "before_opt_psnr": 22.256995664686507,
+      "after_opt_psnr": null,
+      "profiled_peak_allocated_bytes": null,
+      "source": "flow4dgs/b1_aggregate.json:1.99x.runs",
+      "note": "Failed-run SLAM-stage memory is not treated as a completed-run peak."
+    },
+    {
+      "run_id": "2026-10-18_memopt_tum_kf4_r1",
+      "arm": "options_on",
+      "seed": 0,
+      "keyframes": 331,
+      "completed": true,
+      "oom": false,
+      "failure_stage": null,
+      "before_opt_psnr": 21.649566861421338,
+      "after_opt_psnr": 25.961951582146384,
+      "ate_rmse_cm": 6.725792811492312,
+      "profiled_peak_allocated_bytes": 10138700800,
+      "source_records": {
+        "profile": {
+          "path": "outputs/flow4dgs/tum/memopt_tum_kf4_r1/rgbd_dataset_freiburg3_walking_xyz_2026-10-18-16-48-18/b0/b0_summary.json",
+          "sha256": "608ff31485b79304d4d6ba0f461fb21978c75c20be14ef554073e0202e8afe6b"
+        },
+        "ate": {
+          "path": "outputs/flow4dgs/tum/memopt_tum_kf4_r1/rgbd_dataset_freiburg3_walking_xyz_2026-10-18-16-48-18/plot/stats_final.json",
+          "sha256": "40d939ff2644a615e20e44146f1699fba57804d7f170065bd09e17c1971c59c7"
+        },
+        "before": {
+          "path": "outputs/flow4dgs/tum/memopt_tum_kf4_r1/rgbd_dataset_freiburg3_walking_xyz_2026-10-18-16-48-18/psnr/before_opt/final_result.json",
+          "sha256": "8a02f0ca5c90f1a871ffeb1b53d85959fc5d31219a83966f22e6d737816ab72c"
+        },
+        "after": {
+          "path": "outputs/flow4dgs/tum/memopt_tum_kf4_r1/rgbd_dataset_freiburg3_walking_xyz_2026-10-18-16-48-18/psnr/after_opt/final_result.json",
+          "sha256": "587833168fb2b200e9ef6944ac62931f9fe33ab74cbc3955c7c974b4fe1c5e75"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-18_memopt_tum_kf4_r2",
+      "arm": "options_on",
+      "seed": 0,
+      "keyframes": 331,
+      "completed": true,
+      "oom": false,
+      "failure_stage": null,
+      "before_opt_psnr": 22.242946004348624,
+      "after_opt_psnr": 26.534102136595795,
+      "ate_rmse_cm": 2.643381848189377,
+      "profiled_peak_allocated_bytes": 9782112768,
+      "source_records": {
+        "profile": {
+          "path": "outputs/flow4dgs/tum/memopt_tum_kf4_r2/rgbd_dataset_freiburg3_walking_xyz_2026-10-18-19-12-12/b0/b0_summary.json",
+          "sha256": "5c3b1b4f55cd0a23dfb6d0fa0e8d2d60fa2511e5b78c584101411f8c081ca112"
+        },
+        "ate": {
+          "path": "outputs/flow4dgs/tum/memopt_tum_kf4_r2/rgbd_dataset_freiburg3_walking_xyz_2026-10-18-19-12-12/plot/stats_final.json",
+          "sha256": "256a4226ddcea6253353012fcbc830300be8dfe9e9c518c3836cec21ac264616"
+        },
+        "before": {
+          "path": "outputs/flow4dgs/tum/memopt_tum_kf4_r2/rgbd_dataset_freiburg3_walking_xyz_2026-10-18-19-12-12/psnr/before_opt/final_result.json",
+          "sha256": "2e606d10078746115ec27a7554f32a78fc9899ad6202085fd9d18b3fc96b7b53"
+        },
+        "after": {
+          "path": "outputs/flow4dgs/tum/memopt_tum_kf4_r2/rgbd_dataset_freiburg3_walking_xyz_2026-10-18-19-12-12/psnr/after_opt/final_result.json",
+          "sha256": "d8bcde99312ae4c17aecc7f46e200953ce690a4cbbac4db09cdad05532275ca9"
+        }
+      }
+    },
+    {
+      "run_id": "2026-10-18_memopt_tum_kf4_r3",
+      "arm": "options_on",
+      "seed": 0,
+      "keyframes": 331,
+      "completed": true,
+      "oom": false,
+      "failure_stage": null,
+      "before_opt_psnr": 21.54503117507141,
+      "after_opt_psnr": 25.936072060101843,
+      "ate_rmse_cm": 7.451094428981256,
+      "profiled_peak_allocated_bytes": 10234951680,
+      "source_records": {
+        "profile": {
+          "path": "outputs/flow4dgs/tum/memopt_tum_kf4_r3/rgbd_dataset_freiburg3_walking_xyz_2026-10-18-21-34-45/b0/b0_summary.json",
+          "sha256": "4aa1ebfe21dcc668543690ff811277738df60745f60bd37d3298abe0444e8352"
+        },
+        "ate": {
+          "path": "outputs/flow4dgs/tum/memopt_tum_kf4_r3/rgbd_dataset_freiburg3_walking_xyz_2026-10-18-21-34-45/plot/stats_final.json",
+          "sha256": "fe0f0cbe3a45e19dcfc68841c57f1d212a64b58022658187a8bd556f345513ef"
+        },
+        "before": {
+          "path": "outputs/flow4dgs/tum/memopt_tum_kf4_r3/rgbd_dataset_freiburg3_walking_xyz_2026-10-18-21-34-45/psnr/before_opt/final_result.json",
+          "sha256": "1eaa22059bb3f13ecf41e736c6f98be0a7ac419b3a3c7f929ecac9521cefa91a"
+        },
+        "after": {
+          "path": "outputs/flow4dgs/tum/memopt_tum_kf4_r3/rgbd_dataset_freiburg3_walking_xyz_2026-10-18-21-34-45/psnr/after_opt/final_result.json",
+          "sha256": "fbeef168e6d23dbe4ba0580fbca9af8b68ae590be6d9b524f2cf2a6f0e7b5a60"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1925 @@
+{
+ "note": "Deltas against the unpruned model on test views; no fine-tuning.",
+ "rows": [
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "trace<0.01xmed",
+   "removed": 0.13826069235801697,
+   "dpsnr": -0.05304424182788381,
+   "dssim": -0.0001777120538660748,
+   "dlpips": 0.00025755972475619004,
+   "train_subset_dpsnr": -0.08357113599777222
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "trace<0.03xmed",
+   "removed": 0.1763247400522232,
+   "dpsnr": -0.27451035783096955,
+   "dssim": -0.0011606023118302389,
+   "dlpips": 0.0012095151720820096,
+   "train_subset_dpsnr": -0.3683326244354248
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "trace<0.1xmed",
+   "removed": 0.25069737434387207,
+   "dpsnr": -1.4389964954273076,
+   "dssim": -0.007752500675820007,
+   "dlpips": 0.007341863335789844,
+   "train_subset_dpsnr": -1.743786096572876
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "trace<0.3xmed",
+   "removed": 0.36243936419487,
+   "dpsnr": -5.125390542520055,
+   "dssim": -0.033916444391817735,
+   "dlpips": 0.029006000708889312,
+   "train_subset_dpsnr": -5.744935989379883
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "taming<0.01xmed",
+   "removed": 6.145394581835717e-05,
+   "dpsnr": -2.061998500835216e-07,
+   "dssim": 0.0,
+   "dlpips": 9.262883959859636e-09,
+   "train_subset_dpsnr": 8.344650268554688e-07
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "taming<0.03xmed",
+   "removed": 0.0013706902973353863,
+   "dpsnr": 3.041447826035437e-06,
+   "dssim": 1.2887490741242402e-08,
+   "dlpips": 2.5082278895804944e-06,
+   "train_subset_dpsnr": -7.748603820800781e-07
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "taming<0.1xmed",
+   "removed": 0.0567246675491333,
+   "dpsnr": -0.0041628141660936535,
+   "dssim": -3.230732840464601e-05,
+   "dlpips": 8.059836722706937e-05,
+   "train_subset_dpsnr": -0.0037803053855895996
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "taming<0.3xmed",
+   "removed": 0.1525607705116272,
+   "dpsnr": -0.450319702560833,
+   "dssim": -0.0029785294790526384,
+   "dlpips": 0.004075397913520379,
+   "train_subset_dpsnr": -0.4758925437927246
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "opacity<0.005",
+   "removed": 0.0972628965973854,
+   "dpsnr": -0.0001276377085090985,
+   "dssim": -4.848918399025237e-07,
+   "dlpips": 4.517468246229006e-06,
+   "train_subset_dpsnr": -0.0003253817558288574
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "opacity<0.01",
+   "removed": 0.10132687538862228,
+   "dpsnr": -0.0020380277891405285,
+   "dssim": -8.940696716308594e-07,
+   "dlpips": 3.420299774889446e-05,
+   "train_subset_dpsnr": -0.003498554229736328
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "opacity<0.02",
+   "removed": 0.10997050255537033,
+   "dpsnr": -0.10070991516113281,
+   "dssim": -0.0004257914182301814,
+   "dlpips": 0.00015503772207206556,
+   "train_subset_dpsnr": -0.16876477003097534
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "opacity<0.05",
+   "removed": 0.1509629637002945,
+   "dpsnr": -2.0041169346989776,
+   "dssim": -0.02298272944785451,
+   "dlpips": 0.002807543084428099,
+   "train_subset_dpsnr": -2.2142363786697388
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "trace_low10%",
+   "removed": 0.09999893605709076,
+   "dpsnr": -0.00030038163468049106,
+   "dssim": -7.635838277231244e-07,
+   "dlpips": 4.169908729756422e-06,
+   "train_subset_dpsnr": -0.0002434253692626953
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "trace_low20%",
+   "removed": 0.20000053942203522,
+   "dpsnr": -0.5196226480844821,
+   "dssim": -0.0023812345556311065,
+   "dlpips": 0.002416981635866927,
+   "train_subset_dpsnr": -0.667797327041626
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "trace_low30%",
+   "removed": 0.299999475479126,
+   "dpsnr": -2.8279585967192737,
+   "dssim": -0.016862213611602783,
+   "dlpips": 0.015190332725241368,
+   "train_subset_dpsnr": -3.2933753728866577
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "taming_low10%",
+   "removed": 0.09999893605709076,
+   "dpsnr": -0.07930771080223309,
+   "dssim": -0.0005312288129651899,
+   "dlpips": 0.0008497842260309085,
+   "train_subset_dpsnr": -0.07590323686599731
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "taming_low20%",
+   "removed": 0.20000053942203522,
+   "dpsnr": -1.077992207295182,
+   "dssim": -0.007385764573071496,
+   "dlpips": 0.009285091951086705,
+   "train_subset_dpsnr": -1.206280529499054
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "taming_low30%",
+   "removed": 0.299999475479126,
+   "dpsnr": -2.7568520726384307,
+   "dssim": -0.022705108732790635,
+   "dlpips": 0.025956066879066236,
+   "train_subset_dpsnr": -3.1343655586242676
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "opacity_low10%",
+   "removed": 0.09999893605709076,
+   "dpsnr": -0.001472318494641911,
+   "dssim": 1.710814398703242e-06,
+   "dlpips": 2.7554260717849166e-05,
+   "train_subset_dpsnr": -0.0024719834327697754
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "opacity_low20%",
+   "removed": 0.20000053942203522,
+   "dpsnr": -3.3582078057366402,
+   "dssim": -0.04372942930943258,
+   "dlpips": 0.010028442820987166,
+   "train_subset_dpsnr": -3.703579008579254
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "opacity_low30%",
+   "removed": 0.299999475479126,
+   "dpsnr": -6.229026536683776,
+   "dssim": -0.08508841572581116,
+   "dlpips": 0.03319721366908099,
+   "train_subset_dpsnr": -6.661799907684326
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "random_low10%",
+   "removed": 0.09999893605709076,
+   "dpsnr": -1.695380958350924,
+   "dssim": -0.01658779543799327,
+   "dlpips": 0.01547916918187528,
+   "train_subset_dpsnr": -1.9542611837387085
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "random_low20%",
+   "removed": 0.20000053942203522,
+   "dpsnr": -3.448290902215078,
+   "dssim": -0.036502395127270715,
+   "dlpips": 0.03532012370792595,
+   "train_subset_dpsnr": -3.8923601508140564
+  },
+  {
+   "scene": "bonsai",
+   "seed": 1,
+   "rule": "random_low30%",
+   "removed": 0.299999475479126,
+   "dpsnr": -5.254904669684329,
+   "dssim": -0.0616021172420399,
+   "dlpips": 0.06012491358293068,
+   "train_subset_dpsnr": -5.8385308384895325
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "trace<0.01xmed",
+   "removed": 0.11630293726921082,
+   "dpsnr": -0.052030305604674254,
+   "dssim": -0.0001387499474190257,
+   "dlpips": 0.0002118075216138715,
+   "train_subset_dpsnr": -0.06746917963027954
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "trace<0.03xmed",
+   "removed": 0.15580713748931885,
+   "dpsnr": -0.3219054454081771,
+   "dssim": -0.0010806177113507065,
+   "dlpips": 0.0011538802771954848,
+   "train_subset_dpsnr": -0.3879883289337158
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "trace<0.1xmed",
+   "removed": 0.23193255066871643,
+   "dpsnr": -1.5399508605132226,
+   "dssim": -0.007420596238729149,
+   "dlpips": 0.006809261602324396,
+   "train_subset_dpsnr": -1.779437005519867
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "trace<0.3xmed",
+   "removed": 0.34645065665245056,
+   "dpsnr": -4.91381428692792,
+   "dssim": -0.033888678292970376,
+   "dlpips": 0.0279083868136277,
+   "train_subset_dpsnr": -5.481571018695831
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "taming<0.01xmed",
+   "removed": 6.679777288809419e-05,
+   "dpsnr": -8.247994074395137e-07,
+   "dssim": 0.0,
+   "dlpips": 7.007573102346676e-08,
+   "train_subset_dpsnr": 4.76837158203125e-07
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "taming<0.03xmed",
+   "removed": 0.0012264070101082325,
+   "dpsnr": -2.8713329420781974e-05,
+   "dssim": -2.1425453389234406e-07,
+   "dlpips": 1.684636683069174e-06,
+   "train_subset_dpsnr": -1.1920928955078125e-05
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "taming<0.1xmed",
+   "removed": 0.03837398439645767,
+   "dpsnr": -0.003585970079576839,
+   "dssim": -3.8279069436542024e-05,
+   "dlpips": 9.995094827702777e-05,
+   "train_subset_dpsnr": -0.003556191921234131
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "taming<0.3xmed",
+   "removed": 0.13838092982769012,
+   "dpsnr": -0.48713364472260423,
+   "dssim": -0.003390096329353942,
+   "dlpips": 0.004538808722753779,
+   "train_subset_dpsnr": -0.5392454862594604
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "opacity<0.005",
+   "removed": 0.07413750886917114,
+   "dpsnr": -0.00013212255529282402,
+   "dssim": -8.054681732705404e-08,
+   "dlpips": 4.135676332422955e-06,
+   "train_subset_dpsnr": -0.00017464160919189453
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "opacity<0.01",
+   "removed": 0.07786482572555542,
+   "dpsnr": -0.0030435613683721385,
+   "dssim": 1.1028470219831554e-05,
+   "dlpips": 4.2702700640717683e-05,
+   "train_subset_dpsnr": -0.0021202564239501953
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "opacity<0.02",
+   "removed": 0.08660197257995605,
+   "dpsnr": -0.042179829365501575,
+   "dssim": -9.496953036336464e-05,
+   "dlpips": 0.00015299223564765874,
+   "train_subset_dpsnr": -0.06713145971298218
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "opacity<0.05",
+   "removed": 0.12864449620246887,
+   "dpsnr": -1.4512281160096876,
+   "dssim": -0.016113173317264917,
+   "dlpips": 0.0022663445891560607,
+   "train_subset_dpsnr": -1.6739609241485596
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "trace_low10%",
+   "removed": 0.09999893605709076,
+   "dpsnr": -0.01470421456001958,
+   "dssim": -2.2796360222065992e-05,
+   "dlpips": 5.891677495595271e-05,
+   "train_subset_dpsnr": -0.01884937286376953
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "trace_low20%",
+   "removed": 0.20000053942203522,
+   "dpsnr": -0.8934147809002866,
+   "dssim": -0.0037360094689034007,
+   "dlpips": 0.003564213981499531,
+   "train_subset_dpsnr": -1.0480009317398071
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "trace_low30%",
+   "removed": 0.299999475479126,
+   "dpsnr": -3.420416703095306,
+   "dssim": -0.02085661243748027,
+   "dlpips": 0.018031150102615356,
+   "train_subset_dpsnr": -3.847218632698059
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "taming_low10%",
+   "removed": 0.09999893605709076,
+   "dpsnr": -0.1758546571473829,
+   "dssim": -0.0012566962757626365,
+   "dlpips": 0.0018527411125801585,
+   "train_subset_dpsnr": -0.1836732029914856
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "taming_low20%",
+   "removed": 0.20000053942203522,
+   "dpsnr": -1.313023232124948,
+   "dssim": -0.009437390275903623,
+   "dlpips": 0.011583043916805369,
+   "train_subset_dpsnr": -1.4957914352416992
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "taming_low30%",
+   "removed": 0.299999475479126,
+   "dpsnr": -2.9842271031560124,
+   "dssim": -0.02586247469927816,
+   "dlpips": 0.029460229583688685,
+   "train_subset_dpsnr": -3.4108689427375793
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "opacity_low10%",
+   "removed": 0.09999893605709076,
+   "dpsnr": -0.6400218138823632,
+   "dssim": -0.00886561902793681,
+   "dlpips": 0.0005441167064615116,
+   "train_subset_dpsnr": -0.8008476495742798
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "opacity_low20%",
+   "removed": 0.20000053942203522,
+   "dpsnr": -3.50870421126082,
+   "dssim": -0.039267638245144454,
+   "dlpips": 0.012805128419721451,
+   "train_subset_dpsnr": -3.7516205310821533
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "opacity_low30%",
+   "removed": 0.299999475479126,
+   "dpsnr": -6.75345498162347,
+   "dssim": -0.09242730044029857,
+   "dlpips": 0.03706956554103541,
+   "train_subset_dpsnr": -7.23808228969574
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "random_low10%",
+   "removed": 0.09999893605709076,
+   "dpsnr": -1.7211494961300424,
+   "dssim": -0.016361608698561403,
+   "dlpips": 0.015914666088851726,
+   "train_subset_dpsnr": -1.9245728850364685
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "random_low20%",
+   "removed": 0.20000053942203522,
+   "dpsnr": -3.6267682668325065,
+   "dssim": -0.036341235444352415,
+   "dlpips": 0.035872633795480446,
+   "train_subset_dpsnr": -3.993626356124878
+  },
+  {
+   "scene": "bonsai",
+   "seed": 2,
+   "rule": "random_low30%",
+   "removed": 0.299999475479126,
+   "dpsnr": -5.580697910205739,
+   "dssim": -0.06533042321334015,
+   "dlpips": 0.06045916112693578,
+   "train_subset_dpsnr": -6.120632886886597
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "trace<0.01xmed",
+   "removed": 0.09055472910404205,
+   "dpsnr": -0.02374174935476958,
+   "dssim": -0.00018716539655416753,
+   "dlpips": 0.00015239055667604084,
+   "train_subset_dpsnr": -0.027023930703443
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "trace<0.03xmed",
+   "removed": 0.1289382129907608,
+   "dpsnr": -0.14511609758649513,
+   "dssim": -0.0010582276753017261,
+   "dlpips": 0.0008158272930553767,
+   "train_subset_dpsnr": -0.18095920931908438
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "trace<0.1xmed",
+   "removed": 0.20862244069576263,
+   "dpsnr": -0.8283204759870237,
+   "dssim": -0.00603960582188201,
+   "dlpips": 0.005053682412419991,
+   "train_subset_dpsnr": -1.0847729713686078
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "trace<0.3xmed",
+   "removed": 0.3319851756095886,
+   "dpsnr": -3.326155471801755,
+   "dssim": -0.02591260841914589,
+   "dlpips": 0.021734882039683184,
+   "train_subset_dpsnr": -4.070689232118671
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "taming<0.01xmed",
+   "removed": 0.0003858713898807764,
+   "dpsnr": 4.359654020902326e-06,
+   "dssim": -3.4059797204832876e-09,
+   "dlpips": 5.036592483353974e-07,
+   "train_subset_dpsnr": 1.0336599039817429e-05
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "taming<0.03xmed",
+   "removed": 0.0022151877637952566,
+   "dpsnr": -0.0001474108014782871,
+   "dssim": -1.9856861659395264e-06,
+   "dlpips": 5.107266562304202e-06,
+   "train_subset_dpsnr": -3.636267877737964e-05
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "taming<0.1xmed",
+   "removed": 0.026655495166778564,
+   "dpsnr": -0.0021235329764230926,
+   "dssim": -3.3560820988265405e-05,
+   "dlpips": 7.50469309943047e-05,
+   "train_subset_dpsnr": -0.006917830436464101
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "taming<0.3xmed",
+   "removed": 0.11760859936475754,
+   "dpsnr": -0.13516562325613535,
+   "dssim": -0.0013007300240652775,
+   "dlpips": 0.0018004206674439582,
+   "train_subset_dpsnr": -0.20121002197265625
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "opacity<0.005",
+   "removed": 0.05101362615823746,
+   "dpsnr": -1.0572160991983992e-05,
+   "dssim": -4.2063849314821766e-07,
+   "dlpips": 3.90644584383204e-06,
+   "train_subset_dpsnr": -3.5562822894519286e-05
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "opacity<0.01",
+   "removed": 0.055517248809337616,
+   "dpsnr": -0.0014396667480447434,
+   "dssim": -1.2285368783171435e-05,
+   "dlpips": 2.382312502177686e-05,
+   "train_subset_dpsnr": -0.001752115065052351
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "opacity<0.02",
+   "removed": 0.07016785442829132,
+   "dpsnr": -0.02119380405970972,
+   "dssim": -0.00045926570892329543,
+   "dlpips": 0.0001148545316287386,
+   "train_subset_dpsnr": -0.02992814587008752
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "opacity<0.05",
+   "removed": 0.14555926620960236,
+   "dpsnr": -0.5258056640624993,
+   "dssim": -0.0062062314578464894,
+   "dlpips": 0.002020584685461846,
+   "train_subset_dpsnr": -0.6310469104397711
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "trace_low10%",
+   "removed": 0.09999964386224747,
+   "dpsnr": -0.042481013706751725,
+   "dssim": -0.0003267015729632172,
+   "dlpips": 0.00023937076330182716,
+   "train_subset_dpsnr": -0.05035135822911485
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "trace_low20%",
+   "removed": 0.19999928772449493,
+   "dpsnr": -0.726372364589146,
+   "dssim": -0.005312398501804871,
+   "dlpips": 0.004414724026407496,
+   "train_subset_dpsnr": -0.9535355721750598
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "trace_low30%",
+   "removed": 0.30000072717666626,
+   "dpsnr": -2.5664479391915442,
+   "dssim": -0.01932259798049929,
+   "dlpips": 0.016151779464312954,
+   "train_subset_dpsnr": -3.1879074958062965
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "taming_low10%",
+   "removed": 0.09999964386224747,
+   "dpsnr": -0.08706354413713413,
+   "dssim": -0.0008508699280874721,
+   "dlpips": 0.0012626130666051338,
+   "train_subset_dpsnr": -0.1374387433452
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "taming_low20%",
+   "removed": 0.19999928772449493,
+   "dpsnr": -0.6213276999337332,
+   "dssim": -0.00540912832532614,
+   "dlpips": 0.0063748951469148885,
+   "train_subset_dpsnr": -0.805545376193141
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "taming_low30%",
+   "removed": 0.30000072717666626,
+   "dpsnr": -1.951188223702566,
+   "dssim": -0.016779785496848,
+   "dlpips": 0.017692714290959477,
+   "train_subset_dpsnr": -2.4315413198163434
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "opacity_low10%",
+   "removed": 0.09999964386224747,
+   "dpsnr": -0.17170540945870272,
+   "dssim": -0.0017444065638950734,
+   "dlpips": 0.0005652493664196345,
+   "train_subset_dpsnr": -0.1814727783203125
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "opacity_low20%",
+   "removed": 0.19999928772449493,
+   "dpsnr": -1.610909325735907,
+   "dssim": -0.016476433617728103,
+   "dlpips": 0.006315155540193823,
+   "train_subset_dpsnr": -2.0390247221915985
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "opacity_low30%",
+   "removed": 0.30000072717666626,
+   "dpsnr": -5.039651434762135,
+   "dssim": -0.041254724775041884,
+   "dlpips": 0.024131195460047022,
+   "train_subset_dpsnr": -6.12332614775627
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "random_low10%",
+   "removed": 0.09999964386224747,
+   "dpsnr": -2.00010653904506,
+   "dssim": -0.02147863933018279,
+   "dlpips": 0.018596510376249042,
+   "train_subset_dpsnr": -2.559324326053744
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "random_low20%",
+   "removed": 0.19999928772449493,
+   "dpsnr": -4.146588570731026,
+   "dssim": -0.04813105038234167,
+   "dlpips": 0.04221064448356626,
+   "train_subset_dpsnr": -5.067410499818866
+  },
+  {
+   "scene": "kitchen",
+   "seed": 1,
+   "rule": "random_low30%",
+   "removed": 0.30000072717666626,
+   "dpsnr": -6.399350902012415,
+   "dssim": -0.08200737919126233,
+   "dlpips": 0.0730326492871557,
+   "train_subset_dpsnr": -7.514015997609786
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "trace<0.01xmed",
+   "removed": 0.08416462689638138,
+   "dpsnr": -0.02139298575264803,
+   "dssim": -0.00010052919387815162,
+   "dlpips": 0.00014056542090007396,
+   "train_subset_dpsnr": -0.02496645527501329
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "trace<0.03xmed",
+   "removed": 0.12251059710979462,
+   "dpsnr": -0.1476668221609927,
+   "dssim": -0.0008787904466901475,
+   "dlpips": 0.000805344113281814,
+   "train_subset_dpsnr": -0.19542041901619456
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "trace<0.1xmed",
+   "removed": 0.2026057094335556,
+   "dpsnr": -0.8685012817382791,
+   "dssim": -0.005897172859736788,
+   "dlpips": 0.00531807541847229,
+   "train_subset_dpsnr": -1.1535838957755828
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "trace<0.3xmed",
+   "removed": 0.3275423049926758,
+   "dpsnr": -3.557368087768552,
+   "dssim": -0.02624575921467376,
+   "dlpips": 0.022839119817529424,
+   "train_subset_dpsnr": -4.3177230588851465
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "taming<0.01xmed",
+   "removed": 0.0003822985163424164,
+   "dpsnr": 1.7220633370840233e-05,
+   "dssim": 1.600810459745361e-07,
+   "dlpips": 1.3183270182182127e-06,
+   "train_subset_dpsnr": 1.230547468367149e-07
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "taming<0.03xmed",
+   "removed": 0.0019936689641326666,
+   "dpsnr": -2.435956682234064e-05,
+   "dssim": -1.9754682267780765e-07,
+   "dlpips": 4.301113741750351e-06,
+   "train_subset_dpsnr": -8.872247511959586e-05
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "taming<0.1xmed",
+   "removed": 0.02415805123746395,
+   "dpsnr": -0.002480697631835227,
+   "dssim": -2.36426080976182e-05,
+   "dlpips": 5.84974884987044e-05,
+   "train_subset_dpsnr": -0.0035572667275758363
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "taming<0.3xmed",
+   "removed": 0.11292276531457901,
+   "dpsnr": -0.12075963701520465,
+   "dssim": -0.0012716616903032385,
+   "dlpips": 0.001676920694964279,
+   "train_subset_dpsnr": -0.1549256232477063
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "opacity<0.005",
+   "removed": 0.047365713864564896,
+   "dpsnr": -1.7711094447037112e-05,
+   "dssim": -5.960464477539063e-08,
+   "dlpips": 6.100961140453887e-07,
+   "train_subset_dpsnr": -2.89793937469085e-05
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "opacity<0.01",
+   "removed": 0.05149775370955467,
+   "dpsnr": -0.0009360722133067156,
+   "dssim": -6.3793999808270385e-06,
+   "dlpips": 1.3665642057153482e-05,
+   "train_subset_dpsnr": -0.0008094541488148366
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "opacity<0.02",
+   "removed": 0.06521047651767731,
+   "dpsnr": -0.016640853881835227,
+   "dssim": -0.00025079080036705115,
+   "dlpips": 0.0001298757536070949,
+   "train_subset_dpsnr": -0.018230930451423433
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "opacity<0.05",
+   "removed": 0.14062511920928955,
+   "dpsnr": -0.5181448800223194,
+   "dssim": -0.004522718702043793,
+   "dlpips": 0.0020638240235192618,
+   "train_subset_dpsnr": -0.6136251265002883
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "trace_low10%",
+   "removed": 0.09999964386224747,
+   "dpsnr": -0.06043554033551857,
+   "dssim": -0.00033020462308608334,
+   "dlpips": 0.0003374642559460239,
+   "train_subset_dpsnr": -0.07916118252661875
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "trace_low20%",
+   "removed": 0.19999928772449493,
+   "dpsnr": -0.8388695308140335,
+   "dssim": -0.005679150990077431,
+   "dlpips": 0.005131693822996969,
+   "train_subset_dpsnr": -1.1099969802364242
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "trace_low30%",
+   "removed": 0.30000072717666626,
+   "dpsnr": -2.8974510192871072,
+   "dssim": -0.020503008365631126,
+   "dlpips": 0.01783382296562197,
+   "train_subset_dpsnr": -3.5668349727507582
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "taming_low10%",
+   "removed": 0.09999964386224747,
+   "dpsnr": -0.088309751238139,
+   "dssim": -0.0009442908423287211,
+   "dlpips": 0.001308902672358947,
+   "train_subset_dpsnr": -0.1162788021949055
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "taming_low20%",
+   "removed": 0.19999928772449493,
+   "dpsnr": -0.602413504464284,
+   "dssim": -0.005604360784803086,
+   "dlpips": 0.0063720128365925555,
+   "train_subset_dpsnr": -0.7413368225097692
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "taming_low30%",
+   "removed": 0.30000072717666626,
+   "dpsnr": -1.9458627973284024,
+   "dssim": -0.01702415261949808,
+   "dlpips": 0.01762549579143524,
+   "train_subset_dpsnr": -2.33033057182066
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "opacity_low10%",
+   "removed": 0.09999964386224747,
+   "dpsnr": -0.12456697736467603,
+   "dssim": -0.001469276632581451,
+   "dlpips": 0.0006330428378922837,
+   "train_subset_dpsnr": -0.1662202035227125
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "opacity_low20%",
+   "removed": 0.19999928772449493,
+   "dpsnr": -2.325124250139506,
+   "dssim": -0.015770367213657877,
+   "dlpips": 0.007616546324321211,
+   "train_subset_dpsnr": -2.8797633878646387
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "opacity_low30%",
+   "removed": 0.30000072717666626,
+   "dpsnr": -5.986037336077008,
+   "dssim": -0.041822966507502946,
+   "dlpips": 0.026351330748626167,
+   "train_subset_dpsnr": -7.038982022193174
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "random_low10%",
+   "removed": 0.09999964386224747,
+   "dpsnr": -1.9167754037039622,
+   "dssim": -0.021268177032470637,
+   "dlpips": 0.018029223595346727,
+   "train_subset_dpsnr": -2.4003945012246426
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "random_low20%",
+   "removed": 0.19999928772449493,
+   "dpsnr": -4.186791774204799,
+   "dssim": -0.04834037678582326,
+   "dlpips": 0.04200501378093449,
+   "train_subset_dpsnr": -4.966402546052013
+  },
+  {
+   "scene": "kitchen",
+   "seed": 2,
+   "rule": "random_low30%",
+   "removed": 0.30000072717666626,
+   "dpsnr": -6.545189230782643,
+   "dssim": -0.08204672166279381,
+   "dlpips": 0.07193940090281625,
+   "train_subset_dpsnr": -7.578445249988189
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "trace<0.01xmed",
+   "removed": 0.1606961488723755,
+   "dpsnr": -0.016343776996318837,
+   "dssim": -0.0002295466569753879,
+   "dlpips": 0.00012360933499458437,
+   "train_subset_dpsnr": -0.012043060794951543
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "trace<0.03xmed",
+   "removed": 0.1988934725522995,
+   "dpsnr": -0.10919096531012329,
+   "dssim": -0.0011934469907711742,
+   "dlpips": 0.0007649809122085571,
+   "train_subset_dpsnr": -0.11800452201596556
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "trace<0.1xmed",
+   "removed": 0.27646762132644653,
+   "dpsnr": -0.6375670799842261,
+   "dssim": -0.005707328136150602,
+   "dlpips": 0.004308073184429079,
+   "train_subset_dpsnr": -0.7213159991848812
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "trace<0.3xmed",
+   "removed": 0.38995876908302307,
+   "dpsnr": -2.5873419932830046,
+   "dssim": -0.020405211509802457,
+   "dlpips": 0.016797783665167987,
+   "train_subset_dpsnr": -2.991457539220008
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "taming<0.01xmed",
+   "removed": 0.0007601024699397385,
+   "dpsnr": -0.00018643110226435056,
+   "dssim": -8.100118387144306e-08,
+   "dlpips": -3.4158046428867106e-06,
+   "train_subset_dpsnr": -1.8950431574182858e-05
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "taming<0.03xmed",
+   "removed": 0.00940736010670662,
+   "dpsnr": -0.0013356820130958624,
+   "dssim": -1.1330995804192945e-05,
+   "dlpips": 1.3427474559901675e-05,
+   "train_subset_dpsnr": -0.001573378039942952
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "taming<0.1xmed",
+   "removed": 0.08083951473236084,
+   "dpsnr": -0.09491230891300972,
+   "dssim": -0.0006008851222503164,
+   "dlpips": 0.0007261228867066205,
+   "train_subset_dpsnr": -0.09004131440192964
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "taming<0.3xmed",
+   "removed": 0.21961499750614166,
+   "dpsnr": -0.5605379740397147,
+   "dssim": -0.004581631758274196,
+   "dlpips": 0.00503169649686569,
+   "train_subset_dpsnr": -0.6362381596719047
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "opacity<0.005",
+   "removed": 0.11756688356399536,
+   "dpsnr": -0.00012632516714106146,
+   "dssim": -2.2924863340989532e-08,
+   "dlpips": 4.0118510907793947e-07,
+   "train_subset_dpsnr": -9.204495337655771e-05
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "opacity<0.01",
+   "removed": 0.12309509515762329,
+   "dpsnr": -0.0010651319454879626,
+   "dssim": -1.4893519572733993e-05,
+   "dlpips": 2.601475287708488e-05,
+   "train_subset_dpsnr": -0.0013171780493905771
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "opacity<0.02",
+   "removed": 0.13769648969173431,
+   "dpsnr": -0.04431538704114146,
+   "dssim": -0.0010821712322723887,
+   "dlpips": 0.000136341422032088,
+   "train_subset_dpsnr": -0.08517443749212106
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "opacity<0.05",
+   "removed": 0.21300123631954193,
+   "dpsnr": -0.8761006379738845,
+   "dssim": -0.009453600797897699,
+   "dlpips": 0.003185976774264604,
+   "train_subset_dpsnr": -1.3608164018200242
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "trace_low10%",
+   "removed": 0.099999338388443,
+   "dpsnr": -0.00025040064102554993,
+   "dssim": -2.368902548566254e-07,
+   "dlpips": 9.934107481068821e-09,
+   "train_subset_dpsnr": 0.0
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "trace_low20%",
+   "removed": 0.20000086724758148,
+   "dpsnr": -0.11284891764323035,
+   "dssim": -0.001242173023712989,
+   "dlpips": 0.0008046237322000549,
+   "train_subset_dpsnr": -0.12177264305852731
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "trace_low30%",
+   "removed": 0.30000022053718567,
+   "dpsnr": -0.9202058743207893,
+   "dssim": -0.007780117866320491,
+   "dlpips": 0.0060596523376611755,
+   "train_subset_dpsnr": -1.0462920896468617
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "taming_low10%",
+   "removed": 0.099999338388443,
+   "dpsnr": -0.15251017839480596,
+   "dssim": -0.0009731298837906133,
+   "dlpips": 0.0011217983869405979,
+   "train_subset_dpsnr": -0.13822973928143512
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "taming_low20%",
+   "removed": 0.20000086724758148,
+   "dpsnr": -0.4931486080854377,
+   "dssim": -0.0039023986229529406,
+   "dlpips": 0.004278134459104299,
+   "train_subset_dpsnr": -0.5300035784321437
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "taming_low30%",
+   "removed": 0.30000022053718567,
+   "dpsnr": -0.9158734052609177,
+   "dssim": -0.008143052076682089,
+   "dlpips": 0.009025882451962203,
+   "train_subset_dpsnr": -1.2409703654627648
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "opacity_low10%",
+   "removed": 0.099999338388443,
+   "dpsnr": 0.0,
+   "dssim": 0.0,
+   "dlpips": 0.0,
+   "train_subset_dpsnr": 0.0
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "opacity_low20%",
+   "removed": 0.20000086724758148,
+   "dpsnr": -0.5797475668100205,
+   "dssim": -0.008038968611986164,
+   "dlpips": 0.0024198954686140417,
+   "train_subset_dpsnr": -0.9396380762900023
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "opacity_low30%",
+   "removed": 0.30000022053718567,
+   "dpsnr": -3.5313051174848518,
+   "dssim": -0.028816183408101437,
+   "dlpips": 0.014175337476608096,
+   "train_subset_dpsnr": -4.655543850314231
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "random_low10%",
+   "removed": 0.099999338388443,
+   "dpsnr": -1.108995535434822,
+   "dssim": -0.012069686865195273,
+   "dlpips": 0.013005748391151428,
+   "train_subset_dpsnr": -1.4699485532699086
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "random_low20%",
+   "removed": 0.20000086724758148,
+   "dpsnr": -2.570027571458084,
+   "dssim": -0.02827888880020535,
+   "dlpips": 0.028748667775056302,
+   "train_subset_dpsnr": -3.3423885837677965
+  },
+  {
+   "scene": "room",
+   "seed": 1,
+   "rule": "random_low30%",
+   "removed": 0.30000022053718567,
+   "dpsnr": -4.344254762698444,
+   "dssim": -0.048847047182229875,
+   "dlpips": 0.04842065427547848,
+   "train_subset_dpsnr": -5.545370717202459
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "trace<0.01xmed",
+   "removed": 0.17258694767951965,
+   "dpsnr": -0.017189906193660676,
+   "dssim": -0.00020689689196073946,
+   "dlpips": 0.000125091045330733,
+   "train_subset_dpsnr": -0.017174936109974226
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "trace<0.03xmed",
+   "removed": 0.21163174510002136,
+   "dpsnr": -0.09788889762682729,
+   "dssim": -0.001124675457294111,
+   "dlpips": 0.0007437872580992877,
+   "train_subset_dpsnr": -0.11936495381016954
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "trace<0.1xmed",
+   "removed": 0.2877359092235565,
+   "dpsnr": -0.6825616298577728,
+   "dssim": -0.005524046910114766,
+   "dlpips": 0.0039480515779592995,
+   "train_subset_dpsnr": -0.8522288414739805
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "trace<0.3xmed",
+   "removed": 0.39941200613975525,
+   "dpsnr": -2.5734159518510893,
+   "dssim": -0.01971430044907785,
+   "dlpips": 0.015851019284664036,
+   "train_subset_dpsnr": -3.114408616096746
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "taming<0.01xmed",
+   "removed": 0.0004914455348625779,
+   "dpsnr": -1.2715657554451809e-05,
+   "dssim": 7.947285973752827e-08,
+   "dlpips": -1.6429485411029177e-08,
+   "train_subset_dpsnr": -2.627218923834107e-05
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "taming<0.03xmed",
+   "removed": 0.008605757728219032,
+   "dpsnr": -0.001204515114810789,
+   "dssim": -1.0226017389536324e-05,
+   "dlpips": 1.5970223989247856e-05,
+   "train_subset_dpsnr": -0.0017383944603750479
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "taming<0.1xmed",
+   "removed": 0.07927344739437103,
+   "dpsnr": -0.0869107368664892,
+   "dssim": -0.0005756326210804019,
+   "dlpips": 0.0006457116359319393,
+   "train_subset_dpsnr": -0.08645039220010631
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "taming<0.3xmed",
+   "removed": 0.21877408027648926,
+   "dpsnr": -0.5409250992995069,
+   "dssim": -0.004458283766722082,
+   "dlpips": 0.005172567871900707,
+   "train_subset_dpsnr": -0.6531583724483383
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "opacity<0.005",
+   "removed": 0.12774527072906494,
+   "dpsnr": 7.458222217948673e-05,
+   "dssim": -1.0086939884468293e-06,
+   "dlpips": 5.105367073654499e-06,
+   "train_subset_dpsnr": -3.4332275390625e-05
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "opacity<0.01",
+   "removed": 0.133369579911232,
+   "dpsnr": 0.0005962176200675628,
+   "dssim": -9.107131224406206e-05,
+   "dlpips": 2.3709275783628803e-05,
+   "train_subset_dpsnr": -0.01546478271484375
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "opacity<0.02",
+   "removed": 0.14863716065883636,
+   "dpsnr": 0.0018249413905984113,
+   "dssim": -0.0004021769914871465,
+   "dlpips": 0.00013598111959603476,
+   "train_subset_dpsnr": -0.050065071352065615
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "opacity<0.05",
+   "removed": 0.22347667813301086,
+   "dpsnr": -0.7444187555557669,
+   "dssim": -0.007717820314260604,
+   "dlpips": 0.003074803795569986,
+   "train_subset_dpsnr": -0.9756336827432008
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "trace_low10%",
+   "removed": 0.099999338388443,
+   "dpsnr": -8.754241160957577e-05,
+   "dssim": -7.641621124765408e-08,
+   "dlpips": -8.023702180448566e-08,
+   "train_subset_dpsnr": 0.0
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "trace_low20%",
+   "removed": 0.20000086724758148,
+   "dpsnr": -0.05878766377767164,
+   "dssim": -0.0007394032600598344,
+   "dlpips": 0.0004586665294109282,
+   "train_subset_dpsnr": -0.07029127305553828
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "trace_low30%",
+   "removed": 0.30000022053718567,
+   "dpsnr": -0.8537667103302802,
+   "dssim": -0.006596860213157418,
+   "dlpips": 0.004810855174675971,
+   "train_subset_dpsnr": -1.0512326148248476
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "taming_low10%",
+   "removed": 0.099999338388443,
+   "dpsnr": -0.14815413646208953,
+   "dssim": -0.0009763149114755398,
+   "dlpips": 0.001081143052150041,
+   "train_subset_dpsnr": -0.14022304165747812
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "taming_low20%",
+   "removed": 0.20000086724758148,
+   "dpsnr": -0.4778229640080376,
+   "dssim": -0.003803895070002561,
+   "dlpips": 0.004353860631967188,
+   "train_subset_dpsnr": -0.55327126287645
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "taming_low30%",
+   "removed": 0.30000022053718567,
+   "dpsnr": -0.8933757879795188,
+   "dssim": -0.008036766296777964,
+   "dlpips": 0.009371175597875536,
+   "train_subset_dpsnr": -1.2238778145082563
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "opacity_low10%",
+   "removed": 0.099999338388443,
+   "dpsnr": 0.0,
+   "dssim": 0.0,
+   "dlpips": 0.0,
+   "train_subset_dpsnr": 0.0
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "opacity_low20%",
+   "removed": 0.20000086724758148,
+   "dpsnr": -0.31011043450771325,
+   "dssim": -0.00435749995402801,
+   "dlpips": 0.0016496131817499704,
+   "train_subset_dpsnr": -0.4407441539149133
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "opacity_low30%",
+   "removed": 0.30000022053718567,
+   "dpsnr": -2.859301444811699,
+   "dssim": -0.02189125311680329,
+   "dlpips": 0.011634196990575552,
+   "train_subset_dpsnr": -3.763779055687692
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "random_low10%",
+   "removed": 0.099999338388443,
+   "dpsnr": -1.0800376794277113,
+   "dssim": -0.011968284081189995,
+   "dlpips": 0.013026525576909392,
+   "train_subset_dpsnr": -1.4997663190287938
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "random_low20%",
+   "removed": 0.20000086724758148,
+   "dpsnr": -2.4643318469707793,
+   "dssim": -0.027581667288755773,
+   "dlpips": 0.028950139116018236,
+   "train_subset_dpsnr": -3.295262552076771
+  },
+  {
+   "scene": "room",
+   "seed": 2,
+   "rule": "random_low30%",
+   "removed": 0.30000022053718567,
+   "dpsnr": -4.205182197766426,
+   "dssim": -0.04880563570902896,
+   "dlpips": 0.04897463589142531,
+   "train_subset_dpsnr": -5.225082766625192
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "trace<0.01xmed",
+   "removed": 0.18466439843177795,
+   "dpsnr": -0.22232863777562173,
+   "dssim": -0.004598032487066139,
+   "dlpips": 0.006018654296272685,
+   "train_subset_dpsnr": -0.3670542745879217
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "trace<0.03xmed",
+   "removed": 0.2357141226530075,
+   "dpsnr": -0.5959617213198989,
+   "dssim": -0.010932119269120077,
+   "dlpips": 0.011997189176710027,
+   "train_subset_dpsnr": -0.9292212399569415
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "trace<0.1xmed",
+   "removed": 0.3106207251548767,
+   "dpsnr": -1.6914571711891568,
+   "dssim": -0.023915030454334518,
+   "dlpips": 0.02404756883257317,
+   "train_subset_dpsnr": -2.4289514368230662
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "trace<0.3xmed",
+   "removed": 0.4069482386112213,
+   "dpsnr": -3.4898360402960513,
+   "dssim": -0.050088788333692125,
+   "dlpips": 0.04709481683216596,
+   "train_subset_dpsnr": -4.711699456879586
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "taming<0.01xmed",
+   "removed": 5.232916919339914e-06,
+   "dpsnr": 2.509669272399151e-07,
+   "dssim": 4.7056297747261056e-09,
+   "dlpips": -2.18811788049722e-07,
+   "train_subset_dpsnr": 1.7339533187055167e-07
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "taming<0.03xmed",
+   "removed": 0.001776575343683362,
+   "dpsnr": 2.6953847786614915e-05,
+   "dssim": -4.407606627454541e-07,
+   "dlpips": 4.9091483417529336e-06,
+   "train_subset_dpsnr": -0.00011085741447658393
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "taming<0.1xmed",
+   "removed": 0.03147599473595619,
+   "dpsnr": -0.001433623464482281,
+   "dssim": -0.00013710479987294466,
+   "dlpips": 0.00031089469006187476,
+   "train_subset_dpsnr": -0.007307226007636558
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "taming<0.3xmed",
+   "removed": 0.16893687844276428,
+   "dpsnr": -0.15320268430207662,
+   "dssim": -0.005987655175359596,
+   "dlpips": 0.006632994664342778,
+   "train_subset_dpsnr": -0.3058341055205389
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "opacity<0.005",
+   "removed": 0.08486221730709076,
+   "dpsnr": -6.791165000308297e-05,
+   "dssim": 6.776106984407448e-07,
+   "dlpips": 6.9506074253100625e-06,
+   "train_subset_dpsnr": -0.00012287949070710624
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "opacity<0.01",
+   "removed": 0.09495127946138382,
+   "dpsnr": -0.0016922699777701666,
+   "dssim": -9.61987595815561e-06,
+   "dlpips": 6.352796366340674e-05,
+   "train_subset_dpsnr": -0.005115220040984525
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "opacity<0.02",
+   "removed": 0.11714669317007065,
+   "dpsnr": -0.025778921026930135,
+   "dssim": -0.00013524293899536133,
+   "dlpips": 0.0003081183684499611,
+   "train_subset_dpsnr": -0.08290972854151946
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "opacity<0.05",
+   "removed": 0.1934400051832199,
+   "dpsnr": -0.49178454750462564,
+   "dssim": -0.002390304678364874,
+   "dlpips": 0.0022002827180059303,
+   "train_subset_dpsnr": -1.2510077736594454
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "trace_low10%",
+   "removed": 0.10000104457139969,
+   "dpsnr": -0.00032851570530922913,
+   "dssim": -3.27276556115752e-05,
+   "dlpips": 0.00010742678454048193,
+   "train_subset_dpsnr": -0.0005873477820195205
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "trace_low20%",
+   "removed": 0.19999946653842926,
+   "dpsnr": -0.3145170211791992,
+   "dssim": -0.006285245481290391,
+   "dlpips": 0.007734473206495007,
+   "train_subset_dpsnr": -0.5092881520589181
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "trace_low30%",
+   "removed": 0.30000051856040955,
+   "dpsnr": -1.5434859928331868,
+   "dssim": -0.02206971457130036,
+   "dlpips": 0.022238367874371362,
+   "train_subset_dpsnr": -2.2225581660415195
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "taming_low10%",
+   "removed": 0.10000104457139969,
+   "dpsnr": -0.03571299502723946,
+   "dssim": -0.0018230896247061201,
+   "dlpips": 0.00237661129549932,
+   "train_subset_dpsnr": -0.08426891673694925
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "taming_low20%",
+   "removed": 0.19999946653842926,
+   "dpsnr": -0.24302078548230455,
+   "dssim": -0.008927908382917682,
+   "dlpips": 0.009518146907028402,
+   "train_subset_dpsnr": -0.4673730098839961
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "taming_low30%",
+   "removed": 0.30000051856040955,
+   "dpsnr": -0.7559145375301952,
+   "dssim": -0.024312642059828082,
+   "dlpips": 0.024622612877895994,
+   "train_subset_dpsnr": -1.3144484433260821
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "opacity_low10%",
+   "removed": 0.10000104457139969,
+   "dpsnr": -0.0037466852288474684,
+   "dssim": -7.1431461133864005e-06,
+   "dlpips": 9.155391078247144e-05,
+   "train_subset_dpsnr": -0.013562867135711087
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "opacity_low20%",
+   "removed": 0.19999946653842926,
+   "dpsnr": -0.5735901029486392,
+   "dssim": -0.0030834721891503936,
+   "dlpips": 0.0026034630442920703,
+   "train_subset_dpsnr": -1.392747012051668
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "opacity_low30%",
+   "removed": 0.30000051856040955,
+   "dpsnr": -2.3949875580637077,
+   "dssim": -0.02184003434683146,
+   "dlpips": 0.013398885726928711,
+   "train_subset_dpsnr": -4.278632192900687
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "random_low10%",
+   "removed": 0.10000104457139969,
+   "dpsnr": -0.5836323185970897,
+   "dssim": -0.017739121851168216,
+   "dlpips": 0.015828659267801998,
+   "train_subset_dpsnr": -0.9760069991603046
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "random_low20%",
+   "removed": 0.19999946653842926,
+   "dpsnr": -1.3546370958027083,
+   "dssim": -0.0393032180635553,
+   "dlpips": 0.03434181331019656,
+   "train_subset_dpsnr": -2.2773239251339064
+  },
+  {
+   "scene": "train",
+   "seed": 1,
+   "rule": "random_low30%",
+   "removed": 0.30000051856040955,
+   "dpsnr": -2.191785184960615,
+   "dssim": -0.06575673661733927,
+   "dlpips": 0.057809174452957385,
+   "train_subset_dpsnr": -3.541579506613992
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "trace<0.01xmed",
+   "removed": 0.17532888054847717,
+   "dpsnr": -0.19723488155164048,
+   "dssim": -0.003915204813605855,
+   "dlpips": 0.005417629684272562,
+   "train_subset_dpsnr": -0.3623948530717307
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "trace<0.03xmed",
+   "removed": 0.22678153216838837,
+   "dpsnr": -0.5739763410467837,
+   "dssim": -0.009957319811770837,
+   "dlpips": 0.010984377249291077,
+   "train_subset_dpsnr": -0.9689296375621446
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "trace<0.1xmed",
+   "removed": 0.3044903576374054,
+   "dpsnr": -1.5451998459665397,
+   "dssim": -0.023034141251915385,
+   "dlpips": 0.02361951023340228,
+   "train_subset_dpsnr": -2.3829990733753554
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "trace<0.3xmed",
+   "removed": 0.4040936827659607,
+   "dpsnr": -3.3749184357492545,
+   "dssim": -0.04921974947578034,
+   "dlpips": 0.04695270406572441,
+   "train_subset_dpsnr": -4.7412489688757695
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "taming<0.01xmed",
+   "removed": 2.354812568228226e-05,
+   "dpsnr": 2.0077354179193208e-07,
+   "dssim": -1.2548346250973452e-08,
+   "dlpips": 5.4114743297528634e-08,
+   "train_subset_dpsnr": 4.045891053294781e-07
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "taming<0.03xmed",
+   "removed": 0.002605992602184415,
+   "dpsnr": 1.9926773877187998e-05,
+   "dssim": -4.862484179746218e-07,
+   "dlpips": 6.1071232745624204e-06,
+   "train_subset_dpsnr": -0.00015183651085948213
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "taming<0.1xmed",
+   "removed": 0.035453010350465775,
+   "dpsnr": -0.002257849040784521,
+   "dssim": -0.00016093410943684994,
+   "dlpips": 0.00032332500344828263,
+   "train_subset_dpsnr": -0.009940869880445291
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "taming<0.3xmed",
+   "removed": 0.1751221865415573,
+   "dpsnr": -0.17578185232061827,
+   "dssim": -0.006566566856283873,
+   "dlpips": 0.007079769514108963,
+   "train_subset_dpsnr": -0.36759862032803525
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "opacity<0.005",
+   "removed": 0.08157332241535187,
+   "dpsnr": 0.00016383120888363578,
+   "dssim": 2.0265579223632812e-06,
+   "dlpips": 1.0532768149329463e-06,
+   "train_subset_dpsnr": -0.0002117156982421875
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "opacity<0.01",
+   "removed": 0.09265141189098358,
+   "dpsnr": 0.0008401870727539062,
+   "dssim": 1.4339622698256171e-05,
+   "dlpips": 6.80755627782692e-05,
+   "train_subset_dpsnr": -0.00955448728619146
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "opacity<0.02",
+   "removed": 0.11490177363157272,
+   "dpsnr": 0.007787629177698818,
+   "dssim": 0.00010844908262552799,
+   "dlpips": 0.0003010411011545311,
+   "train_subset_dpsnr": -0.05599149068196496
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "opacity<0.05",
+   "removed": 0.19236202538013458,
+   "dpsnr": -0.5988788353769401,
+   "dssim": -0.0032715358232197067,
+   "dlpips": 0.0026034677499219006,
+   "train_subset_dpsnr": -1.1736269286184609
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "trace_low10%",
+   "removed": 0.10000104457139969,
+   "dpsnr": -0.0019203236228513276,
+   "dssim": -5.748240571279428e-05,
+   "dlpips": 0.00014985862531161076,
+   "train_subset_dpsnr": -0.0036217660614923375
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "trace_low20%",
+   "removed": 0.19999946653842926,
+   "dpsnr": -0.3480107658787759,
+   "dssim": -0.0065416254495319626,
+   "dlpips": 0.007823512742393901,
+   "train_subset_dpsnr": -0.6045566327644103
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "trace_low30%",
+   "removed": 0.30000051856040955,
+   "dpsnr": -1.492983742764121,
+   "dssim": -0.022288408718611152,
+   "dlpips": 0.022918804303595913,
+   "train_subset_dpsnr": -2.307665795990914
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "taming_low10%",
+   "removed": 0.10000104457139969,
+   "dpsnr": -0.03683441563656231,
+   "dssim": -0.0017739597119783568,
+   "dlpips": 0.002211155467911785,
+   "train_subset_dpsnr": -0.0934032671379299
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "taming_low20%",
+   "removed": 0.19999946653842926,
+   "dpsnr": -0.24917963931434883,
+   "dssim": -0.009049555188731184,
+   "dlpips": 0.009452682576681443,
+   "train_subset_dpsnr": -0.5061080817020276
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "taming_low30%",
+   "removed": 0.30000051856040955,
+   "dpsnr": -0.77093370337235,
+   "dssim": -0.024662828759143274,
+   "dlpips": 0.024148693602336097,
+   "train_subset_dpsnr": -1.3712766820734181
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "opacity_low10%",
+   "removed": 0.10000104457139969,
+   "dpsnr": -0.0026449404264745624,
+   "dssim": 3.889987343230761e-05,
+   "dlpips": 0.0001005467615629585,
+   "train_subset_dpsnr": -0.01581833579323444
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "opacity_low20%",
+   "removed": 0.19999946653842926,
+   "dpsnr": -0.7895257096541535,
+   "dssim": -0.0045348280354550186,
+   "dlpips": 0.0030854438480578117,
+   "train_subset_dpsnr": -1.3926621639367305
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "opacity_low30%",
+   "removed": 0.30000051856040955,
+   "dpsnr": -2.4868273233112532,
+   "dssim": -0.021782529981512755,
+   "dlpips": 0.01345693084754443,
+   "train_subset_dpsnr": -3.9584958047577814
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "random_low10%",
+   "removed": 0.10000104457139969,
+   "dpsnr": -0.6781439028288183,
+   "dssim": -0.017833999897304387,
+   "dlpips": 0.015817049694688695,
+   "train_subset_dpsnr": -1.0776904135039338
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "random_low20%",
+   "removed": 0.19999946653842926,
+   "dpsnr": -1.373110921759352,
+   "dssim": -0.03892069270736298,
+   "dlpips": 0.035214087680766476,
+   "train_subset_dpsnr": -2.2634596391157658
+  },
+  {
+   "scene": "train",
+   "seed": 2,
+   "rule": "random_low30%",
+   "removed": 0.30000051856040955,
+   "dpsnr": -2.3199332136856867,
+   "dssim": -0.06615307927131653,
+   "dlpips": 0.058925569841736275,
+   "train_subset_dpsnr": -3.6298651839747578
+  }
+ ]
+}

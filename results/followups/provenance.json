@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "scope": "Curated original numeric records. Private-source hashes identify retained local inputs; only public-file hashes verify bundled bytes.",
+  "records": [
+    {
+      "public_file": "results/followups/matched_turnover.json",
+      "public_sha256": "22a956299078c58cf111b5df36018ab98e503fc3c3945348695728f2fd6ca70f",
+      "retained_private_source_id": "docs/figures/matched_turnover_20261028.json",
+      "retained_private_source_sha256": "489de3ce396a374e652a1654199375d8a79100219f29c78f717bde3f93c46df3",
+      "exported_fields": [
+        "scope",
+        "correctness",
+        "runs",
+        "cells",
+        "summary",
+        "gate_passes",
+        "verdict",
+        "resource_accounting"
+      ],
+      "omitted": "Machine paths, raw source checkpoints, configs and unselected metadata. Numeric values in selected fields unchanged."
+    },
+    {
+      "public_file": "results/followups/trace_development.json",
+      "public_sha256": "ebc42fc92a54d4c6f9fd744c8785363076ce26950e722976ba28dff17c459818",
+      "retained_private_source_id": "docs/figures/trace_development_20261101/results.json",
+      "retained_private_source_sha256": "6c54ab1001bb750085005cce984df1f745f063cdcbd8db096a883d9fc6ff78a3",
+      "exported_fields": [
+        "scope",
+        "candidate",
+        "schedule_replay",
+        "historical_metrics_pooled",
+        "stage1_decision",
+        "stage2",
+        "final_decision",
+        "runs",
+        "per_view",
+        "view_comparisons",
+        "resource_accounting"
+      ],
+      "omitted": "Machine paths, raw source checkpoints, configs and unselected metadata. Numeric values in selected fields unchanged."
+    },
+    {
+      "public_file": "results/followups/slam_score_cost.json",
+      "public_sha256": "dbdb6cbc2241031a9984ac4de5965d240b430fdde07cd5b5cf22e20afc38538e",
+      "retained_private_source_id": "docs/figures/slam_score_cost_20261102/results.json",
+      "retained_private_source_sha256": "21307fd13157a070c48f796a9556cf680f78a040b90eeb5cad84c0bb329deb14",
+      "exported_fields": [
+        "scope",
+        "contribution_parity",
+        "components",
+        "quality_comparisons",
+        "native",
+        "native_on_off",
+        "prefix",
+        "prefix_details",
+        "prefix_comparisons",
+        "component_sum_of_medians",
+        "component_closing_trace_percent_change",
+        "full_online_slam_speedup_measured",
+        "timing_repetitions_are_training_seeds"
+      ],
+      "omitted": "Machine paths, raw source checkpoints, configs and unselected metadata. Numeric values in selected fields unchanged."
+    },
+    {
+      "public_file": "results/followups/slam_implementation.json",
+      "public_sha256": "bfdf837deff7c719c3e8737f25100c7b62bf2b601985e5292bed422e013f0b0f",
+      "retained_private_source_id": "docs/figures/slam_implementation_20261102/results.json",
+      "retained_private_source_sha256": "f0f6362e5d1d5f3ceeca5087e96440bbe8b67e442da57e46569ad878586ab249",
+      "exported_fields": [
+        "scope",
+        "development",
+        "components",
+        "component_closing_totals",
+        "quality_comparisons",
+        "native",
+        "native_comparisons",
+        "prefix",
+        "prefix_details",
+        "prefix_comparisons",
+        "same_input_mask_checks",
+        "online_tracking_fps_claim",
+        "sampling_frequency_changed",
+        "timing_scope"
+      ],
+      "omitted": "Machine paths, raw source checkpoints, configs and unselected metadata. Numeric values in selected fields unchanged."
+    }
+  ],
+  "code": [
+    {
+      "public_file": "code/sage4d/slam/__init__.py",
+      "public_sha256": "5950ed64f066eb59a6a0709ee5326c7dcb23ccada284340ec44a4a1e59e751de",
+      "frozen_source_sha256": "5950ed64f066eb59a6a0709ee5326c7dcb23ccada284340ec44a4a1e59e751de",
+      "transformation": "none"
+    },
+    {
+      "public_file": "code/sage4d/slam/selection.py",
+      "public_sha256": "49c6d9d9089065110bcc8141b9f775365f94feef8b5c53f91943c216d4b8e73e",
+      "frozen_source_sha256": "49c6d9d9089065110bcc8141b9f775365f94feef8b5c53f91943c216d4b8e73e",
+      "transformation": "none"
+    },
+    {
+      "public_file": "code/sage4d/slam/adapter.py",
+      "public_sha256": "dfd8383cb507a8127f6ee743499db5244b68f3294cc026705cf259a8a3a6d655",
+      "frozen_source_sha256": "dfd8383cb507a8127f6ee743499db5244b68f3294cc026705cf259a8a3a6d655",
+      "transformation": "none"
+    },
+    {
+      "public_file": "code/sage4d/slam/collector.py",
+      "public_sha256": "5bb03b613da5b849bbe446acf6155db052cf52a3dbc03c33fa001c49b4ead7d5",
+      "frozen_source_sha256": "7840c01b7cb0a9fd0903b9ef765fa0809272af123b181e41faedb1342d446f49",
+      "transformation": "Accepted update_dense AST unchanged; installation wrapper supports dense only. Rejected fused candidate omitted."
+    }
+  ]
+}

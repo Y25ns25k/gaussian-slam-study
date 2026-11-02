@@ -1,0 +1,41 @@
+{
+ "note": "LSG-SLAM front end only (scripts/splatam.py), one map per segment, stride 2. Loop closure and the back end were not measured. ATE recomputed; the values LSG-SLAM prints are a mean on w2c translations.",
+ "rows": [
+  {
+   "end_frame": 50,
+   "frames": 26,
+   "gaussians": 865917,
+   "peak_alloc_gib": 3.6556954383850098,
+   "peak_reserved_gib": 4.130859375,
+   "ate_rmse_cm": 16.90998035997603,
+   "gt_path_m": 15.341485977172852
+  },
+  {
+   "end_frame": 100,
+   "frames": 51,
+   "gaussians": 1285683,
+   "peak_alloc_gib": 3.981245517730713,
+   "peak_reserved_gib": 4.673828125,
+   "ate_rmse_cm": 20.982108320795508,
+   "gt_path_m": 55.27964782714844
+  },
+  {
+   "end_frame": 200,
+   "frames": 101,
+   "gaussians": 2334999,
+   "peak_alloc_gib": 4.674839019775391,
+   "peak_reserved_gib": 5.76171875,
+   "ate_rmse_cm": 48.7488435277683,
+   "gt_path_m": 123.06346893310547
+  },
+  {
+   "end_frame": 400,
+   "frames": 201,
+   "gaussians": 4045062,
+   "peak_alloc_gib": 6.306732654571533,
+   "peak_reserved_gib": 7.89453125,
+   "ate_rmse_cm": 77.85825048811672,
+   "gt_path_m": 260.7677917480469
+  }
+ ]
+}
