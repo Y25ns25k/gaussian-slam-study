@@ -1,198 +1,182 @@
 #!/usr/bin/env python3
-"""Regenerate every figure in figures/ from the JSON tables in results/ (CPU only; numpy + matplotlib).
-
-    python scripts/make_figures.py
-"""
-import json
-from collections import defaultdict
+"""Rebuild the research-flow and score/quality figures from original JSON (CPU)."""
 from pathlib import Path
+from statistics import mean
+import numpy as np
+from matplotlib.lines import Line2D
+from matplotlib.patches import FancyBboxPatch
+from figure_data import write_data
+from plot_style import COLORS as C, LABELS, SCORE_COLOR, plt, style, heading, export, mean_marker
 
-import matplotlib
-
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
-import numpy as np  # noqa: E402
-
-ROOT = Path(__file__).resolve().parents[1]
-RES, FIG = ROOT / "results", ROOT / "figures"
-FIG.mkdir(exist_ok=True)
-
-# Palette: validated categorical order (blue, orange, aqua, yellow, magenta); text tokens; recessive grid.
-C = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4"]
-GRAY = "#8a8984"
-SURFACE, TEXT, TEXT2, GRID = "#fcfcfb", "#0b0b0b", "#52514e", "#e6e5e0"
-plt.rcParams.update({
-    "figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "savefig.facecolor": SURFACE,
-    "axes.edgecolor": GRID, "axes.labelcolor": TEXT2, "xtick.color": TEXT2, "ytick.color": TEXT2,
-    "text.color": TEXT, "axes.grid": True, "grid.color": GRID, "grid.linewidth": 1, "axes.axisbelow": True,
-    "axes.spines.top": False, "axes.spines.right": False, "font.size": 10, "axes.titlesize": 11,
-    "axes.titleweight": "bold", "legend.frameon": False, "lines.linewidth": 2, "lines.solid_capstyle": "round",
-})
+ROOT=Path(__file__).resolve().parents[1]
+FIG=ROOT/'figures'
 
 
-def load(name):
-    return json.loads((RES / name).read_text())
+def flow():
+    fig, ax=plt.subplots(figsize=(10,8));ax.set_axis_off()
+    stages=[('01  Find the resource bottleneck',
+             'Profile keyframe data, Gaussian state and saved maps.',
+             'Decision: distinguish runtime memory from checkpoint storage.'),
+            ('02  Isolate the score effect',
+             'Separate growth from deletion; match actual turnover.',
+             'Decision: retain the small gain and the stronger gradient control.'),
+            ('03  Preserve spatial coverage',
+             'Compare scores under equal 5 cm voxel quotas.',
+             'Decision: modest offline compression; strong scores stay close.'),
+            ('04  Measure the full cost boundary',
+             'Separate collection, scoring, selection and refinement.',
+             'Decision: profile the selector before changing the score.'),
+            ('05  Optimize and retest',
+             'Keep the score, quotas, update frequency and tested masks.',
+             'Result: faster compression stage; total-cost advantage unconfirmed.')]
+    for i,(title,method,result) in enumerate(stages):
+        y=.89-i*.185
+        ax.add_patch(FancyBboxPatch((.025,y-.12),.95,.155,boxstyle='round,pad=0.012',
+            facecolor='#F2F6FC' if i%2==0 else '#F8FAFC',edgecolor='#CDD8E8',transform=ax.transAxes))
+        ax.text(.05,y,title,transform=ax.transAxes,fontsize=13,fontweight='bold',color=C['trace'])
+        ax.text(.05,y-.043,method,transform=ax.transAxes,fontsize=11.8)
+        ax.text(.05,y-.083,result,transform=ax.transAxes,fontsize=10.8,color=C['muted'])
+        if i<4:ax.annotate('',xy=(.50,y-.153),xytext=(.50,y-.134),xycoords='axes fraction',
+                           arrowprops={'arrowstyle':'->','color':C['muted'],'lw':1.5})
+    heading(fig,'The research flow','A synthesis of the questions and decisions; each stage has its own controls and scope.')
+    fig.subplots_adjust(left=.03,right=.98,top=.85,bottom=.03)
+    export(fig,FIG/'fig0_research_flow.png')
 
 
-def mean(x):
-    return sum(x) / len(x)
+def memory(d):
+    fig,axes=plt.subplots(2,1,figsize=(9.5,8.4))
+    a,b=axes;rows=d['memory']['splatam'];frames=[r['frame'] for r in rows]
+    for key,lab,col in [('alloc','All allocated',C['opacity']),('keyframe_bytes','Keyframes: RGB + depth',C['trace']),
+                         ('gaussian','Gaussian parameters + tracked state',C['contrib'])]:
+        values=[(r['param_bytes']+r['variable_bytes'] if key=='gaussian' else r[key])/2**30 for r in rows]
+        a.plot(frames,values,color=col,label=lab)
+        a.annotate(f'{values[-1]:.2f} GiB',(frames[-1],values[-1]),xytext=(9,0),textcoords='offset points',va='center',color=col,fontweight='bold')
+    a.set(title='A  SplaTAM · Replica room1',xlabel='Processed frame',ylabel='Allocated / recorded tensors [GiB]',xlim=(0,2260),ylim=(0,2.85))
+    a.legend(loc='upper left',fontsize=10);style(a,'y')
+    rows=d['memory']['lsg'];x=[r['gaussians']/1e6 for r in rows];y=[r['peak_alloc_gib'] for r in rows]
+    b.plot(x,y,color=C['trace'],marker='o',markersize=7)
+    for xx,yy,r in zip(x,y,rows):b.annotate(f"{r['frames']} frames",(xx,yy),xytext=(0,10),textcoords='offset points',ha='center',fontsize=10)
+    b.set(title='B  LSG-SLAM front end · KITTI 07 prefixes',xlabel='Gaussians in one map [millions]',ylabel='Peak allocated memory [GiB]',ylim=(0,7.8),xlim=(.6,4.4))
+    style(b,'y')
+    heading(fig,'Choose the resource before reducing the map','Keyframe data and Gaussian state are separate targets.',
+        'A: end-of-frame snapshots, not a full peak decomposition. B: front end only; no backend or loop closure.\nThese are different workloads, not a cross-system memory ranking.')
+    fig.subplots_adjust(left=.13,right=.92,top=.83,bottom=.15,hspace=.58)
+    export(fig,FIG/'fig1_slam_memory.png')
 
 
-def dot(ax, x, y, color, **kw):
-    ax.plot(x, y, "o", color=color, markersize=8, markeredgecolor=SURFACE, markeredgewidth=2, **kw)
+def storage(d):
+    rows=d['storage'];fig,axes=plt.subplots(1,2,figsize=(10,6.3),sharey=True,gridspec_kw={'width_ratios':[1.1,1]})
+    y=np.arange(len(rows));cols=[C['trace'] if r['exact_scheme'] else C['contrib'] for r in rows]
+    for i,r in enumerate(rows):
+        value=mean(r['mib']);axes[0].barh(i,value,color=cols[i],height=.58,alpha=.85)
+        axes[0].text(value+5,i,f'{value:.1f}',va='center',fontsize=10)
+        axes[1].scatter(r['dpsnr'],i+np.linspace(-.075,.075,3),s=23,color=cols[i],alpha=.55)
+        mean_marker(axes[1],mean(r['dpsnr']),i)
+        axes[1].text(1.02,i,f"{mean(r['dpsnr']):+.3f}",transform=axes[1].get_yaxis_transform(),va='center',fontsize=10)
+    axes[0].set(yticks=y,yticklabels=[r['label'] for r in rows],xlabel='Modeled bank size [MiB]',title='A  Storage',xlim=(0,max(mean(r['mib']) for r in rows)*1.18))
+    axes[0].invert_yaxis();axes[1].axvline(0,color=C['muted'],lw=1)
+    axes[1].set(xlabel='PSNR change vs dense [dB]',title='B  Observed quality change',xlim=(-.36,.025))
+    for ax in axes:style(ax)
+    reduction=100*(1-mean(rows[3]['mib'])/mean(rows[0]['mib']))
+    heading(fig,f'Temporal storage: combined exact scheme saves {reduction:.1f}%',
+        'Three repeated seed-0 runs · blue: exact schemes · orange: approximate merges · diamonds: means.',
+        'Bytes include centres, Adam moments and indices. This is a storage model, not measured VRAM saving.\nExact-scheme render parity was recorded originally; the original parity images are not bundled.')
+    fig.subplots_adjust(left=.26,right=.93,top=.80,bottom=.20,wspace=.35)
+    export(fig,FIG/'fig2_flow4dgs_storage.png')
 
 
-def save(fig, name):
-    fig.tight_layout()
-    fig.savefig(FIG / name, dpi=160)
-    plt.close(fig)
-    print("wrote", name)
+def roles(d):
+    rows=d['roles'];fig,ax=plt.subplots(figsize=(10,6.8))
+    for i,r in enumerate(rows):
+        values=[p['delta'] for p in r['pairs']];col={'pruning':C['trace'],'growth':C['growth'],'control':C['opacity']}[r['role']]
+        ax.scatter(values,i+np.linspace(-.11,.11,len(values)),s=29,color=col,alpha=.55,zorder=3)
+        mean_marker(ax,mean(values),i)
+        ax.text(1.02,i,f'{mean(values):+.3f}',transform=ax.get_yaxis_transform(),va='center',fontweight='bold',fontsize=11)
+    ax.set(yticks=np.arange(len(rows)),yticklabels=[r['label'] for r in rows],xlabel='Paired test-view PSNR change [dB]')
+    ax.set_ylim(len(rows)-.5,-.5);ax.axvline(0,color=C['muted'],lw=1);style(ax)
+    ax.legend(handles=[Line2D([0],[0],marker='o',color='none',markerfacecolor=c,label=l) for c,l in
+        [(C['trace'],'Deletion change'),(C['growth'],'Growth change'),(C['opacity'],'Both-role controls')]],
+        loc='upper left',bbox_to_anchor=(0,-.14),ncol=2,fontsize=10)
+    heading(fig,'Separate the score’s growth and deletion roles',
+        '35% retained-count budget · four scenes × two seeds · each row names its reference.',
+        'Small dots: paired scene–seed differences. Black diamonds / right labels: means.\nHistorical gradient control changes both roles; the later gradient screen changes deletion only.')
+    fig.subplots_adjust(left=.35,right=.89,top=.82,bottom=.25)
+    export(fig,FIG/'fig3_taming_roles.png')
 
 
-# 1. SLAM memory: SplaTAM composition over a sequence, LSG-SLAM front-end peak against map size
-mp = load("splatam_memprof_room1.json")["rows"]
-lsg = load("lsg_kitti07_frontend.json")["rows"]
-fig, (a, b) = plt.subplots(1, 2, figsize=(10, 3.8))
-f = [r["frame"] for r in mp]
-kf = [r["keyframe_bytes"] / 2**30 for r in mp]
-gs = [(r["param_bytes"] + r["variable_bytes"]) / 2**30 for r in mp]
-alloc = [r["alloc"] / 2**30 for r in mp]
-for y, c, lab in ((alloc, GRAY, "all allocated"), (kf, C[0], "keyframe images + depth"), (gs, C[1], "Gaussian params + tracked state")):
-    a.plot(f, y, color=c, label=lab)
-    a.annotate(f"{y[-1]:.2f} GiB", (f[-1], y[-1]), xytext=(4, 0), textcoords="offset points", va="center", color=TEXT2, fontsize=9)
-a.set_title("SplaTAM, Replica room1: what fills GPU memory")
-a.set_xlabel("frame")
-a.set_ylabel("GiB (end of frame)")
-a.set_xlim(0, 2250)
-a.legend(loc="upper left")
-g = [r["gaussians"] / 1e6 for r in lsg]
-p = [r["peak_alloc_gib"] for r in lsg]
-b.plot(g, p, color=C[0])
-for i, (r, x, y) in enumerate(zip(lsg, g, p)):
-    dot(b, x, y, C[0])
-    b.annotate(f"{r['frames']} frames", (x, y), xytext=(-8, 10) if i % 2 else (6, -14), textcoords="offset points",
-               ha="right" if i % 2 else "left", color=TEXT2, fontsize=9)
-b.set_ylim(0, 8)
-b.set_title("LSG-SLAM front end, KITTI 07: peak vs map size")
-b.set_xlabel("Gaussians in one map (millions)")
-b.set_ylabel("peak allocated (GiB)")
-save(fig, "fig1_slam_memory.png")
+def posthoc(d):
+    fig,axes=plt.subplots(2,1,figsize=(9.5,8.3));a,b=axes
+    for score,label in [('trace','Trace'),('taming','Taming · all scoring views'),('opacity','Opacity'),('random','Random')]:
+        rows=[r for r in d['posthoc'] if r['score']==score];x=[r['share'] for r in rows];y=[mean(p['delta'] for p in r['pairs']) for r in rows]
+        a.plot(x,y,color=C[score],marker='o',label=label)
+    a.axhline(0,color=C['muted'],lw=1);a.set(title='A  Mean loss against each unpruned source',ylabel='PSNR change [dB]',xticks=[10,20,30],xlim=(8,32))
+    a.legend(loc='lower left',fontsize=10);style(a,'y')
+    for share in (10,20,30):
+        trace=next(r for r in d['posthoc'] if r['score']=='trace' and r['share']==share)
+        taming=next(r for r in d['posthoc'] if r['score']=='taming' and r['share']==share)
+        assert [(r['scene'],r['seed']) for r in trace['pairs']]==[(r['scene'],r['seed']) for r in taming['pairs']]
+        values=[x['delta']-y['delta'] for x,y in zip(trace['pairs'],taming['pairs'])]
+        b.scatter(share+np.linspace(-.6,.6,len(values)),values,s=31,color=C['trace'],alpha=.5)
+        mean_marker(b,share,mean(values));b.annotate(f'{mean(values):+.3f}',(share,mean(values)),xytext=(12,7),textcoords='offset points',fontsize=10)
+    b.axhline(0,color=C['muted'],lw=1);b.set(title='B  Paired difference against the stronger Taming control',xlabel='Gaussians removed [%]',ylabel='Trace − Taming PSNR [dB]',xticks=[10,20,30],xlim=(8,32))
+    style(b,'y')
+    heading(fig,'The deletion budget changes the comparison','Finished Taming models · eight scene–seed cells · no fine-tuning.',
+        'A: means over four scenes × two seeds. B: all eight paired differences; black diamonds are means.\nPositive values in B favour trace. Similar observed means do not prove equivalence.')
+    fig.subplots_adjust(left=.14,right=.95,top=.83,bottom=.15,hspace=.48)
+    export(fig,FIG/'fig4_posthoc_curves.png')
 
-# 2. Flow4DGS temporal storage: lossless and epsilon-merge baselines (three repeated seed-0 TUM runs)
-names = [("dense", "dense"), ("fb1", "drop pre-birth"), ("fb2", "merge copies"), ("fb1_fb2", "both (lossless)"),
-         ("fb3_eps5mm", "ε = 5 mm"), ("fb3_eps10mm", "ε = 10 mm"), ("fb3_eps20mm", "ε = 20 mm")]
-runs = [load(f"flow4dgs/b1_posthoc_storage_r{i}.json")["results"] for i in (1, 2, 3)]
-fig, ax = plt.subplots(figsize=(8, 4.2))
-for i, (k, lab) in enumerate(names):
-    mb = mean([r[k]["center_bytes"] / 2**20 for r in runs])
-    dp = mean([r[k]["psnr"] - r["dense"]["psnr"] for r in runs])
-    dot(ax, mb, dp, C[0] if i < 4 else C[1])
-    positions = {"dense": (mb - 5, -0.045), "fb1": (mb, -0.065), "fb2": (285, 0.045),
-                 "fb1_fb2": (215, 0.045), "fb3_eps5mm": (208, -0.080),
-                 "fb3_eps10mm": (260, -0.145), "fb3_eps20mm": (260, -0.285)}
-    ax.annotate(lab, (mb, dp), xytext=positions[k], color=TEXT2, fontsize=9,
-                ha="center", arrowprops={"arrowstyle": "-", "color": GRID})
-ax.plot([], [], "o", color=C[0], label="lossless (bit-identical renders)")
-ax.plot([], [], "o", color=C[1], label="lossy ε-merge")
-ax.legend(loc="lower right", fontsize=9)
-ax.set_ylim(-0.36, 0.08)
-ax.set_title("Flow4DGS-SLAM per-keyframe centre bank: storage vs quality")
-ax.set_xlabel("modeled centre bank incl. Adam + indices (MiB, 3 seed-0 repeats)")
-ax.set_ylabel("ΔPSNR vs dense (dB)")
-save(fig, "fig2_flow4dgs_storage.png")
 
-# 3. Taming 3DGS at 35 %: which part of the score matters (paired per cell, 4 scenes x 2 seeds)
-arms = defaultdict(dict)
-for c in load("taming_score_arms.json")["cells"]:
-    arms[c["arm"]][(c["scene"], c["seed"])] = c["psnr"]
-contrasts = [("Taming growth + trace pruning", "taming_grow_trace_prune", "taming", C[0]),
-             ("trace pruning, with trace growth", "trace", "trace_grow_taming_prune", C[0]),
-             ("trace growth, with Taming pruning", "trace_grow_taming_prune", "taming", C[1]),
-             ("trace growth, with trace pruning", "trace", "taming_grow_trace_prune", C[1]),
-             ("trace score alone vs Taming score", "trace", "taming", GRAY),
-             ("vanilla gradient vs Taming score", "grad", "taming", GRAY),
-             ("uniform (no score) vs Taming score", "uniform", "taming", GRAY)]
-fig, ax = plt.subplots(figsize=(10.4, 5.5))
-for i, (lab, a_, b_, col) in enumerate(contrasts):
-    if set(arms[a_]) != set(arms[b_]) or len(arms[a_]) != 8:
-        raise ValueError(f"Incomplete paired comparison: {a_}, {b_}")
-    d = [arms[a_][k] - arms[b_][k] for k in sorted(arms[a_])]
-    y = len(contrasts) - 1 - i
-    ax.plot(d, [y] * len(d), "o", color=col, alpha=0.35, markersize=5, markeredgewidth=0)
-    dot(ax, mean(d), y, col)
-    ax.annotate(f"{mean(d):+.3f}", (mean(d), y), xytext=(0, 9), textcoords="offset points", ha="center", color=TEXT2, fontsize=9)
-ax.axvline(0, color=GRAY, linewidth=1)
-ax.set_yticks(range(len(contrasts)))
-ax.set_yticklabels([c[0] for c in contrasts][::-1])
-ax.set_xlabel("paired ΔPSNR, test views (dB); large dot = mean, small dots = 4 scenes × 2 seeds")
-ax.set_title("Taming 3DGS at 35% retained budget: the score’s role matters", pad=28)
-ax.set_ylim(-0.35, 6.65)
-ax.axvline(0.10, color=GRAY, linewidth=1, linestyle="--")
-ax.text(0.10, 1.01, "+0.10 dB adoption threshold", transform=ax.get_xaxis_transform(),
-        ha="center", fontsize=8, color=TEXT2)
-ax.plot([], [], "o", color=C[0], label="trace used for pruning")
-ax.plot([], [], "o", color=C[1], label="trace used for growth")
-ax.plot([], [], "o", color=GRAY, label="score controls")
-ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.19), fontsize=8, ncol=3)
-save(fig, "fig3_taming_roles.png")
+def compression(d):
+    scores=['safe_final_voxel','contrib_voxel','contribmax_voxel','hybrid_voxel','opacity_voxel','random_voxel']
+    scenes=['room0','office0','room1'];markers=['o','s','D'];fig,axes=plt.subplots(1,2,figsize=(10.5,6.7),sharex=True,sharey=True)
+    for ax,share,title in zip(axes,(.25,.5),('A  24.0–24.6% removed','B  49.3–49.7% removed')):
+        for i,score in enumerate(scores):
+            rows=[r for r in d['compression'] if r['score']==score and r['nominal_removed']==share]
+            if not rows:ax.text(-1.25,i,'not evaluated',ha='center',va='center',color=C['random'],fontsize=10)
+            for scene,offset,marker in zip(scenes,(-.11,0,.11),markers):
+                rs=[r for r in rows if r['scene']==scene]
+                assert len(rs)<=1
+                if rs:ax.scatter(rs[0]['dpsnr'],i+offset,marker=marker,s=58,color=SCORE_COLOR[score],edgecolors='white',linewidth=.6,zorder=3)
+        ax.axvline(0,color=C['muted'],lw=1);ax.set(title=title,xlabel='PSNR change vs refine-only [dB]',xlim=(-2.75,.09),xticks=[-2.5,-2,-1.5,-1,-.5,0]);style(ax)
+    axes[0].set(yticks=np.arange(len(scores)),yticklabels=[LABELS[s] for s in scores],ylim=(len(scores)-.5,-.5))
+    fig.legend(handles=[Line2D([0],[0],marker=m,color='none',markerfacecolor=C['muted'],markersize=7,label=s) for s,m in zip(scenes,markers)],
+               loc='lower center',bbox_to_anchor=(.58,.10),ncol=3)
+    heading(fig,'Spatial quotas: the removal budget matters',
+        'Gaussian-SLAM · identical 5 cm voxel quotas · both panels use the same horizontal scale.',
+        'One source run per scene. Offline, mapping views, 50 refinement steps, colours frozen.\nMissing controls at 50% are not zero loss. Less-negative PSNR change is better.')
+    fig.subplots_adjust(left=.23,right=.98,top=.81,bottom=.24,wspace=.12)
+    export(fig,FIG/'fig5_gslam_compression.png')
 
-# 4. Post-hoc pruning of finished Taming models: damage vs removed share, no fine-tuning
-rows = load("posthoc_prune_rules.json")["rows"]
-fig, ax = plt.subplots(figsize=(6.4, 3.9))
-series = [("trace", "trace", C[0]), ("taming", "Taming score (all views)", C[1]), ("opacity", "opacity", C[2]), ("random", "random", C[3])]
-for key, lab, col in series:
-    xs, ys = [], []
-    for share in (10, 20, 30):
-        v = [r["dpsnr"] for r in rows if r["rule"] == f"{key}_low{share}%"]
-        xs.append(share)
-        ys.append(mean(v))
-    ax.plot(xs, ys, color=col, label=lab)
-    for x, y in zip(xs, ys):
-        dot(ax, x, y, col)
-    ax.annotate(lab, (xs[-1], ys[-1]), xytext=(8, 0), textcoords="offset points", va="center", color=TEXT2, fontsize=9)
-ax.axhline(0, color=GRAY, linewidth=1)
-ax.set_xticks([10, 20, 30])
-ax.set_xticklabels(["10 %", "20 %", "30 %"])
-ax.set_xlim(8, 38)
-ax.set_xlabel("share of Gaussians removed")
-ax.set_ylabel("mean ΔPSNR, test views (dB), 8 cells")
-ax.set_title("Removing Gaussians from finished Taming models")
-ax.legend(loc="lower left", fontsize=8)
-save(fig, "fig4_posthoc_curves.png")
 
-# 5. Gaussian-SLAM submap compression: same per-voxel quotas, colours frozen, 50 refinement iterations
-gsr = [r for r in load("gslam_submap_compression.json")["rows"] if r["colour_fix"] and r["refine_iters"] == 50]
-ref = {r["scene"]: r["psnr"] for r in gsr if r["selection"] == "none"}
-arm_list = [("safe_final_voxel", "trace", C[0]), ("contrib_voxel", "contribution sum", C[1]),
-            ("contribmax_voxel", "contribution max", "#7458a6"), ("hybrid_voxel", "hybrid rank", C[2]),
-            ("opacity_voxel", "opacity", C[3]), ("random_voxel", "random", C[4])]
-scenes = ["room0", "office0", "room1"]
-fig, axes = plt.subplots(1, 2, figsize=(11.2, 5.1), sharey=False)
-for ax, share in zip(axes, (0.25, 0.5)):
-    present = [a for a in arm_list if any(r["selection"] == a[0] and r["nominal_share"] == share for r in gsr)]
-    width = 0.78 / len(present)
-    for j, (sel, lab, col) in enumerate(present):
-        vals = []
-        for scene in scenes:
-            v = [r["psnr"] - ref[scene] for r in gsr
-                 if r["scene"] == scene and r["selection"] == sel and r["nominal_share"] == share]
-            if len(v) != 1:
-                raise ValueError(f"Expected one corrected result: {scene}, {sel}, {share}")
-            vals.append(v[0])
-        x = np.arange(len(scenes)) + (j - (len(present) - 1) / 2) * width
-        ax.bar(x, vals, width * 0.88, color=col, label=lab, linewidth=0)
-    ax.axhline(0, color=GRAY, linewidth=1)
-    ax.set_xticks(range(len(scenes)))
-    ax.set_xticklabels(scenes)
-    actual = "24.0–24.6%" if share == 0.25 else "49.3–49.7%"
-    ax.set_title(f"{actual} removed (nominal {int(share * 100)}%)")
-    ax.set_ylabel("ΔPSNR vs refine-only (dB)")
-    ax.set_ylim(-1.7 if share == 0.25 else -2.8, 0.05)
-    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.12), fontsize=8, ncol=2 if share == 0.25 else 1)
-fig.suptitle("Gaussian-SLAM: score comparisons within equal 5 cm voxel quotas", fontweight="bold", fontsize=11)
-fig.text(0.5, 0.025, "Offline · mapping views · 50 refinement iterations · colours frozen · different vertical scales", 
-         ha="center", color=TEXT2, fontsize=9)
-fig.tight_layout(rect=(0, 0.06, 1, 0.96))
-fig.savefig(FIG / "fig5_gslam_compression.png", dpi=160)
-plt.close(fig)
-print("wrote", "fig5_gslam_compression.png")
+def trace_controls(d):
+    fig,axes=plt.subplots(1,2,figsize=(11.5,6.7));a,b=axes
+    rows=[('Original screen\n4 scenes × 2 seeds',[r['delta'] for r in d['roles'][0]['pairs']]),
+          ('Matched turnover\n2 scenes × 2 seeds',[r['dpsnr'] for r in d['matched']])]
+    for i,(label,values) in enumerate(rows):
+        a.scatter(values,i+np.linspace(-.08,.08,len(values)),s=33,color=C['trace'],alpha=.55)
+        mean_marker(a,mean(values),i);a.annotate(f'{mean(values):+.3f}',(mean(values),i),xytext=(0,-21),textcoords='offset points',ha='center',fontweight='bold',fontsize=11)
+    a.axvline(0,color=C['muted'],lw=1);a.axvline(.1,color=C['contrib'],ls='--',lw=1.5,label='+0.10 dB gate')
+    a.set(yticks=[0,1],yticklabels=[r[0] for r in rows],ylim=(1.5,-.5),title='A  Trace deletion − Taming deletion',xlabel='Paired PSNR change [dB]')
+    a.legend(loc='lower right',fontsize=10);style(a)
+    runs={(r['scene'],r['arm']):r for r in d['trace_screen']}
+    for i,(score,label,col) in enumerate([('taming','Taming',C['taming']),('trace','Trace',C['trace']),
+          ('trace_soft','Soft trace',C['trace_light']),('random','Random',C['random']),('gradient','Gradient',C['gradient'])]):
+        values=[]
+        for scene,off,marker in [('bonsai',-.08,'o'),('kitchen',.08,'s')]:
+            value=runs[scene,score]['PSNR']-runs[scene,'gradient']['PSNR'];values.append(value)
+            b.scatter(value,i+off,s=48,color=col,marker=marker,edgecolors=C['muted'] if score=='trace_soft' else 'white',linewidth=.5)
+        mean_marker(b,mean(values),i);b.text(1.02,i,f'{mean(values):+.3f}',transform=b.get_yaxis_transform(),va='center',fontsize=11)
+    b.axvline(0,color=C['gradient'],lw=1.2);b.set(yticks=np.arange(5),yticklabels=['Taming','Trace','Soft trace','Random','Gradient'],ylim=(4.5,-.5),title='B  Fresh seed 3 · deletion-only control',xlabel='PSNR change vs gradient [dB]');style(b)
+    b.legend(handles=[Line2D([0],[0],marker=m,color='none',markerfacecolor=C['muted'],label=s) for s,m in [('bonsai','o'),('kitchen','s')]],loc='lower left',fontsize=10)
+    heading(fig,'Stronger controls bound the trace-quality claim','Separate experiments: the panels use different seeds, policies and references.',
+        'A: turnover differs in the original screen; matched turnover uses amended common growth. Do not pool them.\nB: all five arms use common growth and a fixed deletion schedule. Both trace candidates fail the expansion rule.')
+    fig.subplots_adjust(left=.17,right=.93,top=.80,bottom=.21,wspace=.62)
+    export(fig,FIG/'fig8_trace_controls.png')
+
+
+def main():
+    d=write_data()
+    flow();memory(d);storage(d);roles(d);posthoc(d);compression(d);trace_controls(d)
+
+
+if __name__=='__main__':main()

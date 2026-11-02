@@ -1,116 +1,161 @@
-# Follow-up: separating score quality from implementation cost
+# Detailed comparisons and validation
 
-This page extends [the original report](REPORT.md). Experiments below use different scenes, seeds and controls;
-their quality/time numbers must not be pooled. Original negative results and decision thresholds remain visible.
-The dated plans and raw logs are retained locally; the public metrics do not establish independent prior registration.
+[Integrated report](REPORT.md) · [Figure index](figures/README.md) · [Data guide](results/README.md)
+
+This supplement retains all runs and guard outcomes behind the report. Expand only the tables needed for a
+particular comparison. Experiments with different seeds, growth rules, driver environments or references are not
+pooled. Percentages are time changes, not FLOP reductions. The original plans/logs remain local; this snapshot
+does not establish independent preregistration.
 
 ## 1. Match actual turnover before attributing a quality gain
 
-The original Taming-growth/trace-pruning comparison was +0.056 dB against Taming, but replaced about 1.8 times as
-many Gaussians. A matched-turnover test held the growth rule and actual deletions at each event fixed. On two
-existing scenes × two seeds × two deletion scores (eight 30,000-iteration runs), trace was **+0.0741 dB**, with
-4/4 positive pairs and mean LPIPS −0.000682. This did not meet the fixed +0.10 dB mean-PSNR adoption threshold; the rule also required at least 3/4
-positive pairs, positive means in both scenes, mean LPIPS change ≤+0.002, and correctness checks.
+**Question / control.** Can trace improve deletion ranking when growth and actual deletions at each event are
+matched? Two scenes × two seeds × two scores; eight retained 30k conditions. A common threshold relaxation
+addresses growth candidate shortages; one prior bonsai pair is reused only after proving it never needs that fallback.
 
-Candidate shortages required a common growth-threshold relaxation. One previously completed bonsai pair was
-reused only after verifying that this fallback was never needed there. The result describes the amended common
-growth rule, not unchanged upstream Taming, and does not fully explain the original gain. See
-[all eight runs and decision checks](results/followups/matched_turnover.json).
+**Result / decision.** Mean ΔPSNR +0.074060 dB, 4/4 positive pairs, mean ΔLPIPS
+-0.000682. The fixed +0.10 dB mean gate fails; the original confound is not retroactively removed.
+The other gates require ≥3/4 positive pairs, positive means in both scenes, mean LPIPS ≤+0.002 and correctness.
+
+<details>
+<summary>All four paired outcomes</summary>
+
+| Scene | Seed | ΔPSNR | ΔLPIPS | Final count | Actual deletions |
+|---|---|---|---|---|---|
+| bonsai | 1 | +0.017662 | -0.001179 | 374265 | 46108 |
+| bonsai | 2 | +0.011770 | -0.000067 | 374265 | 55382 |
+| kitchen | 1 | +0.099193 | -0.000459 | 559773 | 12613 |
+| kitchen | 2 | +0.167614 | -0.001022 | 559773 | 12523 |
+
+</details>
+
+
+Source: [matched_turnover.json](results/followups/matched_turnover.json). Figure: [Fig. 8](figures/fig8_trace_controls.png).
 
 ## 2. A small improvement still has to face the gradient control
 
-A single soft-trace candidate was fixed before the next screen: positive-median-normalized trace plus 0.1,
-used in inverse deletion sampling. Five scores were trained on each of bonsai/kitchen at a fresh seed 3,
-sharing the same growth rule and the historical Taming seed-1 deletion schedule. All ten conditions completed
-30,000 iterations. Historical metrics were not pooled with the fresh environment.
+**Question / control.** One fixed soft-trace candidate, five deletion scores on two existing scenes at fresh seed 3.
+Common growth and historical Taming seed-1 actual-deletion schedule. All ten 30k conditions finish; no historical
+metrics are pooled into the fresh screen. The gradient control changes deletion only.
 
-Soft trace gained **+0.0740 dB** over trace, while LPIPS worsened by +0.000440. It remained **−0.1037 dB** behind
-the gradient deletion control; original trace was −0.1777 dB behind gradient. Gradient had the highest PSNR in
-both scenes. The fresh screen allowed a small gain: advancement required mean PSNR strictly above each of Taming, gradient
-and random, with mean LPIPS change ≤+0.002 against each. Neither trace candidate passed, so the conditional
-six-run seed-4 extension was not run. The offset was not retuned. One bonsai view accounts for much of the gain over Taming; the per-view values and the diagnostic
-excluding that view are retained, without replacing the primary result.
+**Result / decision.** Soft trace gains +0.074007 dB over trace, with LPIPS
++0.000440, but is -0.103738 dB behind gradient.
+Advancement requires positive mean PSNR and mean LPIPS ≤+0.002 against each Taming/gradient/random control.
+Neither trace candidate passes; seed 4 is not run and the offset is not retuned. One bonsai view explains much
+of the gain over Taming; per-view and view-exclusion diagnostics remain in the source JSON, without replacing the primary result.
 
-This gradient control changes **deletion only under common Taming growth**. It differs from the original
-report's gradient arm, which changes both growth and deletion. See [all ten runs and per-view metrics](results/followups/trace_development.json).
+<details>
+<summary>All ten fresh runs</summary>
+
+| Scene | Score | PSNR | SSIM | LPIPS | Count |
+|---|---|---|---|---|---|
+| bonsai | taming | 32.049934 | 0.936011 | 0.219312 | 374265 |
+| bonsai | trace | 32.215322 | 0.937951 | 0.217772 | 374265 |
+| bonsai | trace_soft | 32.278292 | 0.937927 | 0.218215 | 374265 |
+| bonsai | gradient | 32.376847 | 0.937832 | 0.218182 | 374265 |
+| bonsai | random | 32.173672 | 0.936759 | 0.219053 | 374265 |
+| kitchen | taming | 31.189571 | 0.923714 | 0.136682 | 559773 |
+| kitchen | trace | 31.305134 | 0.924146 | 0.136061 | 559773 |
+| kitchen | trace_soft | 31.390178 | 0.924157 | 0.136499 | 559773 |
+| kitchen | gradient | 31.499099 | 0.924235 | 0.136041 | 559773 |
+| kitchen | random | 31.361892 | 0.924250 | 0.136244 | 559773 |
+
+</details>
+
+
+Source: [trace_development.json](results/followups/trace_development.json). Figure: [Fig. 8](figures/fig8_trace_controls.png).
 
 ## 3. Render-free scoring does not mean zero collection cost
 
-The first cost experiment compared locally implemented trace, contribution-sum/max, opacity and random under
-the same 5 cm voxel quotas and nominal 25% removal. It used three scenes × three saved submaps, one warmup and
-five measured repetitions per arm, with frozen colours and 50 optimizer steps. Repetitions are timing repeats,
-not five independent training seeds. The extra contribution pass requests colour gradients only.
+**Control.** Nine saved sources, five timing repeats after one warmup; 12 native on/off runs from two 100-frame
+GT-pose prefixes × three seeds. Same 5 cm quotas, frozen colours, 50 optimizer steps. Contribution uses a colour-
+only autograd pass; this is a local implementation, not an official full-method or specialized-kernel comparison.
 
-With statistics already present, trace closing was **7.89% faster than contribution-sum** and **8.23% faster
-than contribution-max** (ratios of sums of nine map-level medians). Mean per-submap closing time was 2.734 s
-versus 2.968/2.979 s. This phase includes scoring, selection, restore/prune and refinement; it excludes earlier
-statistics collection, common load, evaluation and serialization. Trace's CPU selection consumed roughly 55%
-of its closing compute time.
+**Result / decision.** Resident trace is 7.89% / 8.23% faster than contribution-sum/max. Collection-inclusive
+cost versus contribution-sum is +6.593% / +0.809% in room0 / office0. The original
+implementation does not establish a net advantage. Its selector consumes roughly 55% of closing time.
 
-Collection was then measured in actual 100-frame GT-pose mapping, two scenes × three seeds × stats on/off.
-The mean paired mapping-wall changes were **+7.04% in room0 and +1.21% in office0**. Including mapping, common
-load and later compression, trace cost **6.59% / 0.81% more than contribution-sum**, respectively. This is a
-selected cost sum, not end-to-end CLI wall time or online SLAM FPS. Native mapping wall includes its original
-source-checkpoint writes, data reads and logging; it is not pure GPU compute or a FLOP count. Compressed-output
-serialization and compression evaluation are excluded. Same-seed CUDA geometry and timing still
-vary. Thus the original local implementation did not demonstrate a net cost advantage.
+<details>
+<summary>Earlier-run resident-compression times</summary>
 
-See [phase records, all native runs and seed-level comparisons](results/followups/slam_score_cost.json).
+| Score | Mean of map medians [s] |
+|---|---|
+| Trace | 2.733793 |
+| Contribution sum | 2.967867 |
+| Contribution max | 2.978972 |
+| Opacity | 2.797455 |
+| Random | 2.708970 |
 
-![Original implementation cost screen](figures/fig7_original_cost.png)
+</details>
+
+
+Source: [slam_score_cost.json](results/followups/slam_score_cost.json). Figure: [Fig. 7](figures/fig7_original_cost.png).
 
 ## 4. Optimize the same computation before changing the method
 
-The implementation experiment keeps every-step statistics, score formula, CPU float32 voxel assignment,
-per-voxel quotas and original-index tie breaking. Dense `torch.where` updates avoid variable-length Boolean
-gathers. Collision-free packed voxel keys and stable CUDA sorts replace repeated CPU voxel grouping. Overflow
-falls back to coordinate sorting. The optimized selector is applied to contribution and opacity controls too.
+**Control.** Every-step collection, original score formula, CPU float32 voxel assignment, per-voxel quotas,
+index tie breaking, colour freeze and refinement work stay fixed. The selector optimization is also applied to
+contribution and opacity. Fresh original implementations are rerun; earlier absolute timings are not reused.
 
-Development validation used 63 real gradient packets from the nine source submaps: accepted dense buffers
-matched the original function bit for bit. Dedicated GPU edge checks cover 96 collector and 26 selector cases.
-Both selector backends matched all 45 real score/submap masks. A single-kernel Triton collector failed exactness
-because reduction rounding differed and was rejected. A first profiler attempt was excluded after correcting an
-unnecessary allocation in its shape-only proxy; the corrected development run selected one global CUDA backend.
-No scene-specific backend choice or lower collection frequency was used.
+**Validation.** Dense buffers are bitwise equal on 63 real gradient packets and 96 edge cases. Both selector
+backends match 45 real masks; a further 26 GPU edge cases pass. Deferred CPU oracles verify 264 masks in frozen
+runs outside the timers. Equal masks do not guarantee bitwise CUDA refinement or independently evolved maps.
+The Triton candidate fails exactness and is rejected. The first profiler attempt is excluded after correcting
+its shape proxy allocation; only corrected v2 timing selects one global backend.
 
-The final frozen comparison reruns both original and optimized compression on all nine sources, then compares
-stats-off/original/dense mapping on two 100-frame GT-pose prefixes × three seeds. Arm order is rotated across
-seeds. Each source has its own refine-only control. Absolute timings from the previous cost run are not used as this
-experiment's reference: both original and optimized implementations are measured fresh. Same-input optimized masks are checked against the original
-CPU oracle outside the timed phases. Equal masks do not imply bit-identical CUDA refinement or trajectories.
+**Result / decision.** Resident trace is 57.44% faster than fresh original trace and 14.49% / 14.17%
+faster than equally optimized contribution-sum/max. Collection-inclusive cost against contribution-sum is
+-0.374% / -0.046%, with only 3/6 pairs lower.
+All 12 fixed-source guards pass. One of 24 direct prefix comparisons fails PSNR: office0 seed 1 vs contribution-max,
+−0.101133 dB against a −0.10 dB guard. The failure is retained. Guards are descriptive tolerances, not equivalence tests.
 
-### Frozen comparison results
+<details>
+<summary>Six implementations: complete-stage timing totals</summary>
 
-Closing time is the sum of nine map-level medians (one warmup excluded, five measured repeats).
-Earlier statistics collection, load, validation, evaluation and serialization are excluded.
+| Implementation | Sum of 9 map medians [s] | Mean per map [s] | Optimized trace change |
+|---|---|---|---|
+| Trace / original | 20.850468 | 2.316719 | -57.44% |
+| Trace / optimized | 8.874015 | 0.986002 | +0.00% |
+| Contribution sum / original | 22.268848 | 2.474316 | -60.15% |
+| Contribution sum / optimized | 10.377644 | 1.153072 | -14.49% |
+| Contribution max / optimized | 10.338910 | 1.148768 | -14.17% |
+| Opacity / optimized | 8.772671 | 0.974741 | +1.16% |
 
-| Implementation | Closing total [s] | Optimized trace change against this arm |
-|---|---:|---:|
-| Original trace | 20.850468 | -57.44% |
-| Optimized trace | 8.874015 | +0.00% |
-| Original contribution-sum | 22.268848 | -60.15% |
-| Optimized contribution-sum | 10.377644 | -14.49% |
-| Optimized contribution-max | 10.338910 | -14.17% |
-| Optimized opacity | 8.772671 | +1.16% |
+</details>
 
-All 264 deferred same-input selection checks matched the original CPU mask. Dense collector exactness concerns identical input streams, not independent native mapping trajectories.
 
-The 18 fresh native mapping runs retained the same optimizer-step counts within each scene–seed block. Mean paired changes below are percentages per seed, averaged within each scene; all seeds remain in the JSON.
+<details>
+<summary>All 18 fresh native mapping runs</summary>
 
-| Scene | Dense vs original mapping | Dense vs stats-off mapping |
-|---|---:|---:|
-| room0 | -2.48% | -0.16% |
-| office0 | -1.03% | +0.37% |
+| Scene | Seed | Statistics | Native wall [s] | Gaussians | Optimizer steps |
+|---|---|---|---|---|---|
+| room0 | 0 | Dense | 118.5327 | 2423066 | 4900 |
+| room0 | 0 | Original | 122.4650 | 2422963 | 4900 |
+| room0 | 0 | Off | 117.7135 | 2423396 | 4900 |
+| room0 | 1 | Original | 121.8361 | 2423274 | 4900 |
+| room0 | 1 | Off | 117.9359 | 2422874 | 4900 |
+| room0 | 1 | Dense | 118.3731 | 2423052 | 4900 |
+| room0 | 2 | Off | 120.2828 | 2424158 | 4900 |
+| room0 | 2 | Dense | 118.4384 | 2423925 | 4900 |
+| room0 | 2 | Original | 120.1100 | 2423638 | 4900 |
+| office0 | 0 | Off | 85.4484 | 1577367 | 3000 |
+| office0 | 0 | Original | 85.7819 | 1577486 | 3000 |
+| office0 | 0 | Dense | 84.1449 | 1577432 | 3000 |
+| office0 | 1 | Original | 86.0596 | 1576864 | 3000 |
+| office0 | 1 | Dense | 85.5930 | 1577347 | 3000 |
+| office0 | 1 | Off | 83.0302 | 1577054 | 3000 |
+| office0 | 2 | Dense | 84.6834 | 1577951 | 3000 |
+| office0 | 2 | Off | 85.0758 | 1578128 | 3000 |
+| office0 | 2 | Original | 85.2365 | 1578279 | 3000 |
 
-Mapping + compression is mapping run wall + common load/prepare + closing compute. It excludes deferred validation, compression evaluation/import and compressed-output serialization. Native mapping wall still includes source checkpoint writes, data loading and logging; this is not pure GPU compute, end-to-end CLI wall time or online FPS.
+</details>
 
-| Scene | vs original trace | vs optimized contribution-sum | vs optimized contribution-max |
-|---|---:|---:|---:|
-| room0 | -4.67% | -0.37% | -0.33% |
-| office0 | -3.57% | -0.05% | +0.05% |
 
-| Scene | Seed | Optimized trace total [s] | Optimized contribution-sum total [s] | Change |
-|---|---:|---:|---:|---:|
+<details>
+<summary>All six seed-level totals against optimized contribution-sum</summary>
+
+| Scene | Seed | Optimized trace [s] | Optimized contribution sum [s] | Trace change |
+|---|---|---|---|---|
 | room0 | 0 | 122.5591 | 122.0055 | +0.454% |
 | room0 | 1 | 122.4033 | 122.2915 | +0.091% |
 | room0 | 2 | 122.5383 | 124.6144 | -1.666% |
@@ -118,59 +163,87 @@ Mapping + compression is mapping run wall + common load/prepare + closing comput
 | office0 | 1 | 87.8029 | 85.4804 | +2.717% |
 | office0 | 2 | 86.8040 | 87.6116 | -0.922% |
 
-Trace totals are lower in 3/6 scene–seed pairs; the sign varies. Small mean changes do not establish a robust total-cost advantage. Statistics-off mapping also varies between independent runs, so a near-zero or negative observed overhead does not make collection free.
+</details>
 
-Positive percentages mean optimized trace costs more. Differences on these short prefixes are descriptive and include numerical variation in independent source maps. A phase-specific speedup alone does not establish a general system-level advantage.
 
-### Quality and uncertainty
+<details>
+<summary>Scene-mean total-cost changes against every reference</summary>
 
-The table reports optimized trace minus each control on the identical historical sources. Fixed guards are PSNR ≥−0.10 dB, LPIPS ≤+0.002 and depth L1 ≤+0.1 mm; they are not equivalence tests.
+| Scene | Reference | Mean paired change |
+|---|---|---|
+| room0 | Trace / original | -4.6736% |
+| room0 | Contribution sum / optimized | -0.3736% |
+| room0 | Contribution max / optimized | -0.3260% |
+| room0 | Opacity / optimized | -0.0574% |
+| office0 | Trace / original | -3.5652% |
+| office0 | Contribution sum / optimized | -0.0461% |
+| office0 | Contribution max / optimized | +0.0497% |
+| office0 | Opacity / optimized | +0.3582% |
 
-| Scene | Control | ΔPSNR [dB] | ΔLPIPS | Δdepth [mm] | All guards |
-|---|---|---:|---:|---:|---|
-| room0 | Original trace | -0.000188 | +0.000000 | +0.000025 | True |
-| room0 | Optimized contribution-sum | +0.038643 | -0.001383 | +0.069389 | True |
-| room0 | Optimized contribution-max | +0.029880 | -0.001429 | +0.079738 | True |
-| room0 | Optimized opacity | +0.524743 | -0.001268 | -0.142058 | True |
-| office0 | Original trace | -0.000114 | +0.000002 | +0.000049 | True |
-| office0 | Optimized contribution-sum | +0.014078 | -0.000673 | -0.032069 | True |
-| office0 | Optimized contribution-max | +0.003998 | -0.000689 | -0.020254 | True |
-| office0 | Optimized opacity | +0.995319 | -0.003601 | -0.295791 | True |
-| room1 | Original trace | -0.000143 | +0.000007 | -0.000028 | True |
-| room1 | Optimized contribution-sum | +0.046209 | -0.000878 | +0.030928 | True |
-| room1 | Optimized contribution-max | +0.029063 | -0.000851 | +0.038177 | True |
-| room1 | Optimized opacity | +0.405874 | -0.001928 | -0.098562 | True |
+</details>
 
-Independent native sources can differ even at the same seed. For prefix comparisons, the JSON retains both direct quality deltas and differences in loss relative to each source's own refine-only control. The following table summarizes the mean direct deltas across the three seeds.
 
-| Scene | Control | ΔPSNR [dB] | ΔLPIPS | Δdepth [mm] | Seed pairs within all direct guards |
-|---|---|---:|---:|---:|---:|
-| room0 | Original trace | +0.004642 | +0.000041 | -0.000405 | 3/3 |
-| room0 | Optimized contribution-sum | +0.055222 | -0.001605 | +0.023107 | 3/3 |
-| room0 | Optimized contribution-max | +0.039720 | -0.001563 | +0.029248 | 3/3 |
-| room0 | Optimized opacity | +0.439011 | -0.000627 | -0.100811 | 3/3 |
-| office0 | Original trace | +0.008221 | -0.000032 | -0.266795 | 3/3 |
-| office0 | Optimized contribution-sum | -0.045645 | -0.000809 | -0.174929 | 3/3 |
-| office0 | Optimized contribution-max | -0.061400 | -0.000837 | -0.147908 | 2/3 |
-| office0 | Optimized opacity | +0.738761 | -0.003886 | -0.368253 | 3/3 |
+<details>
+<summary>All 12 fixed-source quality comparisons</summary>
 
-Direct prefix quality guards fail in 1/24 comparisons. A near-boundary miss remains a failure.
-- office0, seed 1, against Optimized contribution-max: ΔPSNR -0.101133 dB, ΔLPIPS -0.000539, Δdepth -0.168619 mm.
+| Scene | Reference | ΔPSNR [dB] | ΔLPIPS | Δdepth [mm] | All guards |
+|---|---|---|---|---|---|
+| room0 | Trace / original | -0.000188 | +0.000000 | +0.000025 | True |
+| room0 | Contribution sum / optimized | +0.038643 | -0.001383 | +0.069389 | True |
+| room0 | Contribution max / optimized | +0.029880 | -0.001429 | +0.079738 | True |
+| room0 | Opacity / optimized | +0.524743 | -0.001268 | -0.142058 | True |
+| office0 | Trace / original | -0.000114 | +0.000002 | +0.000049 | True |
+| office0 | Contribution sum / optimized | +0.014078 | -0.000673 | -0.032069 | True |
+| office0 | Contribution max / optimized | +0.003998 | -0.000689 | -0.020254 | True |
+| office0 | Opacity / optimized | +0.995319 | -0.003601 | -0.295791 | True |
+| room1 | Trace / original | -0.000143 | +0.000007 | -0.000028 | True |
+| room1 | Contribution sum / optimized | +0.046209 | -0.000878 | +0.030928 | True |
+| room1 | Contribution max / optimized | +0.029063 | -0.000851 | +0.038177 | True |
+| room1 | Opacity / optimized | +0.405874 | -0.001928 | -0.098562 | True |
 
-Across the nine fixed-source cases, the maximum measured compression peak allocated memory was 1126.50 MiB for original trace and 1127.64 MiB for optimized trace. The new selector uses temporary GPU sorting buffers; these observations are not a VRAM-saving result. Per-case peaks and stored accumulator bytes remain in the JSON.
+</details>
 
-![Implementation comparison](figures/fig6_implementation.png)
 
-[All measured timings and quality](results/followups/slam_implementation.json) · [Independent code and contracts](code/README.md).
+<details>
+<summary>All 24 direct prefix quality comparisons</summary>
 
-## What would make further work worthwhile?
+| Scene | Seed | Reference | ΔPSNR | ΔLPIPS | Δdepth mm | Pass |
+|---|---|---|---|---|---|---|
+| room0 | 0 | Trace / original | +0.014331 | -0.000128 | -0.000305 | True |
+| room0 | 0 | Contribution sum / optimized | +0.044049 | -0.001547 | +0.029522 | True |
+| room0 | 0 | Contribution max / optimized | +0.024450 | -0.001457 | +0.035597 | True |
+| room0 | 0 | Opacity / optimized | +0.431007 | -0.000537 | -0.099248 | True |
+| room0 | 1 | Trace / original | -0.004938 | +0.000191 | +0.003317 | True |
+| room0 | 1 | Contribution sum / optimized | +0.071316 | -0.001680 | +0.020724 | True |
+| room0 | 1 | Contribution max / optimized | +0.054360 | -0.001693 | +0.027414 | True |
+| room0 | 1 | Opacity / optimized | +0.436182 | -0.000727 | -0.099604 | True |
+| room0 | 2 | Trace / original | +0.004533 | +0.000061 | -0.004226 | True |
+| room0 | 2 | Contribution sum / optimized | +0.050302 | -0.001589 | +0.019075 | True |
+| room0 | 2 | Contribution max / optimized | +0.040351 | -0.001539 | +0.024733 | True |
+| room0 | 2 | Opacity / optimized | +0.449845 | -0.000616 | -0.103580 | True |
+| office0 | 0 | Trace / original | +0.004999 | -0.000073 | -0.175120 | True |
+| office0 | 0 | Contribution sum / optimized | -0.058389 | -0.000904 | -0.294722 | True |
+| office0 | 0 | Contribution max / optimized | -0.073337 | -0.000924 | -0.262696 | True |
+| office0 | 0 | Opacity / optimized | +0.706169 | -0.004334 | -0.488300 | True |
+| office0 | 1 | Trace / original | +0.011021 | -0.000073 | -0.442037 | True |
+| office0 | 1 | Contribution sum / optimized | -0.084609 | -0.000493 | -0.195233 | True |
+| office0 | 1 | Contribution max / optimized | -0.101133 | -0.000539 | -0.168619 | False |
+| office0 | 1 | Opacity / optimized | +0.714943 | -0.003542 | -0.429485 | True |
+| office0 | 2 | Trace / original | +0.008643 | +0.000049 | -0.183229 | True |
+| office0 | 2 | Contribution sum / optimized | +0.006064 | -0.001030 | -0.034831 | True |
+| office0 | 2 | Contribution max / optimized | -0.009731 | -0.001050 | -0.012408 | True |
+| office0 | 2 | Opacity / optimized | +0.795170 | -0.003783 | -0.186973 | True |
 
-A measured closing-latency constraint could justify integrating the optimized selection into an online system.
-If the application already needs these exact statistics for another purpose, their collection can be common
-cost; it is not common cost merely because training computes the underlying gradients. Many views can make a
-fresh contribution pass more expensive, but larger maps alone do not guarantee a net gain. Contribution scores
-can also be cached for repeated decisions on an unchanged map.
+</details>
 
-No tested online workload has demonstrated improved SLAM throughput from trace pruning. Before extending this
-work, identify that workload and measure held-out quality, tracking and total cost against optimized controls.
-The present artifact closes with measured engineering changes and bounded score comparisons.
+
+The cost sum is native mapping wall + common load/prepare + score/select/restore/prune/refine. It includes native
+checkpoint I/O and excludes deferred validation, compression evaluation, compressed-output serialization and
+process import. This is not pure GPU compute, complete CLI wall time or online SLAM FPS.
+
+Per-case timing repeats, allocator peaks, accumulator bytes, per-view metrics and refine-only-relative prefix
+quality differences remain in [slam_implementation.json](results/followups/slam_implementation.json). Compression
+peak allocated memory across the nine cases is 1126.50 → 1127.64 MiB; no VRAM saving is claimed.
+
+Figures: [stage times](figures/fig6_implementation.png), [phase breakdown](figures/fig10_phase_breakdown.png),
+[collection](figures/fig11_collection_overhead.png), [total-cost comparison](figures/fig9_total_cost.png).

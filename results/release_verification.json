@@ -10,7 +10,7 @@
     {
       "command": "python scripts/summarize_results.py",
       "exit_code": 0,
-      "stdout": "Parsed 18 strict JSON files. Summaries use stored metrics, not new runs.\n\nFlow4DGS options_off: 0/3 complete\nFlow4DGS options_on: 3/3 complete\n  retained profiler peak: 9.11\u20139.53 GiB\nFlow4DGS modeled centre-bank reduction (ratio of means): 44.8%\n  stored metrics match; pixel-level render equality cannot be rechecked here\n\nTaming at 35% retained budget (paired test-view PSNR):\n  taming_grow_trace_prune - taming: +0.0561 dB, 8/8 positive pairs\n  trace - trace_grow_taming_prune: +0.0735 dB, 5/8 positive pairs\n  trace_grow_taming_prune - taming: -0.0778 dB, 1/8 positive pairs\n  trace - taming_grow_trace_prune: -0.0605 dB, 1/8 positive pairs\n  grad - taming: +0.0005 dB, 4/8 positive pairs\n  grad - trace: +0.0048 dB, 3/8 positive pairs\n  taming_grow_trace_prune - grad: +0.0556 dB, 4/8 positive pairs\n  uniform - taming: -0.1073 dB, 2/8 positive pairs\n\nFinished Taming models, no fine-tuning:\n  10% removal: trace -0.015 dB, taming -0.100 dB, opacity -0.118 dB, random -1.348 dB\n  20% removal: trace -0.477 dB, taming -0.635 dB, opacity -1.632 dB, random -2.896 dB\n    trace - opacity: +1.155 dB, 8/8 positive pairs\n    trace - taming: +0.158 dB, 4/8 positive pairs\n  30% removal: trace -2.065 dB, taming -1.622 dB, opacity -4.410 dB, random -4.605 dB\n\nGaussian-SLAM: corrected, 50 iterations, mapping views; dB vs refine-only:\n  room0, actual removal 23.96%: opacity_voxel -0.888, random_voxel -1.418, safe_final_voxel -0.215, contrib_voxel -0.229, contribmax_voxel -0.216, hybrid_voxel -0.178\n  office0, actual removal 24.58%: contrib_voxel -0.191, contribmax_voxel -0.178, hybrid_voxel -0.145, opacity_voxel -0.998, random_voxel -0.864, safe_final_voxel -0.188\n  room1, actual removal 24.53%: contrib_voxel -0.222, contribmax_voxel -0.210, hybrid_voxel -0.181, opacity_voxel -1.308, random_voxel -1.400, safe_final_voxel -0.270\n  room0, actual removal 49.28%: contrib_voxel -1.432, hybrid_voxel -1.398, safe_final_voxel -2.468\n  office0, actual removal 49.71%: contrib_voxel -1.267, hybrid_voxel -1.155, safe_final_voxel -1.898\n  room1, actual removal 49.68%: contrib_voxel -1.480, hybrid_voxel -1.438, safe_final_voxel -2.479\nRoom0 checkpoint saving from rounded GiB: 24.0%\nSplaTAM final sampled frame 1999: keyframes 1.38 GiB, Gaussian params + tracked state 0.12 GiB\nLSG-SLAM front-end maximum: 6.31 GiB\n",
+      "stdout": "Parsed 21 strict JSON files. Summaries use stored metrics, not new runs.\n\nFlow4DGS options_off: 0/3 complete\nFlow4DGS options_on: 3/3 complete\n  retained profiler peak: 9.11\u20139.53 GiB\nFlow4DGS modeled centre-bank reduction (ratio of means): 44.8%\n  stored metrics match; pixel-level render equality cannot be rechecked here\n\nTaming at 35% retained budget (paired test-view PSNR):\n  taming_grow_trace_prune - taming: +0.0561 dB, 8/8 positive pairs\n  trace - trace_grow_taming_prune: +0.0735 dB, 5/8 positive pairs\n  trace_grow_taming_prune - taming: -0.0778 dB, 1/8 positive pairs\n  trace - taming_grow_trace_prune: -0.0605 dB, 1/8 positive pairs\n  grad - taming: +0.0005 dB, 4/8 positive pairs\n  grad - trace: +0.0048 dB, 3/8 positive pairs\n  taming_grow_trace_prune - grad: +0.0556 dB, 4/8 positive pairs\n  uniform - taming: -0.1073 dB, 2/8 positive pairs\n\nFinished Taming models, no fine-tuning:\n  10% removal: trace -0.015 dB, taming -0.100 dB, opacity -0.118 dB, random -1.348 dB\n  20% removal: trace -0.477 dB, taming -0.635 dB, opacity -1.632 dB, random -2.896 dB\n    trace - opacity: +1.155 dB, 8/8 positive pairs\n    trace - taming: +0.158 dB, 4/8 positive pairs\n  30% removal: trace -2.065 dB, taming -1.622 dB, opacity -4.410 dB, random -4.605 dB\n\nGaussian-SLAM: corrected, 50 iterations, mapping views; dB vs refine-only:\n  room0, actual removal 23.96%: opacity_voxel -0.888, random_voxel -1.418, safe_final_voxel -0.215, contrib_voxel -0.229, contribmax_voxel -0.216, hybrid_voxel -0.178\n  office0, actual removal 24.58%: contrib_voxel -0.191, contribmax_voxel -0.178, hybrid_voxel -0.145, opacity_voxel -0.998, random_voxel -0.864, safe_final_voxel -0.188\n  room1, actual removal 24.53%: contrib_voxel -0.222, contribmax_voxel -0.210, hybrid_voxel -0.181, opacity_voxel -1.308, random_voxel -1.400, safe_final_voxel -0.270\n  room0, actual removal 49.28%: contrib_voxel -1.432, hybrid_voxel -1.398, safe_final_voxel -2.468\n  office0, actual removal 49.71%: contrib_voxel -1.267, hybrid_voxel -1.155, safe_final_voxel -1.898\n  room1, actual removal 49.68%: contrib_voxel -1.480, hybrid_voxel -1.438, safe_final_voxel -2.479\nRoom0 checkpoint saving from rounded GiB: 24.0%\nSplaTAM final sampled frame 1999: keyframes 1.38 GiB, Gaussian params + tracked state 0.12 GiB\nLSG-SLAM front-end maximum: 6.31 GiB\n",
       "stderr": ""
     },
     {
@@ -29,24 +29,24 @@
       "command": "python -m unittest discover -s tests",
       "exit_code": 0,
       "stdout": "",
-      "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.037s\n\nOK\n"
+      "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.035s\n\nOK\n"
     },
     {
       "command": "python scripts/make_figures.py",
       "exit_code": 0,
-      "stdout": "wrote fig1_slam_memory.png\nwrote fig2_flow4dgs_storage.png\nwrote fig3_taming_roles.png\nwrote fig4_posthoc_curves.png\nwrote fig5_gslam_compression.png\n",
+      "stdout": "wrote fig0_research_flow.png and SVG\nwrote fig1_slam_memory.png and SVG\nwrote fig2_flow4dgs_storage.png and SVG\nwrote fig3_taming_roles.png and SVG\nwrote fig4_posthoc_curves.png and SVG\nwrote fig5_gslam_compression.png and SVG\nwrote fig8_trace_controls.png and SVG\n",
       "stderr": ""
     },
     {
       "command": "python scripts/make_cost_figure.py --input results/followups/slam_score_cost.json --output figures/fig7_original_cost.png",
       "exit_code": 0,
-      "stdout": "figures/fig7_original_cost.png\n",
+      "stdout": "wrote fig7_original_cost.png and SVG\n",
       "stderr": ""
     },
     {
       "command": "python scripts/make_implementation_figure.py --input results/followups/slam_implementation.json --output figures/fig6_implementation.png",
       "exit_code": 0,
-      "stdout": "figures/fig6_implementation.png\n",
+      "stdout": "wrote fig6_implementation.png and SVG\nwrote fig9_total_cost.png and SVG\nwrote fig10_phase_breakdown.png and SVG\nwrote fig11_collection_overhead.png and SVG\n",
       "stderr": ""
     }
   ],

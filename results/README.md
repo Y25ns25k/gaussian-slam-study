@@ -3,7 +3,9 @@
 These files are curated metric extracts from completed, stopped, and failed experiments. They support numerical
 recomputation at the resolution stored here, not re-execution of the underlying experiments. All paths below are
 relative to this directory. `python scripts/summarize_results.py` prints the headline comparisons from the
-repository root; `scripts/make_figures.py` uses the same data to generate the original five charts. Dated follow-ups and independently runnable helpers are described below.
+repository root. The plotting commands in [README.md](../README.md) regenerate twelve PNG/SVG figure pairs;
+[the figure index](../figures/README.md) maps each plot to its question, reference and aggregation.
+Dated follow-ups and independently runnable helpers are described below.
 
 ## Claim-to-file map
 
@@ -16,8 +18,8 @@ repository root; `scripts/make_figures.py` uses the same data to generate the or
 | Growth/pruning score effects; Fig. 3 | `taming_score_arms.json`, pair by `(scene, seed)` | Four scenes × seeds 1 and 2; only compare arms with the common alignment fixes. |
 | Static budget table | `static_3dgs_reference.json` plus seed 1 from `taming_score_arms.json` | Four-scene means; code bases differ. PUP time excludes the source training. |
 | Finished-model deletion; Fig. 4 | `posthoc_prune_rules.json`, rules `{trace,taming,opacity,random}_low{10,20,30}%` | Test-view deltas against the same unpruned model, eight pairs, no fine-tuning. |
-| SplaTAM composition; Fig. 1 left | `splatam_memprof_room1.json`, `rows` | Samples every 50 frames plus final frame 1999; recorded tensor bytes and allocated memory at those snapshots. Not a complete peak-memory decomposition. |
-| LSG-SLAM peak vs count; Fig. 1 right | `lsg_kitti07_frontend.json`, `rows` | Front end, KITTI 07 prefixes with stride 2; no loop closure/back end. ATE here is recomputed RMSE. |
+| SplaTAM composition; Fig. 1A | `splatam_memprof_room1.json`, `rows` | Samples every 50 frames plus final frame 1999; recorded tensor bytes and allocated memory at those snapshots. Not a complete peak-memory decomposition. |
+| LSG-SLAM peak vs count; Fig. 1B | `lsg_kitti07_frontend.json`, `rows` | Front end, KITTI 07 prefixes with stride 2; no loop closure/back end. ATE here is recomputed RMSE. |
 | Voxel compression; Fig. 5 | `gslam_submap_compression.json`, `colour_fix=true`, `refine_iters=50` | Subtract same-scene `selection=none`. Mapping views, source trajectory fixed, one source run per scene. |
 | Room0 checkpoint saving | `gslam_storage_summary.json` | Rounded retained measurements, 4.939 → 3.755 GiB, after the colour-freeze fix. Not VRAM or an exact byte audit. |
 
@@ -53,6 +55,9 @@ report observations remain supported by the author's retained study notes rather
 - keyframe-placement and tracking-diagnostic results, including AUROC and iteration-cap analyses;
 - the sampled empty-voxel diagnosis, SplaTAM timing regression, and most exact checkpoint sizes;
 - the timing of pre-specified decision rules and pixel-level bit-identical rendering checks.
+
+Later follow-up exports do include their retained per-view numeric arrays and timing repetitions; this does not
+restore the missing original-study images, logs or protocol history.
 
 The memory-options extract contains source filenames and SHA256 hashes for traceability. Those files are not
 bundled, so the hashes alone are not public verification. The room0 storage summary is explicitly transcribed
@@ -91,3 +96,12 @@ medians, quality means and accounting sums, and prints the comparisons. The publ
 bundled bytes; a retained-private-source hash refers to different, unbundled bytes. Neither proves that a plan
 predated an experiment. GPU parity remains a recorded local result, whereas the included CPU selection tests
 are independently runnable from this artifact.
+
+## Derived presentation data
+
+`figure_data.json` is a new derived export, not a new experiment. `scripts/figure_data.py` rebuilds it from the
+original JSON and records each source SHA256. It retains the plotted paired points, complete-stage medians,
+phase means, scene/seed references and missing-budget controls. No original measured JSON is edited to redraw
+the figures. Timing differences are ratios within each experiment; earlier absolute timings are not reused as
+the optimized run's references. Full paired points are shown where retained; no plotted uncertainty interval
+is presented as a new-scene or statistical-equivalence result.
