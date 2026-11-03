@@ -92,7 +92,7 @@ not recompute them without the unbundled per-point inputs.
 
 ## Dated follow-up records (October 28–November 2, 2026)
 
-See [FOLLOW_UP.md](../FOLLOW_UP.md) for the sequence and differing controls.
+See [FOLLOW_UP.md](../docs/FOLLOW_UP.md) for the sequence and differing controls.
 
 | File | Scope |
 |---|---|
@@ -130,7 +130,7 @@ is presented as a new-scene or statistical-equivalence result.
 
 `online_budget25.json` contains the new two-seed, 51-frame KITTI07 score ablation.
 It retains per-view RGB/depth metrics under estimated and aligned-GT cameras, event-level births/deletions/counts,
-frontend process wall times and allocated/reserved peaks. [ONLINE_COMPARISON.md](../ONLINE_COMPARISON.md) defines
+frontend process wall times and allocated/reserved peaks. [ONLINE_COMPARISON.md](../docs/ONLINE_COMPARISON.md) defines
 the common count reference, replayed births, adapted quota policy and timing boundary. Source-model hashes identify
 retained private models, which are not bundled. Depth is IGEV pseudo-depth; views are observed, not held out.
 These numbers are separate from the saved-map Replica comparisons and older unequal-count Pocket runs.
@@ -142,7 +142,7 @@ including both weaker ten-submap matched-count trials and the later one-map adap
 estimated-camera and aligned-GT-camera quality, GNU total wall and separately named parent-polled time,
 map counts, payload sizes and adaptation descriptions. Its source-summary hash identifies an unbundled private
 record. The export omits machine paths and full per-view arrays; it is an aggregate numeric extract.
-See [LOCAL_SYSTEM_COMPARISONS.md](../LOCAL_SYSTEM_COMPARISONS.md) for the scope and camera-dependent ordering.
+See [LOCAL_SYSTEM_COMPARISONS.md](../docs/LOCAL_SYSTEM_COMPARISONS.md) for the scope and camera-dependent ordering.
 
 `online_renderer_validation.json` preserves the three-view native/common renderer agreement check on area seed 0,
 with the original mean-error threshold and both mean/max errors. It does not establish bitwise parity or all-model

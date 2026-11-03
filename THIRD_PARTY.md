@@ -10,7 +10,7 @@ licenses are supplied separately by their respective projects.
 ## Systems used in the experiments
 
 This inventory describes the experiment versions identified in the
-[original setup record](ARCHIVE_REPORT.md#8-reproducibility). Current reproducibility boundaries are in
+[setup record](docs/SETUP_AND_CORRECTIONS.md#environment-and-starting-points). Current reproducibility boundaries are in
 [REPORT.md §8](REPORT.md#8-reproducibility-and-evidence-boundaries).
 Top-level licenses do not replace notices in individual files, submodules, or dependencies. Official sources are
 linked so readers can check the applicable version and terms.

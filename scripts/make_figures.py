@@ -1,46 +1,14 @@
 #!/usr/bin/env python3
-"""Rebuild the research-flow and score/quality figures from original JSON (CPU)."""
+"""Rebuild the resource and score/quality figures from original JSON (CPU)."""
 from pathlib import Path
 from statistics import mean
 import numpy as np
 from matplotlib.lines import Line2D
-from matplotlib.patches import FancyBboxPatch
 from figure_data import write_data
 from plot_style import COLORS as C, LABELS, SCORE_COLOR, plt, style, heading, export, mean_marker
 
 ROOT=Path(__file__).resolve().parents[1]
 FIG=ROOT/'figures'
-
-
-def flow():
-    fig, ax=plt.subplots(figsize=(10,8));ax.set_axis_off()
-    stages=[('01  Find the resource bottleneck',
-             'Profile keyframe data, Gaussian state and saved maps.',
-             'Decision: distinguish runtime memory from checkpoint storage.'),
-            ('02  Isolate the score effect',
-             'Separate growth from deletion; match actual turnover.',
-             'Decision: retain the small gain and the stronger gradient control.'),
-            ('03  Preserve spatial coverage',
-             'Compare scores under equal 5 cm voxel quotas.',
-             'Decision: modest offline compression; strong scores stay close.'),
-            ('04  Measure the full cost boundary',
-             'Separate collection, scoring, selection and refinement.',
-             'Decision: profile the selector before changing the score.'),
-            ('05  Optimize and retest',
-             'Keep the score, quotas, update frequency and tested masks.',
-             'Result: faster compression stage; total-cost advantage unconfirmed.')]
-    for i,(title,method,result) in enumerate(stages):
-        y=.89-i*.185
-        ax.add_patch(FancyBboxPatch((.025,y-.12),.95,.155,boxstyle='round,pad=0.012',
-            facecolor='#F2F6FC' if i%2==0 else '#F8FAFC',edgecolor='#CDD8E8',transform=ax.transAxes))
-        ax.text(.05,y,title,transform=ax.transAxes,fontsize=13,fontweight='bold',color=C['trace'])
-        ax.text(.05,y-.043,method,transform=ax.transAxes,fontsize=11.8)
-        ax.text(.05,y-.083,result,transform=ax.transAxes,fontsize=10.8,color=C['muted'])
-        if i<4:ax.annotate('',xy=(.50,y-.153),xytext=(.50,y-.134),xycoords='axes fraction',
-                           arrowprops={'arrowstyle':'->','color':C['muted'],'lw':1.5})
-    heading(fig,'The research flow','A synthesis of the questions and decisions; each stage has its own controls and scope.')
-    fig.subplots_adjust(left=.03,right=.98,top=.85,bottom=.03)
-    export(fig,FIG/'fig0_research_flow.png')
 
 
 def memory(d):
@@ -176,7 +144,7 @@ def trace_controls(d):
 
 def main():
     d=write_data()
-    flow();memory(d);storage(d);roles(d);posthoc(d);compression(d);trace_controls(d)
+    memory(d);storage(d);roles(d);posthoc(d);compression(d);trace_controls(d)
 
 
 if __name__=='__main__':main()

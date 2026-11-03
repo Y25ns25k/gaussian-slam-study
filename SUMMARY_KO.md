@@ -3,7 +3,7 @@
 **저장된 지도에서 Gaussian을 24.0–24.6% 줄이고, 세 Replica 장면 평균 PSNR 감소를 약 0.22 dB로 유지했습니다.**
 오프라인 압축·매핑 카메라·고정 pose·장면당 source 1회의 결과입니다.
 
-[영문 보고서](REPORT.md) · [상세 비교표](FOLLOW_UP.md) · [그림](figures/README.md) · [온라인 예산 통제 실험](ONLINE_COMPARISON.md)
+[영문 보고서](REPORT.md) · [상세 비교표](docs/FOLLOW_UP.md) · [그림](figures/README.md) · [온라인 예산 통제 실험](docs/ONLINE_COMPARISON.md)
 
 ## 먼저 보여줄 결과
 
@@ -45,7 +45,7 @@ Taming 점수 대비는 +0.16 dB, 4/8만 양수였습니다. 정적에서도 보
 ## 외부 비교의 위치
 
 VCGS·MemGS·Pocket은 서로 다른 추적·표현·학습 구성과 지표를 사용합니다. 논문의 자기 기준선 대비 변화와
-[우리의 직접 실행](LOCAL_SYSTEM_COMPARISONS.md)을 구분해 기록합니다. 코드 미공개나 시스템 간 종합 순위를 근거 없이 주장하지 않습니다.
+[우리의 직접 실행](docs/LOCAL_SYSTEM_COMPARISONS.md)을 구분해 기록합니다. 코드 미공개나 시스템 간 종합 순위를 근거 없이 주장하지 않습니다.
 
 새 온라인 비교는 같은 RGB-D 점 생성 schedule과 정확한 75% 기준선 예산에서 area·trace·random을 비교합니다.
 원형 Pocket의 자유로운 생성과 근사 타일 예산을 바꾼 **점수 ablation**이며, 루프 폐쇄와 backend를 제외합니다.
@@ -54,6 +54,6 @@ VCGS·MemGS·Pocket은 서로 다른 추적·표현·학습 구성과 지표를 
 공통 공간 할당과 후속 매핑 최적화가 점수 간 차이를 줄였을 가능성이 있습니다. 공간 할당이나 후속 최적화를 제거한 대조군은 없으므로, 각 요인의 기여나 “공간 예산이 점수보다 중요하다”는 인과 결론은 확립하지 않았습니다.
 
 동일 예산 온라인 비교에서 trace−area는 seed 0 / 1 순서로 PSNR **-0.055 / -0.016 dB**, LPIPS **-0.00077 / -0.00186**, frontend wall **-1.87% / -0.75%**, ATE **-0.227 / -1.321 cm**였다. 짧은 한 구간·두 seed·수정된 정책의 결과이며 일반적인 우위나 동등성을 뜻하지 않는다.
-전체 수치는 [별도 결과](ONLINE_COMPARISON.md)에 표시합니다.
+전체 수치는 [별도 결과](docs/ONLINE_COMPARISON.md)에 표시합니다.
 
 수치·관측·가설을 구분하는 것이 이 프로젝트의 강점입니다. 공개 수치와 CPU 재계산·그림 재생성 스크립트를 함께 제공합니다.

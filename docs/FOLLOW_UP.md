@@ -1,6 +1,6 @@
 # Detailed comparisons and validation
 
-[Integrated report](REPORT.md) · [Figure index](figures/README.md) · [Data guide](results/README.md)
+[Integrated report](../REPORT.md) · [Figure index](../figures/README.md) · [Data guide](../results/README.md)
 
 This supplement retains all runs and guard outcomes behind the report. Expand only the tables needed for a
 particular comparison. Experiments with different seeds, growth rules, driver environments or references are not
@@ -30,7 +30,7 @@ The other gates require ≥3/4 positive pairs, positive means in both scenes, me
 </details>
 
 
-Source: [matched_turnover.json](results/followups/matched_turnover.json). Figure: [Fig. 8](figures/fig8_trace_controls.png).
+Source: [matched_turnover.json](../results/followups/matched_turnover.json). Figure: [Fig. 8](../figures/fig8_trace_controls.png).
 
 ## 2. A small improvement still has to face the gradient control
 
@@ -63,7 +63,7 @@ of the gain over Taming; per-view and view-exclusion diagnostics remain in the s
 </details>
 
 
-Source: [trace_development.json](results/followups/trace_development.json). Figure: [Fig. 8](figures/fig8_trace_controls.png).
+Source: [trace_development.json](../results/followups/trace_development.json). Figure: [Fig. 8](../figures/fig8_trace_controls.png).
 
 ## 3. Render-free scoring does not mean zero collection cost
 
@@ -89,7 +89,7 @@ implementation does not establish a net advantage. Its selector consumes roughly
 </details>
 
 
-Source: [slam_score_cost.json](results/followups/slam_score_cost.json). Figure: [Fig. 7](figures/fig7_original_cost.png).
+Source: [slam_score_cost.json](../results/followups/slam_score_cost.json).
 
 ## 4. Optimize the same computation before changing the method
 
@@ -242,8 +242,8 @@ checkpoint I/O and excludes deferred validation, compression evaluation, compres
 process import. This is not pure GPU compute, complete CLI wall time or online SLAM FPS.
 
 Per-case timing repeats, allocator peaks, accumulator bytes, per-view metrics and refine-only-relative prefix
-quality differences remain in [slam_implementation.json](results/followups/slam_implementation.json). Compression
+quality differences remain in [slam_implementation.json](../results/followups/slam_implementation.json). Compression
 peak allocated memory across the nine cases is 1126.50 → 1127.64 MiB; no VRAM saving is claimed.
 
-Figures: [stage times](figures/fig6_implementation.png), [phase breakdown](figures/fig10_phase_breakdown.png),
-[collection](figures/fig11_collection_overhead.png), [total-cost comparison](figures/fig9_total_cost.png).
+Figures: [stage times](../figures/fig6_implementation.png), [phase breakdown](../figures/fig10_phase_breakdown.png),
+[collection](../figures/fig11_collection_overhead.png), [total-cost comparison](../figures/fig9_total_cost.png).

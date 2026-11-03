@@ -26,4 +26,4 @@ Replica room0 first 500 frames, RTX 5070 Ti, one run per condition, 48 observed 
 - Float payloads, optimizer checkpoints and native compressed bitstreams are different quantities. The retained numeric export labels their scopes; decoded float NPZ size is not a VCGS index-coded bitstream.
 - These are local systems/settings, not paper-level rankings. They do not prove zero-cost compression or real-time trace SLAM. The new [exact-budget online comparison](ONLINE_COMPARISON.md) asks a narrower score question.
 
-[Numeric extract](results/local_system_comparisons.json) · [Main report](REPORT.md)
+[Numeric extract](../results/local_system_comparisons.json) · [Main report](../REPORT.md)

@@ -60,7 +60,7 @@ across quality, tracking and time in this screen.
 
 ## Evaluation and limitations
 
-- [Renderer validation](results/online_renderer_validation.json) passes the declared mean RGB difference threshold on three area-seed-0 views (maximum mean 3.96e-5). Maximum pixel error reaches 0.208; this is not bitwise parity or a check of every model.
+- [Renderer validation](../results/online_renderer_validation.json) passes the declared mean RGB difference threshold on three area-seed-0 views (maximum mean 3.96e-5). Maximum pixel error reaches 0.208; this is not bitwise parity or a check of every model.
 - Full-image PSNR, single-scale SSIM and AlexNet LPIPS use the same evaluator on 11 observed views. These are not held-out views or native masked/MS-SSIM paper scores.
 - Depth error is against cached IGEV stereo pseudo-depth, not ground-truth depth. ATE uses c2w centres, SE(3) alignment without scale and RMSE. Aligned GT-camera quality and all per-view metrics remain in the numeric export.
 - Timing is GNU frontend process wall through export, including birth-cache recording/replay and instrumentation. Stereo preprocessing, loop closure and pose-graph/structure refinement are excluded.
@@ -73,11 +73,11 @@ across quality, tracking and time in this screen.
 
 Results are from the recorded primary runs; smoke measurements and older 0.527%-removal tests are excluded.
 
-[Numeric export](results/online_budget25.json) · [Main report](REPORT.md)
+[Numeric export](../results/online_budget25.json) · [Main report](../REPORT.md)
 
 ## Quality and time together
 
-![All seeds and arms, quality/tracking versus frontend process wall.](figures/fig15_online_budget25.png)
+![All seeds and arms, quality/tracking versus frontend process wall.](../figures/fig15_online_budget25.png)
 
 Baseline uses the larger reference count; the three score arms share the exact 75% count at every event.
 The quota algorithm is shared, while tile memberships and per-tile quotas can change with each estimated pose.

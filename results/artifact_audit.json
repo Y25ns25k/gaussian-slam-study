@@ -1,10 +1,11 @@
 {
   "passed": true,
-  "verified_utc": "2026-11-03T10:17:50.629208+00:00",
-  "files_checked": 97,
-  "strict_json_files": 30,
-  "local_links_checked": 148,
-  "historical_numeric_extracts_unchanged": 22,
+  "verified_utc": "2026-11-03T10:52:43.404741+00:00",
+  "files_checked": 90,
+  "strict_json_files": 29,
+  "local_links_checked": 125,
+  "historical_numeric_extracts_unchanged": 25,
+  "historical_baseline": "Git commit bdf2c2eef05ee146279a52b5a0ae3bed467f2844",
   "issues": [],
   "scope": "Local file links, strict JSON, Python syntax, path/credential patterns and unchanged historical numeric extracts; not a GPU rerun."
 }
