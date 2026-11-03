@@ -9,7 +9,7 @@
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
-      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
      </cc:Agent>
     </dc:creator>
    </cc:Work>
@@ -39,7 +39,7 @@ Q 16.092 114.71616 16.092 120.384
 L 16.092 193.5936 
 Q 16.092 199.26144 24.3 199.26144 
 z
-" clip-path="url(#pecaf3b39ac)" style="fill: #f2f6fc; stroke: #cdd8e8; stroke-linejoin: miter"/>
+" clip-path="url(#pbb4c8c007f)" style="fill: #f2f6fc; stroke: #cdd8e8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 24.3 286.64064 
@@ -52,7 +52,7 @@ Q 16.092 202.09536 16.092 207.7632
 L 16.092 280.9728 
 Q 16.092 286.64064 24.3 286.64064 
 z
-" clip-path="url(#pecaf3b39ac)" style="fill: #f8fafc; stroke: #cdd8e8; stroke-linejoin: miter"/>
+" clip-path="url(#pbb4c8c007f)" style="fill: #f8fafc; stroke: #cdd8e8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 24.3 374.01984 
@@ -65,7 +65,7 @@ Q 16.092 289.47456 16.092 295.1424
 L 16.092 368.352 
 Q 16.092 374.01984 24.3 374.01984 
 z
-" clip-path="url(#pecaf3b39ac)" style="fill: #f2f6fc; stroke: #cdd8e8; stroke-linejoin: miter"/>
+" clip-path="url(#pbb4c8c007f)" style="fill: #f2f6fc; stroke: #cdd8e8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
     <path d="M 24.3 461.39904 
@@ -78,7 +78,7 @@ Q 16.092 376.85376 16.092 382.5216
 L 16.092 455.7312 
 Q 16.092 461.39904 24.3 461.39904 
 z
-" clip-path="url(#pecaf3b39ac)" style="fill: #f8fafc; stroke: #cdd8e8; stroke-linejoin: miter"/>
+" clip-path="url(#pbb4c8c007f)" style="fill: #f8fafc; stroke: #cdd8e8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_6">
     <path d="M 24.3 548.77824 
@@ -91,7 +91,7 @@ Q 16.092 464.23296 16.092 469.9008
 L 16.092 543.1104 
 Q 16.092 548.77824 24.3 548.77824 
 z
-" clip-path="url(#pecaf3b39ac)" style="fill: #f2f6fc; stroke: #cdd8e8; stroke-linejoin: miter"/>
+" clip-path="url(#pbb4c8c007f)" style="fill: #f2f6fc; stroke: #cdd8e8; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
     <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #2563eb" x="41.4" y="136.9152" transform="rotate(-0 41.4 136.9152)">01  Find the resource bottleneck</text>
@@ -183,7 +183,7 @@ L 346.8 462.842512
   </g>
  </g>
  <defs>
-  <clipPath id="pecaf3b39ac">
+  <clipPath id="pbb4c8c007f">
    <rect x="7.2" y="84.96" width="684" height="472.32"/>
   </clipPath>
  </defs>

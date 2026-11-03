@@ -1,9 +1,10 @@
 {
   "passed": true,
-  "files_checked": 74,
-  "strict_json_files": 21,
-  "local_links_checked": 138,
-  "numeric_exports_match_selected_original_fields": true,
+  "verified_utc": "2026-11-03T10:17:50.629208+00:00",
+  "files_checked": 97,
+  "strict_json_files": 30,
+  "local_links_checked": 148,
+  "historical_numeric_extracts_unchanged": 22,
   "issues": [],
-  "scope": "Local links, file boundaries, strict JSON, private-path/credential patterns and bundled provenance. No remote repository or online SLAM validation."
+  "scope": "Local file links, strict JSON, Python syntax, path/credential patterns and unchanged historical numeric extracts; not a GPU rerun."
 }

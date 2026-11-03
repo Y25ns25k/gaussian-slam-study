@@ -1,0 +1,173 @@
+{
+ "grad": {
+  "grad_bonsai_seed1": {
+   "L_random": 1.2497184341018261,
+   "L_opacity": 1.2630840507713508,
+   "H_random": -0.179539809355866,
+   "H_opacity": -0.36808617050583337,
+   "L_share": 0.6278402411132249,
+   "H_share": 0.18734369322189684,
+   "base_reproduces": true
+  },
+  "grad_bonsai_seed2": {
+   "L_random": 1.1134225484487175,
+   "L_opacity": 1.2326563242319466,
+   "H_random": 0.16911620062750643,
+   "H_opacity": -0.0649496542440886,
+   "L_share": 0.6268569779620803,
+   "H_share": 0.18966291174144453,
+   "base_reproduces": true
+  },
+  "grad_kitchen_seed1": {
+   "L_random": 0.7785134451729903,
+   "L_opacity": 0.977352414812362,
+   "H_random": 0.5628322056361625,
+   "H_opacity": 0.18877857753208716,
+   "L_share": 0.5171480531359196,
+   "H_share": 0.21657925012326448,
+   "base_reproduces": true
+  },
+  "grad_kitchen_seed2": {
+   "L_random": 1.0526293618338443,
+   "L_opacity": 0.4953474862234941,
+   "H_random": 0.5200085231236038,
+   "H_opacity": 0.21194403512137328,
+   "L_share": 0.5234273954395718,
+   "H_share": 0.21269016671073224,
+   "base_reproduces": true
+  },
+  "grad_room_seed1": {
+   "L_random": 0.6360510312593917,
+   "L_opacity": 1.0384740095872154,
+   "H_random": 0.20207938169821915,
+   "H_opacity": 0.060860951741535274,
+   "L_share": 0.5405377069804929,
+   "H_share": 0.1330375923098597,
+   "base_reproduces": true
+  },
+  "grad_room_seed2": {
+   "L_random": 0.7210727104773866,
+   "L_opacity": 0.6456326704758837,
+   "H_random": 0.2915993225880129,
+   "H_opacity": 0.15198844518416976,
+   "L_share": 0.5313203722754803,
+   "H_share": 0.13353995889330825,
+   "base_reproduces": true
+  },
+  "grad_train_seed1": {
+   "L_random": 0.09500127089651045,
+   "L_opacity": 0.2453796236138608,
+   "H_random": -0.3407705457586978,
+   "H_opacity": -0.47122563813861973,
+   "L_share": 0.5210520256622256,
+   "H_share": 0.21376728170886142,
+   "base_reproduces": true
+  },
+  "grad_train_seed2": {
+   "L_random": 0.1339985696892967,
+   "L_opacity": 0.3131374559904394,
+   "H_random": -0.3180524173535808,
+   "H_opacity": -0.5467989068282257,
+   "L_share": 0.5171456530157301,
+   "H_share": 0.20937948068530282,
+   "base_reproduces": true
+  }
+ },
+ "taming": {
+  "taming_bonsai_seed1": {
+   "L_random": 0.6471623601140202,
+   "L_opacity": 0.8969406437229495,
+   "H_random": 0.07558765926876276,
+   "H_opacity": -0.036054817405908324,
+   "L_share": 0.5642060150054506,
+   "H_share": 0.19770536305923092,
+   "base_reproduces": true
+  },
+  "taming_bonsai_seed2": {
+   "L_random": 0.7412368671314162,
+   "L_opacity": 1.1476788391938086,
+   "H_random": 0.027666143468906057,
+   "H_opacity": -0.1316596366263738,
+   "L_share": 0.5841331252805506,
+   "H_share": 0.1957682277750465,
+   "base_reproduces": true
+  },
+  "taming_kitchen_seed1": {
+   "L_random": 0.8610020228794646,
+   "L_opacity": 0.954275240216937,
+   "H_random": 0.5334240504673566,
+   "H_opacity": 0.20098904200962764,
+   "L_share": 0.5084194993675997,
+   "H_share": 0.2184442951773222,
+   "base_reproduces": true
+  },
+  "taming_kitchen_seed2": {
+   "L_random": 0.7120301927838995,
+   "L_opacity": 0.7988436562674366,
+   "H_random": 0.4672817775181386,
+   "H_opacity": 0.13123572213309131,
+   "L_share": 0.5147863773107623,
+   "H_share": 0.2139710453541799,
+   "base_reproduces": true
+  },
+  "taming_room_seed1": {
+   "L_random": 0.6073172153570745,
+   "L_opacity": 0.6603209177653007,
+   "H_random": 0.14563120328462986,
+   "H_opacity": 0.030680191822540337,
+   "L_share": 0.5060644383432387,
+   "H_share": 0.13555597783471265,
+   "base_reproduces": true
+  },
+  "taming_room_seed2": {
+   "L_random": 0.6000384306296347,
+   "L_opacity": 0.7910748995267447,
+   "H_random": 0.22138845003567909,
+   "H_opacity": 0.11857560964730851,
+   "L_share": 0.4948594793297993,
+   "H_share": 0.13504924284619063,
+   "base_reproduces": true
+  },
+  "taming_train_seed1": {
+   "L_random": 0.04112208516974292,
+   "L_opacity": 0.2255956248233204,
+   "H_random": -0.46655705100611655,
+   "H_opacity": -0.612166906657972,
+   "L_share": 0.47684957456383636,
+   "H_share": 0.21047577682654972,
+   "base_reproduces": true
+  },
+  "taming_train_seed2": {
+   "L_random": -0.033417751914576854,
+   "L_opacity": 0.26700832969264,
+   "H_random": -0.30320320631328457,
+   "H_opacity": -0.46078990635119155,
+   "L_share": 0.4784639295021403,
+   "H_share": 0.20853698102544244,
+   "base_reproduces": true
+  }
+ },
+ "verdict": {
+  "B1": true,
+  "B2": false,
+  "reading": "opaque part only",
+  "grad_mean": {
+   "L_random": 0.7225509214849954,
+   "L_opacity": 0.7763830044633191,
+   "H_random": 0.11340910765067003,
+   "H_opacity": -0.10468604501720025
+  },
+  "taming_reference_mean": {
+   "L_random": 0.5220614277688345,
+   "L_opacity": 0.7177172689011422,
+   "H_random": 0.08765237834050899,
+   "H_opacity": -0.09489883767860974
+  },
+  "grad_positive": {
+   "L_random": 8,
+   "L_opacity": 8,
+   "H_random": 5,
+   "H_opacity": 4
+  }
+ }
+}

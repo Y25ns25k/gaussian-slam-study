@@ -11,7 +11,7 @@ licenses are supplied separately by their respective projects.
 
 This inventory describes the experiment versions identified in the
 [original setup record](ARCHIVE_REPORT.md#8-reproducibility). Current reproducibility boundaries are in
-[REPORT.md §9](REPORT.md#9-reproducibility-and-evidence-boundaries).
+[REPORT.md §8](REPORT.md#8-reproducibility-and-evidence-boundaries).
 Top-level licenses do not replace notices in individual files, submodules, or dependencies. Official sources are
 linked so readers can check the applicable version and terms.
 
@@ -54,4 +54,26 @@ follow its terms.
 - [Pocket-SLAM: Rendering-Area-Aware Pruning for Memory-Efficient 3DGS-SLAM](https://arxiv.org/abs/2606.24796):
   online pruning with image-tile budgets and a source for the LSG-SLAM KITTI memory discussion. Our offline
   ΣTα/3D-voxel control does not reproduce its full method.
+- [VCGS-SLAM (arXiv 2403.11247)](https://arxiv.org/abs/2403.11247): online masking and quantization applied to
+  SplaTAM, MonoGS and Gaussian-SLAM. REPORT §4 compares it only through each method's change against its own baseline.
+- [MemGS (arXiv 2509.13536)](https://arxiv.org/abs/2509.13536): voxel-space merging of similar Gaussians on an
+  ORB-SLAM3-based system; compared in REPORT §4 only against its own Photo-SLAM baseline.
 - Taming 3DGS, PUP 3D-GS: the budgeted training and post-hoc pruning baselines above.
+
+## Additional local online score experiment
+
+The online appendix uses the locally checked-out [Pocket-SLAM implementation](https://github.com/UMN-ZhaoLab/Pocket-SLAM) at commit
+`e3b5ca4e124f74f289402aff134038ada4285542`. Its top-level license is BSD 3-Clause; the embedded
+Gaussian rasterizer retains its own research-use license. No upstream source, integration patches, weights,
+input images or trained model payloads are redistributed in this draft. KITTI07 and cached IGEV stereo depth
+are used; the depth is not a ground-truth annotation. SuperPoint/LightGlue and stereo-network weights remain
+external. The experiment changes growth replay and tile quota allocation, so the area arm is an adapted control,
+not an unchanged Pocket-SLAM reproduction. See ONLINE_COMPARISON.md for its evaluation boundary.
+
+The separate local-system appendix uses [MemGS_SLAM](https://github.com/NAIL-HNU/MemGS_SLAM) at
+`65c406183810ae25349f7a98b6b462cd2be1c6c8` (top-level GPLv3) and the
+[VCGS-SLAM SplaTAM branch](https://github.com/dtc111111/VCGS-SLAM/tree/splatam-version) at
+`f4d86952538d014718b8f12003a54ed951408d84` (top-level BSD 3-Clause; dependencies have separate terms).
+This inventory records the local versions; it is not a blanket license for their dependencies. Neither implementation
+is bundled. VCGS is the released masking/RVQ branch, not all paper components. Both use Replica inputs under the
+dataset terms listed above.

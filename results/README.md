@@ -3,7 +3,7 @@
 These files are curated metric extracts from completed, stopped, and failed experiments. They support numerical
 recomputation at the resolution stored here, not re-execution of the underlying experiments. All paths below are
 relative to this directory. `python scripts/summarize_results.py` prints the headline comparisons from the
-repository root. The plotting commands in [README.md](../README.md) regenerate twelve PNG/SVG figure pairs;
+repository root. The plotting commands in [README.md](../README.md) regenerate the PNG/SVG figure pairs listed in the figure index;
 [the figure index](../figures/README.md) maps each plot to its question, reference and aggregation.
 Dated follow-ups and independently runnable helpers are described below.
 
@@ -70,6 +70,26 @@ from rounded notes. Some large artifacts were deleted; their absence cannot be r
   values were not converted to RMSE; newer `memory_options.json` uses `stats_final.json` RMSE explicitly.
 - Memory-options peak bytes give 9.11–9.53 GiB. This supersedes the old draft's 9.3–9.8 GiB wording.
 
+## Transfer diagnostics (November 3, 2026)
+
+Summaries of the three tests in [REPORT.md §5](../REPORT.md#5-spatial-constraints-and-unresolved-transfer-diagnostics). Plans and decision scripts
+were committed in the study repository before the full runs; the first two plans followed earlier smoke runs.
+Per-model raw outputs are not bundled. This is not a claim that every rule predated any execution.
+
+| File | Scope |
+|---|---|
+| `transfer/transfer_diagnostic.json` | 8 static Taming models (post-hoc trace) and 94 Gaussian-SLAM submaps (room0 40, office0 28, room1 26; stored and post-hoc trace). Per static model and per-scene medians over submaps: low-quarter opacity, isolation (no other centre within 3 × max scale among 16 neighbours, 50,000 sampled Gaussians), emptied-cell ratios E25/E50, Spearman correlations; `verdict` R1–R4. |
+| `transfer/tail_removal_test.json` | 8 static models: full map vs opacity < 0.1 deleted first; 10 / 20 % removal by trace, opacity, random without fine-tuning; test views; `verdict` C1–C3 and the descriptive opacity ≥ 0.5 candidate test. |
+| `transfer/opacity_band_test.json` | 8 grad-arm models (rules) and 8 Taming models (reference): 20 % of band L (0.1–0.5) or band H (≥ 0.5) removed by each score; `verdict` B1–B2. B1 is a threshold on the mean, not an equivalence test. |
+| `transfer/opacity_composition.json` | Opacity shares (< 0.1, 0.1–0.5, ≥ 0.5) and 20-bin histograms for the 8 static Taming models and all Gaussian-SLAM submaps. |
+
+The tail export's historical `verdict.reading="rejected"` and the band export's
+`verdict.reading="opaque part only"` are superseded interpretations, retained for source fidelity.
+Use the numerical outcomes and REPORT §5: the tail has a partial effect and band H does not establish equivalence.
+The diagnostic rank helper did not average tied ranks, so its reported correlations are rank diagnostics rather
+than an exact tie-corrected Spearman calculation. Earlier spot checks found small differences; this release does
+not recompute them without the unbundled per-point inputs.
+
 ## Dated follow-up records (October 28–November 2, 2026)
 
 See [FOLLOW_UP.md](../FOLLOW_UP.md) for the sequence and differing controls.
@@ -105,3 +125,26 @@ phase means, scene/seed references and missing-budget controls. No original meas
 the figures. Timing differences are ratios within each experiment; earlier absolute timings are not reused as
 the optimized run's references. Full paired points are shown where retained; no plotted uncertainty interval
 is presented as a new-scene or statistical-equivalence result.
+
+## Exact online 25% budget comparison
+
+`online_budget25.json` contains the new two-seed, 51-frame KITTI07 score ablation.
+It retains per-view RGB/depth metrics under estimated and aligned-GT cameras, event-level births/deletions/counts,
+frontend process wall times and allocated/reserved peaks. [ONLINE_COMPARISON.md](../ONLINE_COMPARISON.md) defines
+the common count reference, replayed births, adapted quota policy and timing boundary. Source-model hashes identify
+retained private models, which are not bundled. Depth is IGEV pseudo-depth; views are observed, not held out.
+These numbers are separate from the saved-map Replica comparisons and older unequal-count Pocket runs.
+
+## Local external-system comparisons
+
+`local_system_comparisons.json` retains all eight already-completed Replica room0 500-frame configurations,
+including both weaker ten-submap matched-count trials and the later one-map adaptations. It includes both
+estimated-camera and aligned-GT-camera quality, GNU total wall and separately named parent-polled time,
+map counts, payload sizes and adaptation descriptions. Its source-summary hash identifies an unbundled private
+record. The export omits machine paths and full per-view arrays; it is an aggregate numeric extract.
+See [LOCAL_SYSTEM_COMPARISONS.md](../LOCAL_SYSTEM_COMPARISONS.md) for the scope and camera-dependent ordering.
+
+`online_renderer_validation.json` preserves the three-view native/common renderer agreement check on area seed 0,
+with the original mean-error threshold and both mean/max errors. It does not establish bitwise parity or all-model
+agreement. `online_figure_data.json` binds Fig. 15 to its input hash. The online arithmetic helper verifies the
+event counts, quality means and paired differences without re-rendering models.

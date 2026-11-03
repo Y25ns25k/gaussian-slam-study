@@ -1,0 +1,23 @@
+{
+  "source_sha256": "ab6f40c871b20f985dc9ba478c62f18f2f850278301498de10924f2f2441607b",
+  "views": [
+    {
+      "frame": 0,
+      "mean_abs_rgb": 0.0,
+      "max_abs_rgb": 0.0
+    },
+    {
+      "frame": 25,
+      "mean_abs_rgb": 1.3804505215375684e-05,
+      "max_abs_rgb": 0.1422734409570694
+    },
+    {
+      "frame": 50,
+      "mean_abs_rgb": 3.9560145523864776e-05,
+      "max_abs_rgb": 0.20807324349880219
+    }
+  ],
+  "passed": true,
+  "threshold_mean_abs_rgb": 0.0001,
+  "scope": "Three sampled views of area seed 0: native camera-frame render versus common world-coordinate evaluator; not bitwise parity or all-model validation."
+}

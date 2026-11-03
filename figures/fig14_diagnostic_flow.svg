@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="952.38pt" height="573.12pt" viewBox="0 0 952.38 573.12" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 573.12 
+L 952.38 573.12 
+L 952.38 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 21.630462 233.2152 
+L 440.113846 233.2152 
+Q 448.772123 233.2152 448.772123 226.044 
+L 448.772123 127.44 
+Q 448.772123 120.2688 440.113846 120.2688 
+L 21.630462 120.2688 
+Q 12.972185 120.2688 12.972185 127.44 
+L 12.972185 226.044 
+Q 12.972185 233.2152 21.630462 233.2152 
+z
+" clip-path="url(#p63b462927c)" style="fill: #f5f8fc; stroke: #ccd5e1; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 21.630462 358.7112 
+L 440.113846 358.7112 
+Q 448.772123 358.7112 448.772123 351.54 
+L 448.772123 252.936 
+Q 448.772123 245.7648 440.113846 245.7648 
+L 21.630462 245.7648 
+Q 12.972185 245.7648 12.972185 252.936 
+L 12.972185 351.54 
+Q 12.972185 358.7112 21.630462 358.7112 
+z
+" clip-path="url(#p63b462927c)" style="fill: #f5f8fc; stroke: #ccd5e1; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 21.630462 484.2072 
+L 440.113846 484.2072 
+Q 448.772123 484.2072 448.772123 477.036 
+L 448.772123 378.432 
+Q 448.772123 371.2608 440.113846 371.2608 
+L 21.630462 371.2608 
+Q 12.972185 371.2608 12.972185 378.432 
+L 12.972185 477.036 
+Q 12.972185 484.2072 21.630462 484.2072 
+z
+" clip-path="url(#p63b462927c)" style="fill: #f5f8fc; stroke: #ccd5e1; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 512.266154 233.2152 
+L 923.534308 233.2152 
+Q 932.192585 233.2152 932.192585 226.044 
+L 932.192585 127.44 
+Q 932.192585 120.2688 923.534308 120.2688 
+L 512.266154 120.2688 
+Q 503.607877 120.2688 503.607877 127.44 
+L 503.607877 226.044 
+Q 503.607877 233.2152 512.266154 233.2152 
+z
+" clip-path="url(#p63b462927c)" style="fill: #eaf2ff; stroke: #ccd5e1; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 512.266154 415.4832 
+L 923.534308 415.4832 
+Q 932.192585 415.4832 932.192585 408.312 
+L 932.192585 282.816 
+Q 932.192585 275.6448 923.534308 275.6448 
+L 512.266154 275.6448 
+Q 503.607877 275.6448 503.607877 282.816 
+L 503.607877 408.312 
+Q 503.607877 415.4832 512.266154 415.4832 
+z
+" clip-path="url(#p63b462927c)" style="fill: #f3f7ff; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #2563eb; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 451.168946 180.222483 
+Q 461.300925 265.568334 496.537866 342.73054 
+" clip-path="url(#p63b462927c)" style="fill: none; stroke: #5b677a; stroke-linecap: round"/>
+    <path d="M 496.758636 336.473443 
+L 496.537866 342.73054 
+L 491.664651 338.799666 
+" clip-path="url(#p63b462927c)" style="fill: none; stroke: #5b677a; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 452.207101 305.275365 
+Q 471.244261 328.172495 495.224487 343.866763 
+" clip-path="url(#p63b462927c)" style="fill: none; stroke: #5b677a; stroke-linecap: round"/>
+    <path d="M 492.072107 338.45728 
+L 495.224487 343.866763 
+L 489.005473 343.142977 
+" clip-path="url(#p63b462927c)" style="fill: none; stroke: #5b677a; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 452.17285 427.655965 
+Q 480.80942 390.996305 496.747383 348.485158 
+" clip-path="url(#p63b462927c)" style="fill: none; stroke: #5b677a; stroke-linecap: round"/>
+    <path d="M 492.159697 352.745808 
+L 496.747383 348.485158 
+L 497.403291 354.711697 
+" clip-path="url(#p63b462927c)" style="fill: none; stroke: #5b677a; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 717.900231 239.996268 
+Q 717.900231 255.926067 717.900231 270.737833 
+" clip-path="url(#p63b462927c)" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #2563eb; stroke-linecap: round"/>
+    <path d="M 720.700231 265.137833 
+L 717.900231 270.737833 
+L 715.100231 265.137833 
+" clip-path="url(#p63b462927c)" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #2563eb; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172b4d" x="32.453308" y="147.314925" transform="rotate(-0 32.453308 147.314925)">1  Spatial / statistics-window diagnostics</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #172b4d" transform="translate(32.453308 174.044681)">Isolation prediction unsupported; window rule mixed.</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #172b4d" transform="translate(32.453308 188.869759)">Rank correlation 0.92–0.94 weakens a simple window</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #172b4d" transform="translate(32.453308 203.694838)">explanation; it does not validate deletion quality.</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172b4d" x="32.453308" y="272.810925" transform="rotate(-0 32.453308 272.810925)">2  Remove the low-opacity tail first</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #172b4d" transform="translate(32.453308 299.540681)">Random-relative advantage falls 36%, not the set 50%.</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #172b4d" transform="translate(32.453308 314.365759)">Opacity-relative advantage increases. Tail removal also</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #172b4d" transform="translate(32.453308 329.190837)">changes the population, residuals and amount removed.</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172b4d" x="32.453308" y="398.306925" transform="rotate(-0 32.453308 398.306925)">3  Compare within opacity bands</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #172b4d" transform="translate(32.453308 425.036681)">H mean +0.11 dB vs random: B1 mean rule met.</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #172b4d" transform="translate(32.453308 439.861759)">L mean +0.72 dB: B2 +1.0 dB rule not met.</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #172b4d" transform="translate(32.453308 454.686838)">Small pooled H mean includes opposing scene effects.</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172b4d" x="523.089" y="147.314925" transform="rotate(-0 523.089 147.314925)">Observed composition difference</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #172b4d" transform="translate(523.089 174.044681)">Opacity ≥ 0.5: SLAM 82.2–84.9%, static 13.5–21.8%.</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #172b4d" transform="translate(523.089 188.869759)">All 94 SLAM submaps; 8 static Taming models.</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #172b4d" transform="translate(523.089 203.694838)">An operational split, not a material-opacity label.</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172b4d" x="523.089" y="302.690925" transform="rotate(-0 523.089 302.690925)">Candidate explanation — not established</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #172b4d" transform="translate(523.089 329.420681)">Map composition may affect score usefulness.</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #172b4d" transform="translate(523.089 344.245759)">Its causal contribution is unresolved: protocols,</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #172b4d" transform="translate(523.089 359.070837)">spatial quotas and refinement also differ.</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #172b4d" transform="translate(523.089 373.895916)">B1 does not prove equivalence or no opaque-band gain.</text>
+   </g>
+  </g>
+  <g id="text_11">
+   <text style="font-weight: 700; font-size: 18px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172b4d" x="12.06" y="20.877187" transform="rotate(-0 12.06 20.877187)">Transfer diagnostics: what is observed, and what remains open</text>
+  </g>
+  <g id="text_12">
+   <text style="font-size: 11.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #5b677a" x="12.06" y="44.738203" transform="rotate(-0 12.06 44.738203)">Decision rules constrain the interpretation; an unmet threshold does not establish a zero effect.</text>
+  </g>
+  <g id="text_13">
+   <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #5b677a" x="12.06" y="563.840312" transform="rotate(-0 12.06 563.840312)">Conceptual synthesis of retained transfer, tail and opacity-band summaries. Arrows show the reasoning path, not identified causal effects.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p63b462927c">
+   <rect x="7.2" y="67.68" width="937.98" height="478.08"/>
+  </clipPath>
+ </defs>
+</svg>
